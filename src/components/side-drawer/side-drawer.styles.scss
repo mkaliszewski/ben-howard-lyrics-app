@@ -1,0 +1,81 @@
+@mixin for-phone-only {
+    @media (max-width: 900px) and (orientation: landscape) { @content; }
+  }
+
+@mixin color-section{
+    width: 100%;
+    height: 20%;
+    background: #809BCE;
+    position: absolute;
+    transition: transform 1s ease-in-out;
+    z-index: 201;
+    &.open{
+        transform: translateY(0);
+    }
+    @include for-phone-only{
+        display: none;
+    }
+}
+
+@mixin option-heading{
+    width: auto;
+    margin: 16px auto 16px auto;
+    @include for-phone-only{
+        font-size: 1.5rem;
+    }
+}
+
+.side-drawer__options{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background:#EFEFEF;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top:0;
+    left:0;
+    width: 70%;
+    max-width: 450px;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+
+    &.open{
+        transform: translateX(0);
+    }
+    
+    a{
+        color: black;
+    }
+
+    .side-drawer__color-section-top{
+        @include color-section;
+        top:0;
+        transform: translateY(-100%);
+    }
+
+    .side-drawer__color-section-bottom{
+        @include color-section;
+        bottom:0;
+        left:0;
+        transform: translateY(100%);
+
+    }
+
+    .side-drawer_heading{
+    @include option-heading;
+    font-size: 2.2rem;
+    }
+
+    .side-drawer__option{
+    @include option-heading;
+    font-size: 2rem;
+        &:hover{
+            color: #21d3da;
+        }
+    }
+    .side-drawer_heading{
+        letter-spacing: 3px;
+    }
+}
