@@ -1,5 +1,8 @@
-@mixin for-phone-only {
+@mixin for-phone-only-landscape {
     @media (max-width: 900px) and (orientation: landscape) { @content; }
+  }
+  @mixin for-phone-only {
+    @media (max-width: 900px) { @content; }
   }
 
 @mixin color-section{
@@ -7,12 +10,12 @@
     height: 20%;
     background: #809BCE;
     position: absolute;
-    transition: transform 1s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     z-index: 201;
     &.open{
         transform: translateY(0);
     }
-    @include for-phone-only{
+    @include for-phone-only-landscape{
         display: none;
     }
 }
@@ -20,7 +23,7 @@
 @mixin option-heading{
     width: auto;
     margin: 16px auto 16px auto;
-    @include for-phone-only{
+    @include for-phone-only-landscape{
         font-size: 1.5rem;
     }
 }
@@ -41,6 +44,10 @@
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
 
+    @include for-phone-only{
+        box-shadow: none;
+    }
+
     &.open{
         transform: translateX(0);
     }
@@ -49,10 +56,13 @@
         color: black;
     }
 
+    
+
     .side-drawer__color-section-top{
         @include color-section;
         top:0;
         transform: translateY(-100%);
+        border-bottom: 3px solid grey;
     }
 
     .side-drawer__color-section-bottom{
@@ -60,6 +70,7 @@
         bottom:0;
         left:0;
         transform: translateY(100%);
+        border-top: 3px solid grey;
 
     }
 
@@ -72,7 +83,7 @@
     @include option-heading;
     font-size: 2rem;
         &:hover{
-            color: #21d3da;
+            color: #809BCE;
         }
     }
     .side-drawer_heading{
