@@ -8,7 +8,8 @@
 @mixin color-section{
     width: 100%;
     height: 20%;
-    background: #809BCE;
+    background-color: #809BCE;
+    background-size: 100% 100%;
     position: absolute;
     transition: transform 0.5s ease-in-out;
     z-index: 201;
@@ -17,6 +18,11 @@
     }
     @include for-phone-only-landscape{
         display: none;
+    }
+    img{
+        
+        height: 100%;
+        width: 100%;
     }
 }
 
@@ -43,6 +49,8 @@
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
+    background: #fdfdfd;
+
 
     @include for-phone-only{
         box-shadow: none;
@@ -62,7 +70,7 @@
         @include color-section;
         top:0;
         transform: translateY(-100%);
-        border-bottom: 3px solid grey;
+        background-position: center top;
     }
 
     .side-drawer__color-section-bottom{
@@ -70,7 +78,7 @@
         bottom:0;
         left:0;
         transform: translateY(100%);
-        border-top: 3px solid grey;
+        background-position: center bottom;
 
     }
 

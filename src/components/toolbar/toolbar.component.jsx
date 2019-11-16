@@ -4,8 +4,6 @@ import Header from "../header/header.component";
 import SideDrawer from "../side-drawer/side-drawer.component";
 import Backdrop from "../backdrop/backdrop.component";
 
-import "./toolbar.styles.scss";
-
 class Toolbar extends React.Component {
     state = {
         sideDrawerOpen: false

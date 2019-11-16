@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 
 //styles
-import { HomepageDiv } from './homepage.styles'
-
+import './homepage.styles.scss'
 //components
 import Directory from '../../components/directory/directory.component'
 
@@ -12,9 +11,9 @@ class Homepage extends Component{
 
     render(){
         return(
-            <HomepageDiv className="home">
+            <div className="homepage__div">
                 <Directory/>
-            </HomepageDiv>
+            </div>
         )
     }
 }
