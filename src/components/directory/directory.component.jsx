@@ -5,7 +5,9 @@ import React from "react";
 import DirectoryCard from "../directory-card/directory-card.component";
 
 //styles
-import { DirectoryDiv} from "./directory.styles";
+import './directory.styles.scss'
+
+
 
 class Directory extends React.Component {
   constructor() {
@@ -17,14 +19,15 @@ class Directory extends React.Component {
   }
   render() {
     return (
-      <DirectoryDiv className="Directory">
-        {
-            this.state.imgUrls.map(url =>(
-                <DirectoryCard url={url}/>
-            ))
-            
-        }
-      </DirectoryDiv>
+      <div className="directory__div animated slow slideInLeft">
+      {
+          this.state.imgUrls.map(url =>(
+              <DirectoryCard url={url}/>
+          ))
+          
+      }
+    </div>
+      
     );
   }
 }

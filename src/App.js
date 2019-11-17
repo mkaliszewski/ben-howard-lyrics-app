@@ -3,7 +3,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 //styles
-import { AppContainer } from "./App.styles";
+import './App.scss'
 
 //pages
 import Homepage from "./pages/homepage/homepage.page";
@@ -15,13 +15,13 @@ import Footer from './components/footer/footer.component'
 class App extends React.Component {
   render() {
     return (
-      <AppContainer className="app">
-        <Toolbar/>
+      <div className="app__div">
+        <Toolbar className="toolbar"/>
         <Switch>
           <Route exact to="/" component={Homepage} />
         </Switch>
         <Footer/>
-      </AppContainer>
+      </div>
     );
   }
 }

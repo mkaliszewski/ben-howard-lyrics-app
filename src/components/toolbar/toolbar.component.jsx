@@ -1,38 +1,33 @@
 import React from "react";
-
+import { createStructuredSelector } from 'reselect'
+import { connect } from 'react-redux'
+import { selectToolbarIsOpen } from '../../redux/toolbar/toolbar.selectors'
 import Header from "../header/header.component";
 import SideDrawer from "../side-drawer/side-drawer.component";
 import Backdrop from "../backdrop/backdrop.component";
 
-class Toolbar extends React.Component {
-    state = {
-        sideDrawerOpen: false
-    }
-    sideDrawerClickHandler = () => {
-        this.setState((prevState) => {
-            return {sideDrawerOpen: !prevState.sideDrawerOpen}
-        })
-    }    
 
-    backdropClickHandler = () =>{
-        this.setState({sideDrawerOpen: false})
-    }
-   
-  render() {
-    let backdrop
 
-    if( this.state.sideDrawerOpen){
-        backdrop = <Backdrop backdropClick = {this.backdropClickHandler}/>
+const Toolbar = ({ toolbarIsOpen, dispatch }) =>{
+    let backdrop;
+
+    if( toolbarIsOpen){
+        backdrop = <Backdrop/>
     }
 
     return (
       <div>
-        <Header sideDrawerClick = {this.sideDrawerClickHandler}/>
-        <SideDrawer isOpen = {this.state.sideDrawerOpen}/>
+        <Header/>
+        <SideDrawer/>
         {backdrop}
       </div>
     );
-  }
 }
 
-export default Toolbar;
+
+const mapStateToProps = createStructuredSelector({
+  toolbarIsOpen: selectToolbarIsOpen
+})
+
+
+export default connect(mapStateToProps)(Toolbar);

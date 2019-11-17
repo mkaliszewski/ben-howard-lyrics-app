@@ -1,18 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import ToggleButton from '../toggle-button/toggle-button.component'
+import { connect } from "react-redux";
+import { toggleSidedrawerHidden } from "../../redux/toolbar/toolbar.actions";
+import ToggleButton from "../toggle-button/toggle-button.component";
 
 import "./header.styles.scss";
-import Logo from "../../assets/Logo.png";
-import LogoYT from "../../assets/LogoYT.png";
-import LogoSpotify from "../../assets/LogoSpotify.png";
+import Logo from "../../assets/Logo.svg";
+import LogoYT from "../../assets/LogoYT.svg";
+import LogoSpotify from "../../assets/LogoSpotify.svg";
 
-const Header = ({ sideDrawerClick }) => (
+const Header = ({ toggleSidedrawerHidden }) => (
   <div className="header">
     <div className="header__navitems-left">
-      <div onClick={sideDrawerClick} className="header__button-container">
-        <ToggleButton className="header__button"/> 
+      <div
+        onClick={toggleSidedrawerHidden}
+        className="header__button-container"
+      >
+        <ToggleButton className="header__button" />
       </div>
       <Link to="/" className="header__logo-container">
         <img src={Logo} alt="logo" className="header__logo" />
@@ -35,6 +39,14 @@ const Header = ({ sideDrawerClick }) => (
     </div>
 
     <div className="header__navitems-right">
+      <div className="header__options">
+        <Link to="/sigin" className="header__option">
+          Sign in
+        </Link>
+        <Link to="/signup" className="header__option">
+          Sign up
+        </Link>
+      </div>
       <Link to="/" className="header__logo-container">
         <img src={LogoYT} alt="logo" className="header__logo" />
       </Link>
@@ -45,4 +57,8 @@ const Header = ({ sideDrawerClick }) => (
   </div>
 );
 
-export default Header;
+const mapDispatchToProps = dispatch => ({
+  toggleSidedrawerHidden: () => dispatch(toggleSidedrawerHidden())
+});
+
+export default connect(null, mapDispatchToProps)(Header);

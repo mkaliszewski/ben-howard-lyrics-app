@@ -1,6 +1,5 @@
 //libs
 import React from "react";
-import Tilt from "react-tilt";
 
 //styles
 import { TiltCard, TiltCardImage, DirectoryCardDiv } from "./directory-card.styles";

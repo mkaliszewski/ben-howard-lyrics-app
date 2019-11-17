@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux'
 import "./side-drawer.styles.scss";
 import CanvasTop from "../../assets/CanvasTop.svg"
 import CanvasBottom from "../../assets/CanvasBottom.svg"
@@ -26,9 +27,20 @@ const SideDrawer = props => {
       <Link to="/about" className="side-drawer__option">
         About
       </Link>
+      <Link to="/sigin" className="side-drawer__option">
+          Sign in
+        </Link>
+      <Link to="/signup" className="side-drawer__option">
+        Sign up
+      </Link>
       <div style={{backgroundImage: `url(${CanvasBottom})`}} className={`side-drawer__color-section-bottom ${open}`}/>
     </div>
   );
 };
 
-export default SideDrawer;
+
+const mapStateToProps = state =>({
+  isOpen: state.toolbar.isOpen
+})
+
+export default connect(mapStateToProps)(SideDrawer);

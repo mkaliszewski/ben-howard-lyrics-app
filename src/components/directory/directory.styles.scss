@@ -1,0 +1,11 @@
+.directory__div{
+    display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  will-change: auto;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
