@@ -2,18 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import "./side-drawer.styles.scss";
-import CanvasTop from "../../assets/CanvasTop.svg"
-import CanvasBottom from "../../assets/CanvasBottom.svg"
 
 const SideDrawer = props => {
-  let open;
-
- props.isOpen ? (open = "open") : (open = null)
-  
+  let open = props.isOpen ? "open" : "";
 
   return (
     <div className={`side-drawer__options ${open}`}>
-        <div style={{backgroundImage: `url(${CanvasTop})`}} className={`side-drawer__color-section-top ${open}`}/>
+        <div  className={`side-drawer__color-section-top ${open}`}/>
       <h1 className="side-drawer_heading"><em>BH Lyrics</em></h1>
       <Link to="/" className="side-drawer__option">
         Home
@@ -33,7 +28,7 @@ const SideDrawer = props => {
       <Link to="/signup" className="side-drawer__option">
         Sign up
       </Link>
-      <div style={{backgroundImage: `url(${CanvasBottom})`}} className={`side-drawer__color-section-bottom ${open}`}/>
+      <div className={`side-drawer__color-section-bottom ${open}`}/>
     </div>
   );
 };

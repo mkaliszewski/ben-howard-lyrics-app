@@ -7,6 +7,7 @@ import './App.scss'
 
 //pages
 import Homepage from "./pages/homepage/homepage.page";
+import Albums from "./pages/albums/albums.page"
 
 //components
 import Toolbar from './components/toolbar/toolbar.component'
@@ -18,7 +19,8 @@ class App extends React.Component {
       <div className="app__div">
         <Toolbar className="toolbar"/>
         <Switch>
-          <Route exact to="/" component={Homepage} />
+          <Route exact path="/" component={Homepage} />
+          <Route path="/albums" component={Albums} />
         </Switch>
         <Footer/>
       </div>

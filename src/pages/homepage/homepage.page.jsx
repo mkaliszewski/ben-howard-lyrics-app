@@ -1,6 +1,5 @@
 //libs
-import React, { Component } from "react";
-
+import React from "react";
 //styles
 import "./homepage.styles.scss";
 //components
@@ -9,8 +8,9 @@ import Icon_1 from "../../assets/Icon_1.svg";
 import Icon_2 from "../../assets/Icon_2.svg";
 import Icon_3 from "../../assets/Icon_3.svg";
 
-class Homepage extends Component {
-  render() {
+const Homepage = ({ isHovered, homepagePulseToggle }) => {
+
+
     return (
       <div className="homepage__div">
 
@@ -64,6 +64,6 @@ class Homepage extends Component {
       </div>
     );
   }
-}
+
 
 export default Homepage;

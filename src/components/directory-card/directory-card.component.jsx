@@ -1,20 +1,25 @@
 //libs
 import React from "react";
-
+import Tilt from "react-tilt";
 //styles
-import { TiltCard, TiltCardImage, DirectoryCardDiv } from "./directory-card.styles";
+import './directory-card.style.scss'
+
+
 
 const DirectoryCard = ({ url }) => (
-  <DirectoryCardDiv>
-    <TiltCard
+  <div className="directory-card__div">
+  
+  
+    <Tilt
+      classname = "tilt__div"
       options={{
         max: 15,
         perspective: 4000
       }}
     >
-      <TiltCardImage src={`${url}`} />
-    </TiltCard>
-  </DirectoryCardDiv>
+      <img className="directory-card__img" src={`${url}`}  />
+    </Tilt>
+    </div>
 );
 
 export default DirectoryCard;
