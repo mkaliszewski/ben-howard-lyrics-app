@@ -2,20 +2,16 @@
   @media (max-width: 900px) { @content; }
 }
 
-.directory__div{
-    display: flex;
-  flex-direction: row;
+.directory{
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   will-change: auto;
   scroll-behavior: smooth;
   overflow: hidden;
   background-color: #f8f9fa;
 
-  @include for-tablet-landscape-down {
-    flex-direction: column;
-  }
-  
 }

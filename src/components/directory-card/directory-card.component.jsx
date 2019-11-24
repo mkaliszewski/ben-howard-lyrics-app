@@ -1,15 +1,20 @@
 //libs
 import React from "react";
 import Tilt from "react-tilt";
+import { connect } from 'react-redux'
+import { addCurrentAlbum } from '../../redux/albums/albums.actions'
 //styles
 import './directory-card.style.scss'
 
 
 
-const DirectoryCard = ({ url }) => (
-  <div className="directory-card__div">
+const DirectoryCard = ( {album, addCurrentAlbum} ) =>{ 
   
-  
+  const { imageUrl } = album;
+  return (
+
+  <div onClick={() => addCurrentAlbum(album) } className="directory-card">
+
     <Tilt
       classname = "tilt__div"
       options={{
@@ -17,9 +22,13 @@ const DirectoryCard = ({ url }) => (
         perspective: 4000
       }}
     >
-      <img className="directory-card__img" src={`${url}`}  />
+      <img className="directory-card__img" src={`${imageUrl}`} alt="album" />
     </Tilt>
     </div>
-);
+)};
 
-export default DirectoryCard;
+const mapDispatchToProps = dispatch =>({
+  addCurrentAlbum: album =>dispatch(addCurrentAlbum(album))
+})
+
+export default connect(null, mapDispatchToProps)(DirectoryCard);

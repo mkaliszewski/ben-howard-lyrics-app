@@ -1,35 +1,34 @@
 //libs
 import React from "react";
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 
 //components
 import DirectoryCard from "../directory-card/directory-card.component";
+import { selectAlbum } from "../../redux/albums/albums.selectors"
 
 //styles
 import './directory.styles.scss'
 
 
 
-class Directory extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-        imgUrls: ["https://www.clashmusic.com/sites/default/files/styles/article_feature/public/field/image/ben%20howard%20packshot.jpg?itok=-Lapj6tZ","https://ecsmedia.pl/c/every-kingdom-w-iext35305457.jpg", "https://d3c1jucybpy4ua.cloudfront.net/data/59169/big_picture/BH_NND_packshot_3000x3000_6300dpi-1200x1200.jpg?1528224258"]
+const Directory = ({ albums }) =>{
 
-    };
-  }
-  render() {
     return (
-      <div className="directory__div animated slow slideInLeft">
+      <div className="directory animated slow slideInLeft">
       {
-          this.state.imgUrls.map(url =>(
-              <DirectoryCard url={url}/>
+          albums.map( album  =>(
+            <DirectoryCard key={album.id} album={album} />
           ))
-          
       }
     </div>
       
     );
-  }
+
 }
 
-export default Directory;
+const mapStateToProps = createStructuredSelector({
+  albums: selectAlbum
+})
+
+export default connect(mapStateToProps)(Directory);

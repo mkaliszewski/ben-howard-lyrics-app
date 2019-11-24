@@ -1,0 +1,20 @@
+.directorysongs{
+    padding: 2rem 0 2rem 0;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+}
+.directorysongs-flex{
+    display: flex;
+}
+
+.directorysongs-grid{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    overflow-y: scroll;
+    grid-gap: 2rem;
+}
