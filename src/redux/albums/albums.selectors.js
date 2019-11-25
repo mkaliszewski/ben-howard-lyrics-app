@@ -27,3 +27,9 @@ export const selectCurrentSongs = createSelector(
     [selectCurrentAlbum],
     currentAlbum => currentAlbum.songs
 )
+
+
+export const selectAllSongs = createSelector(
+    [selectAlbum],
+    album => album.map(album => album.songs).flat()
+)

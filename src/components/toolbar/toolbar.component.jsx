@@ -11,7 +11,7 @@ import Backdrop from "../backdrop/backdrop.component";
 const Toolbar = ({ toolbarIsOpen, dispatch }) =>{
     let backdrop;
 
-    if( toolbarIsOpen){
+    if(toolbarIsOpen){
         backdrop = <Backdrop/>
     }
 

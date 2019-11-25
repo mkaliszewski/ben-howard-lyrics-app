@@ -22,6 +22,13 @@ const albumsDataReducer = (state=INITIAL_STATE, action) =>{
                     songs:[]
                 }
             }
+        case albumsActionTypes.ADD_CURRENT_SONGS:
+            return{
+                ...state,
+                currentAlbum:{
+                    songs:action.payload
+                }
+            }
         default:
             return state;
     }
