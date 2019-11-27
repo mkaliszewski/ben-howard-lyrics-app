@@ -8,6 +8,9 @@ const ALBUMS_DATA = {
             {
                 id: 1,
                 name:"Old Pine",
+                short:"ek",
+                duration:"5:29",
+                year:2011,
                 text:`[Verse 1]
                 Hot sand on toes, cold sand in sleeping bags
                 I've come to know that memories were the best things you ever had
@@ -51,6 +54,9 @@ const ALBUMS_DATA = {
             {
                 id: 2,
                 name:"Diamonds",
+                short:"ek",
+                duration:"4:07",
+                year:2011,
                 text:`[Verse 1]
                 All I am is the bones you made for me
                 So garishly clean
@@ -97,6 +103,9 @@ const ALBUMS_DATA = {
             {
                 id: 3,
                 name:"The Wolves",
+                short:"ek",
+                duration:"5:09",
+                year:2011,
                 text:`[Refrain]
                 Oh, oh-oh oh oh, oh
                 Oh, oh-oh oh oh, oh
@@ -193,6 +202,9 @@ const ALBUMS_DATA = {
             {
                 id: 4,
                 name:"Everything",
+                short:"ek",
+                duration:"4:46",
+                year:2011,
                 text:`[Verse 1]
                 And the birds still
                 Sing outside these
@@ -260,6 +272,9 @@ const ALBUMS_DATA = {
             {
                 id: 5,
                 name:"Only Love",
+                short:"ek",
+                duration:"4:09",
+                year:2011,
                 text:`[Chorus 1]
                 Darling, you're with me, always around me
                 Only love, only love
@@ -321,6 +336,9 @@ const ALBUMS_DATA = {
             {
                 id: 6,
                 name:"The Fear",
+                short:"ek",
+                duration:"4:20",
+                year:2011,
                 text:`[Verse 1]
                 My, my cold hearted child
                 Tell me how you feel
@@ -380,6 +398,9 @@ const ALBUMS_DATA = {
             {
                 id: 7,
                 name:"Keep Your Head Up",
+                short:"ek",
+                duration:"4:25",
+                year:2011,
                 text:`[Verse 1]
                 I spent my time watchin'
                 The spaces that have grown between us
@@ -451,6 +472,9 @@ const ALBUMS_DATA = {
             {
                 id: 8,
                 name:"Black Flies",
+                short:"ek",
+                duration:"6:22",
+                year:2011,
                 text:`Black flies on the windowsill
                 That we are
                 That we are
@@ -497,6 +521,9 @@ const ALBUMS_DATA = {
             {
                 id: 9,
                 name:"Gracious",
+                short:"ek",
+                duration:"4:57",
+                year:2011,
                 text:`How would you know?
                 When everything around you's
                 Changing like the weather
@@ -543,6 +570,9 @@ const ALBUMS_DATA = {
             {
                 id: 10,
                 name:"Promise",
+                short:"ek",
+                duration:"6:24",
+                year:2011,
                 text:`[Verse 1]
                 And meet me there
                 Bundles of flowers
@@ -581,6 +611,9 @@ const ALBUMS_DATA = {
             {
                 id: 11,
                 name:"These Waters",
+                short:"ek",
+                duration:"4:08",
+                year:2011,
                 text:`I saw red and yellow flowers outside over the moors
                 And brightest sunrise ever to've touched my eyes
                 And through it all
@@ -614,6 +647,9 @@ const ALBUMS_DATA = {
             },
             {
                 id: 12,
+                short:"ek",
+                duration:"5:26",
+                year:2011,
                 name:"Empty Corridors",
                 text:`She's got a little house in town
                 I sometimes go around, there
@@ -658,6 +694,9 @@ const ALBUMS_DATA = {
             {
                 id: 13,
                 name:"Under The Same Sun",
+                short:"ek",
+                duration:"4:46",
+                year:2011,
                 text:`I lie in your charms
                 Though it harms the best of me
                 And I lie on to my friends to them
@@ -700,6 +739,9 @@ const ALBUMS_DATA = {
             {
                 id: 14,
                 name:"Bones",
+                short:"ek",
+                duration:"5:46",
+                year:2011,
                 text:`Oh go, far from this small town bar we know
                 Yeah go, frolic in the lights that brought you here
                 So very long
@@ -750,6 +792,9 @@ const ALBUMS_DATA = {
             },
             {
                 id: 15,
+                short:"ek",
+                duration:"5:31",
+                year:2011,
                 name:"I Will Be Blessed",
                 text:`Oh my ghost came by
                 Said who do you love the most
@@ -793,6 +838,9 @@ const ALBUMS_DATA = {
             },
             {
                 id: 16,
+                short:"ek",
+                duration:"8:21",
+                year:2011,
                 name:"Move Like You Want - Live In York/2011",
                 text:`I saw you earlier on
                 They were playing blues downtown
@@ -843,6 +891,9 @@ const ALBUMS_DATA = {
         routeName: "ifwww",
         songs:[ {
             id: 17,
+            short:"ifwww",
+            duration:"5:44",
+            year:2014,
             name:"Small Things",
             text:`Oh my mind!
             I walk down Mayflower Road again
@@ -894,8 +945,11 @@ const ALBUMS_DATA = {
             (And I can't see)`
         },
         {
-            id: 18,
             name:"Rivers In Your Mouth",
+            id: 18,
+            short:"ifwww",
+            duration:"5:12",
+            year:2014,
             text:`[Verse 1]
             Hold it in, the river in your mouth is pouring out
             Water takes the shape of all that it surrounds
@@ -929,6 +983,9 @@ const ALBUMS_DATA = {
         {
             id: 19,
             name:"I Forget Where We Were",
+            short:"ifwww",
+            duration:"4:41",
+            year:2014,
             text:`[Verse 1]
             Hey, I wasn't listening
             I was watching Syria
@@ -983,6 +1040,9 @@ const ALBUMS_DATA = {
         {
             id: 20,
             name:"In Dreams",
+            short:"ifwww",
+            duration:"3:33",
+            year:2014,
             text:`[Verse 1]
             Always a riddle in the world she said
             Always a riddle inside my head
@@ -1026,6 +1086,9 @@ const ALBUMS_DATA = {
         {
             id: 21,
             name:"She Treats Me Well",
+            short:"ifwww",
+            duration:"5:18",
+            year:2014,
             text:`[Verse 1]
             Seen fortune in my lifetime
             Gave it all to the man instead
@@ -1082,6 +1145,9 @@ const ALBUMS_DATA = {
         {
             id: 22,
             name:"Time is Dancing",
+            short:"ifwww",
+            duration:"6:49",
+            year:2014,
             text:`[Verse 1]
             Wrapped up in dissonance
             I'm sorry that I just walked away
@@ -1143,6 +1209,9 @@ const ALBUMS_DATA = {
         {
             id: 23,
             name:"Evergreen",
+            short:"ifwww",
+            duration:"4:05",
+            year:2014,
             text:`[Verse]
             Christmas flared amongst us
             And we called it evergreen
@@ -1180,6 +1249,9 @@ const ALBUMS_DATA = {
         {
             id: 24,
             name:"End Of The Affair",
+            short:"ifwww",
+            duration:"7:46",
+            year:2014,
             text:`[Pre-Chorus]
             The end of the after
             The weight of a war
@@ -1231,6 +1303,9 @@ const ALBUMS_DATA = {
         {
             id: 25,
             name:"Conrad",
+            short:"ifwww",
+            duration:"6:08",
+            year:2014,
             text:`Climb out
             Out to where you see
             The curl of the world
@@ -1274,6 +1349,9 @@ const ALBUMS_DATA = {
         {
             id: 26,
             name:"All Is Now Harmed",
+            short:"ifwww",
+            duration:"5:02",
+            year:2014,
             text:`[Verse 1]
             As a child it was not there
             Not scared of the blood
@@ -1322,6 +1400,9 @@ const ALBUMS_DATA = {
         {
             id: 27,
             name:"Am I In Your Light?",
+            short:"ifwww",
+            duration:"4:30",
+            year:2014,
             text:`[Chorus x2]
             Am I in your light, babe?
             Am I in your light?
@@ -1355,6 +1436,9 @@ const ALBUMS_DATA = {
             {
                 id: 28,
                 name:"Nica Libres At Dusk",
+                short:"nd",
+                duration:"6:43",
+                year:2018,
                 text:`[Verse 1]
                 Door is locked, my gums are bleeding
                 Outside she reads, outside she is reading
@@ -1401,6 +1485,9 @@ const ALBUMS_DATA = {
             {
                 id: 29,
                 name:"Towing The Line",
+                short:"nd",
+                duration:"3:56",
+                year:2018,
                 text:`[Verse 1]
                 Towing the line
                 I watched the host drink all the wine
@@ -1444,6 +1531,9 @@ const ALBUMS_DATA = {
             {
                 id: 30,
                 name:"A Boat To An Island On A Wall",
+                short:"nd",
+                duration:"7:10",
+                year:2018,
                 text:`[Verse 1]
                 To care
                 Or not to care
@@ -1494,6 +1584,9 @@ const ALBUMS_DATA = {
             {
                 id: 31,
                 name:"What The Moon Does",
+                short:"nd",
+                duration:"5:21",
+                year:2018,
                 text:`[Verse 1]
                 Oh Anne Marie
                 With your chain
@@ -1565,6 +1658,9 @@ const ALBUMS_DATA = {
             {
                 id: 32,
                 name:"Someone In A Doorway",
+                short:"nd",
+                duration:"4:56",
+                year:2018,
                 text:`[Verse 1]
                 Go find
                 Someone else
@@ -1619,6 +1715,9 @@ const ALBUMS_DATA = {
             {
                 id: 33,
                 name:"All Down The Mines",
+                short:"nd",
+                duration:"0:47",
+                year:2018,
                 text:`All down the mines
                 All down the mines
                 All down the mines
@@ -1636,6 +1735,9 @@ const ALBUMS_DATA = {
             {
                 id: 34,
                 name:"The Defeat",
+                short:"nd",
+                duration:"5:53",
+                year:2018,
                 text:`[Verse 1]
                 There is no rush when you don't belong
                 Turns out we don't all
@@ -1721,6 +1823,9 @@ const ALBUMS_DATA = {
             {
                 id: 35,
                 name:"A Boat To An Island Pt.2 / Agatha's Song",
+                short:"nd",
+                duration:"4:53",
+                year:2018,
                 text:`[Album Version]
                 And I said to me
                 I would like to be
@@ -1745,6 +1850,9 @@ const ALBUMS_DATA = {
             {
                 id: 36,
                 name:"There's Your Man",
+                short:"nd",
+                duration:"4:39",
+                year:2018,
                 text:`[Verse 1]
                 There's your man
                 He's far from brilliant
@@ -1790,6 +1898,9 @@ const ALBUMS_DATA = {
             {
                 id: 37,
                 name:"Murmurations",
+                short:"nd",
+                duration:"6:16",
+                year:2018,
                 text:`[Verse 1]
                 I asked my neighbor what time is it
                 Time you know you can't get it back
@@ -1846,6 +1957,9 @@ const ALBUMS_DATA = {
             {
                 id: 38,
                 name:"Bird on a Wing",
+                short:"nd",
+                duration:"5:23",
+                year:2018,
                 text:`[Verse 1]
                 Bird on a wing
                 Such a fine and peaceful

@@ -16,8 +16,6 @@ export const selectAlbum = createSelector(
 )
 
 
-
-
 export const selectCurrentAlbum = createSelector(
     [selectAlbumsData],
     albums => albums.currentAlbum

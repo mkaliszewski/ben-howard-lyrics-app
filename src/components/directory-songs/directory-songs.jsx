@@ -8,39 +8,57 @@ import './directory-songs.scss'
 
 class DirectorySongs extends React.Component{
 
-    constructor(){
-        super();
-        this.state = {
-
-        }
-    }
-
     componentWillUnmount() {
         this.props.clearCurrentAlbum();
       }
 
       
     render(){
+        const { currentSongs, currentAlbum, searchValue } = this.props
+        const areCurrentSongs = currentSongs.length;
+        let textPromptSongs, textPropmtTitle;
+        console.log(currentSongs)
+        if(Object.getOwnPropertyNames(currentAlbum).includes("title")){
+            textPropmtTitle = currentAlbum.title
+        }
 
-        const {currentAlbum, currentSongs } = this.props
+        if(areCurrentSongs === 0 && searchValue.length > 0){
+            textPromptSongs = "Sorry, there is no such song"  
+        }else if(!areCurrentSongs){
+            textPromptSongs = "Select album or type song title"
+        }
+        else{
+            textPromptSongs=null;
+        }
         
+
+
     return (
-    <div  className={Object.getOwnPropertyNames(currentAlbum.songs).length <2 ? "directorysongs directorysongs-flex " : "directorysongs directorysongs-grid " }>
+    <div className="directorysongs">
+{      
+      <div className ={textPropmtTitle ? `directorysongs-flex directorysongs-title` : `directorysongs-hidden`}>
+            <h1>{textPropmtTitle}</h1>
+        </div>
+    }
+    <div  className={!areCurrentSongs ? "directorysongs-flex " : "directorysongs-grid " }>
     {
 
-        currentSongs.map( ({id, name}) =>(
-            <DirectoryCardSongs key={id} name={name}/>
+        currentSongs.map( ({id, name, short, duration}) =>(
+            <DirectoryCardSongs key={id} name={name} short={short} duration={duration}/>
         ))
     }
     {
-        Object.getOwnPropertyNames(currentAlbum.songs).length < 2 ? (<h1>Choose album to type proper song title</h1>) :  "" 
+          <h2>{textPromptSongs}</h2>
+            
     } 
     </div>
+    </div>
+    
 )}}
 
 const mapStateToProps = createStructuredSelector({
-    currentAlbum: selectCurrentAlbum,
-    currentSongs: selectCurrentSongs
+    currentSongs: selectCurrentSongs,
+    currentAlbum: selectCurrentAlbum
 })
 
 const mapDispatchToProps = dispatch =>({

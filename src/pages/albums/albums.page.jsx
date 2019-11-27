@@ -40,7 +40,7 @@ class Albums extends React.Component{
                 </div>
                 <div className="albums__col albums__col-right">
                     <SearchBar handleSearchChange={this.handleSearchChange} searchValue = {searchField}/>
-                    <DirectorySongs/>
+                    <DirectorySongs searchValue = {searchField}/>
                 </div>
             </div>
             

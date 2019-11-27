@@ -15,15 +15,6 @@ const SearchBar = ({ handleSearchChange, searchValue }) => (
             value={searchValue}
             />
         </div>
-        <div className="searchbar__datalist">
-          <input list="albums" />
-          <datalist id="albums">
-            <option value="Every Kingdom" />
-            <option value="I Forget Where We Were" />
-            <option value="Noonday Dream" />
-          </datalist>
-    
-        </div>
       </div>
     );
 
