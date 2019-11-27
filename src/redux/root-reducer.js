@@ -6,7 +6,7 @@ import albumsDataReducer from './albums/albums.reducer'
 const rootReducer = combineReducers({
     toolbar: toolbarReducer,
     homepage: homepageReducer,
-    albums: albumsDataReducer
+    albums: albumsDataReducer,
 })
 
 export default rootReducer;

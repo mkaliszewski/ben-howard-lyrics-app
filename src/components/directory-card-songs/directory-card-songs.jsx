@@ -1,19 +1,46 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
-import { selectCurrentAlbum, selectCurrentSongs } from '../../redux/albums/albums.selectors.js'
-import './directory-card-songs.scss'
+import React from "react";
+import ReactCardFlip from 'react-card-flip'
 
-const DirectoryCardSongs = ({ name, currentAlbum, short, duration}) =>{
+import {
+  selectCurrentAlbum,
+  selectCurrentSongs
+  
+} from "../../redux/albums/albums.selectors.js";
+import "./directory-card-songs.scss";
+
+class DirectoryCardSongs extends React.Component {
+  constructor() {
+    super();
+      this.state = {
+      isFlipped: false
+    };
+ 
+  }
+  handleClick = (e) => {
+    e.preventDefault();
+    this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+  }
+  
+  render(){
+    const {name, short, duration, year } = this.props;
+    const { isFlipped } = this.state;
+
     return (
-    <div className={`directorycardsongs directorycardsongs-${short}`} >
-        <h3>{name}</h3>
-    </div>
-)}
 
-const mapStateToProps = createStructuredSelector({
-    currentAlbum: selectCurrentAlbum,
-    currentSongs: selectCurrentSongs
-})
+      <ReactCardFlip  isFlipped={isFlipped} flipDirection="horizontal" flipSpeedFrontToBack={0.8} flipSpeedBackToFront={0.8}>
+        <div is={`${short}-front`} onClick={this.handleClick} >
+          <h3>{name}</h3>
+        </div>
+        <div onClick={this.handleClick} className={`react-card-back-${short}`}>
+          <span className="directorycardsongs__span"><h4>Duration:</h4><p>{duration}</p></span>
+          <span className="directorycardsongs__span"><h4>Year:</h4><p>{year}</p></span>
+          <span className="directorycardsongs__span"><em><a href="">See lyrics</a></em></span>
+        </div>
+      </ReactCardFlip>
+    );
+  }
+  
+};
 
-export default connect(mapStateToProps)(DirectoryCardSongs);
+
+export default DirectoryCardSongs;

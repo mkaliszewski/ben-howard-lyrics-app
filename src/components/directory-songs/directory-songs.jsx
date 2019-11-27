@@ -43,8 +43,8 @@ class DirectorySongs extends React.Component{
     <div  className={!areCurrentSongs ? "directorysongs-flex " : "directorysongs-grid " }>
     {
 
-        currentSongs.map( ({id, name, short, duration}) =>(
-            <DirectoryCardSongs key={id} name={name} short={short} duration={duration}/>
+        currentSongs.map( ({id, name, short, duration, year}) =>(
+            <DirectoryCardSongs key={id} name={name} short={short} duration={duration} year={year}/>
         ))
     }
     {

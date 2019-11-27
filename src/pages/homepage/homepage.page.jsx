@@ -8,7 +8,7 @@ import Icon_1 from "../../assets/Icon_1.svg";
 import Icon_2 from "../../assets/Icon_2.svg";
 import Icon_3 from "../../assets/Icon_3.svg";
 
-const Homepage = ({ isHovered, homepagePulseToggle }) => {
+const Homepage = ({ isHovered, homepagePulseToggle, history, match }) => {
 
 
     return (
@@ -29,7 +29,7 @@ const Homepage = ({ isHovered, homepagePulseToggle }) => {
 
         <div className="homepage__div-content">
 
-          <div className="homepage__div-content-container">
+          <div onClick={() => history.push(`${match.url}albums`)} className="homepage__div-content-container">
             <img src={Icon_1} alt="Lyrics" />
             <span className="homepage__div-content-container__span">
               <h3>Looking for lyrics?</h3>
