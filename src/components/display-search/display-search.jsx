@@ -33,6 +33,8 @@ class DisplaySearch extends React.Component {
       addFiltredSongs([]);
     }
 
+    console.log(songsPage);
+
     return (
       <div className="displaysearch">
         {

@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { create } from 'domain';
 
 
 const selectAlbumsData = state => state.albums;
@@ -30,4 +31,10 @@ export const selectCurrentSongs = createSelector(
 export const selectAllSongs = createSelector(
     [selectAlbum],
     album => album.map(album => album.songs).flat()
+)
+
+export const selectSong = songUrlParam =>
+createSelector(
+    [selectAllSongs],
+    songs => songs.find(song => song["id"] === Number(songUrlParam))
 )

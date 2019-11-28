@@ -8,6 +8,10 @@ $directory-border: 1px solid rgba(0, 0,0, 0.4);
 @mixin grid {
     height: 100%;
     width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
+    grid-template-rows: repeat(auto-fill, minmax(170px,1fr));
+    padding: 1rem;
+    grid-gap: 2rem;
     border-top: $directory-border;
     border-bottom: $directory-border;
     display: grid;
@@ -32,16 +36,10 @@ $directory-border: 1px solid rgba(0, 0,0, 0.4);
     .directorysongs-grid{
         @include grid;
         @include center-align;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        
-        grid-gap: 2rem;
     }
     .directorysongs-grid-songspage{
-        @include grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 0rem;
+        @include grid;  
+        
     }
     .directorysongs-title{
         height: 10%;

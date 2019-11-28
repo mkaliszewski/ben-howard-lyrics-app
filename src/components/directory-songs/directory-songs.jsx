@@ -16,21 +16,14 @@ class DirectorySongs extends React.Component{
     render(){
         const {  currentAlbum, allSongs, searchValue, songsPage } = this.props
         let { currentSongs } = this.props;
-        let textPromptSongs, textPropmtTitle, directoryDisplayClass;
+        let textPromptSongs, textPropmtTitle;
 
         if(songsPage && searchValue.length === 0 ){
             currentSongs = allSongs;
         }
 
         const areCurrentSongs = currentSongs.length;
-        if(areCurrentSongs && songsPage){
-            directoryDisplayClass = "directorysongs-grid-songspage"
-        }
-        else if(areCurrentSongs){
-            directoryDisplayClass = "directorysongs-grid"
-        } else{
-            directoryDisplayClass = "directorysongs-flex"
-        }
+        console.log(areCurrentSongs > 0);
 
         if(Object.getOwnPropertyNames(currentAlbum).includes("title")){
             textPropmtTitle = currentAlbum.title
@@ -45,7 +38,7 @@ class DirectorySongs extends React.Component{
             textPromptSongs=null;
         }
         
-
+        console.log(currentSongs.map(song => song["id"]));
 
     return (
     <div className="directorysongs">
@@ -54,11 +47,11 @@ class DirectorySongs extends React.Component{
             <h1>{textPropmtTitle}</h1>
         </div>
     }
-    <div  className={`${directoryDisplayClass}`}>
+    <div className={areCurrentSongs  ? "directorysongs-grid" : "directorysongs-flex"}>
     {
 
-        currentSongs.map( ({id, name, short, duration, year}) =>(
-            <DirectoryCardSongs key={id} name={name} short={short} duration={duration} year={year}/>
+        currentSongs.map( ({id, ...otherSongProps }) =>(
+            <DirectoryCardSongs key={id} id={id} {...otherSongProps} />
         ))
     }
     {
