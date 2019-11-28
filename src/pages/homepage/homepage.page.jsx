@@ -8,7 +8,7 @@ import Icon_1 from "../../assets/Icon_1.svg";
 import Icon_2 from "../../assets/Icon_2.svg";
 import Icon_3 from "../../assets/Icon_3.svg";
 
-const Homepage = ({ isHovered, homepagePulseToggle, history, match }) => {
+const Homepage = ({ history, match }) => {
 
 
     return (

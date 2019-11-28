@@ -3,7 +3,7 @@ import DirectoryCardSongs from '../directory-card-songs/directory-card-songs'
 import { createStructuredSelector } from 'reselect'
 import { clearCurrentAlbum } from '../../redux/albums/albums.actions'
 import { connect } from 'react-redux'
-import { selectCurrentSongs, selectCurrentAlbum } from '../../redux/albums/albums.selectors'
+import { selectCurrentSongs, selectCurrentAlbum, selectAllSongs } from '../../redux/albums/albums.selectors'
 import './directory-songs.scss'
 
 class DirectorySongs extends React.Component{
@@ -14,10 +14,24 @@ class DirectorySongs extends React.Component{
 
       
     render(){
-        const { currentSongs, currentAlbum, searchValue } = this.props
+        const {  currentAlbum, allSongs, searchValue, songsPage } = this.props
+        let { currentSongs } = this.props;
+        let textPromptSongs, textPropmtTitle, directoryDisplayClass;
+
+        if(songsPage && searchValue.length === 0 ){
+            currentSongs = allSongs;
+        }
+
         const areCurrentSongs = currentSongs.length;
-        let textPromptSongs, textPropmtTitle;
-        console.log(currentSongs)
+        if(areCurrentSongs && songsPage){
+            directoryDisplayClass = "directorysongs-grid-songspage"
+        }
+        else if(areCurrentSongs){
+            directoryDisplayClass = "directorysongs-grid"
+        } else{
+            directoryDisplayClass = "directorysongs-flex"
+        }
+
         if(Object.getOwnPropertyNames(currentAlbum).includes("title")){
             textPropmtTitle = currentAlbum.title
         }
@@ -40,7 +54,7 @@ class DirectorySongs extends React.Component{
             <h1>{textPropmtTitle}</h1>
         </div>
     }
-    <div  className={!areCurrentSongs ? "directorysongs-flex " : "directorysongs-grid " }>
+    <div  className={`${directoryDisplayClass}`}>
     {
 
         currentSongs.map( ({id, name, short, duration, year}) =>(
@@ -58,7 +72,8 @@ class DirectorySongs extends React.Component{
 
 const mapStateToProps = createStructuredSelector({
     currentSongs: selectCurrentSongs,
-    currentAlbum: selectCurrentAlbum
+    currentAlbum: selectCurrentAlbum,
+    allSongs: selectAllSongs
 })
 
 const mapDispatchToProps = dispatch =>({

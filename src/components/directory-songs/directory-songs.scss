@@ -3,8 +3,21 @@
     align-items: center;
 }
 
+$directory-border: 1px solid rgba(0, 0,0, 0.4);
+
+@mixin grid {
+    height: 100%;
+    width: 100%;
+    border-top: $directory-border;
+    border-bottom: $directory-border;
+    display: grid;
+    overflow-y: scroll;
+}
+
+
+
 .directorysongs{
-    padding: 1rem 0 2rem 0;
+    padding: 1rem 0 1rem 0;
     @include center-align;
     height: 90%;
     width: 100%;
@@ -17,18 +30,23 @@
         width: inherit;
     }
     .directorysongs-grid{
-        padding: 1rem 0 1rem 0;
-        width: 100%;
-        display: grid;
+        @include grid;
         @include center-align;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        overflow-y: scroll;
+        
         grid-gap: 2rem;
+    }
+    .directorysongs-grid-songspage{
+        @include grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 0rem;
     }
     .directorysongs-title{
         height: 10%;
         padding: 0 0 2rem 0 ;
+        letter-spacing: 2px;
     }
     
     .directorysongs-hidden{

@@ -1,0 +1,46 @@
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin block-size {
+    width: 40px;
+    height: 40px;
+}
+
+.legend{
+    width: 50%;
+    height: 100%;
+    @include flex;
+    flex-direction: row;
+
+    .legend__block{
+        @include flex;
+        margin-right: 6px;
+        flex-direction: row;
+        width: 33%;
+        div{
+            margin-right: 1rem;
+        }
+
+        .legend__block-color1{
+            @include block-size;
+            background: #8BC4B3;
+        }
+        .legend__block-color2{
+            @include block-size;
+            background: #CCC4B1;
+        }
+        .legend__block-color3{
+            @include block-size;
+            background: #D4C09F;
+        }
+
+        p{
+            margin: 0;
+            line-height: 1rem;
+        }
+
+    }
+}
