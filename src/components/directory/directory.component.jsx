@@ -5,20 +5,28 @@ import { createStructuredSelector } from 'reselect'
 
 //components
 import DirectoryCard from "../directory-card/directory-card.component";
-import { selectAlbum } from "../../redux/albums/albums.selectors"
+import { selectAlbums } from "../../redux/albums/albums.selectors"
 
 //styles
 import './directory.styles.scss'
 
 
 
-const Directory = ({ albums }) =>{
+
+const Directory = ({ albums, albumsPage }) =>{
+    let directoryClass;
+    if(albumsPage){
+      directoryClass = "directory-row"
+    }else(
+      directoryClass = "directory"
+    )
+
 
     return (
-      <div className="directory animated slow slideInLeft">
+      <div className={albumsPage ? `${directoryClass} animated slow slideInLeft` :` ${directoryClass} animated slow fadeIn`}>
       {
           albums.map( album  =>(
-            <DirectoryCard key={album.id} album={album} />
+            <DirectoryCard albumsPage={albumsPage} key={album.id} album={album} />
           ))
       }
     </div>
@@ -28,7 +36,7 @@ const Directory = ({ albums }) =>{
 }
 
 const mapStateToProps = createStructuredSelector({
-  albums: selectAlbum
+  albums: selectAlbums
 })
 
 export default connect(mapStateToProps)(Directory);

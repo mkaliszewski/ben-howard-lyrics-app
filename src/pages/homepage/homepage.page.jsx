@@ -29,7 +29,7 @@ const Homepage = ({ history, match }) => {
 
         <div className="homepage__div-content">
 
-          <div onClick={() => history.push(`${match.url}albums`)} className="homepage__div-content-container">
+          <div onClick={() => history.push(`${match.url}songs`)} className="homepage__div-content-container">
             <img src={Icon_1} alt="Lyrics" />
             <span className="homepage__div-content-container__span">
               <h3>Looking for lyrics?</h3>
@@ -39,7 +39,7 @@ const Homepage = ({ history, match }) => {
             </span>
           </div>
 
-          <div className="homepage__div-content-container">
+          <div onClick={() => history.push(`${match.url}albums`)} className="homepage__div-content-container">
             <img src={Icon_3} alt="Music" />
             <span className="homepage__div-content-container__span">
               <h3>Some music?</h3>

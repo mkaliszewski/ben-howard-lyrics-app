@@ -1,8 +1,10 @@
 import React from 'react'
 
 import './legend.styles.scss'
-
-const Legend = ({ songsPage }) =>(
+import { clearCurrentAlbum } from '../../redux/albums/albums.actions.js'
+import { connect } from 'react-redux'
+import CustomButton from '../custom-button/custom-button'
+const Legend = ({ clearCurrentAlbum }) =>(
     <div className = "legend">
 
         <div className="legend__block">
@@ -19,8 +21,16 @@ const Legend = ({ songsPage }) =>(
             <div className="legend__block-color3"></div>
             <span className="legend__span"><p>Noonday Dream</p></span>
         </div>
+            
+        <div onClick={() =>clearCurrentAlbum()} className="legend__block">
+        <CustomButton >Reset</CustomButton>
+        </div>
 
     </div>
 )
 
-export default Legend;
+const mapDispatchToProps = dispatch =>({
+    clearCurrentAlbum: () =>dispatch(clearCurrentAlbum())
+})
+
+export default connect(null, mapDispatchToProps)(Legend);

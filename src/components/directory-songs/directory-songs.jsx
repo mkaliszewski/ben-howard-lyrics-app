@@ -14,40 +14,27 @@ class DirectorySongs extends React.Component{
 
       
     render(){
-        const {  currentAlbum, allSongs, searchValue, songsPage } = this.props
+        const {  allSongs, searchValue, currentAlbum } = this.props
         let { currentSongs } = this.props;
-        let textPromptSongs, textPropmtTitle;
+        let textPromptSongs;
 
-        if(songsPage && searchValue.length === 0 ){
+        if( !Object.getOwnPropertyNames(currentAlbum).includes("title") && searchValue.length ===0){
             currentSongs = allSongs;
         }
 
         const areCurrentSongs = currentSongs.length;
-        console.log(areCurrentSongs > 0);
-
-        if(Object.getOwnPropertyNames(currentAlbum).includes("title")){
-            textPropmtTitle = currentAlbum.title
-        }
 
         if(areCurrentSongs === 0 && searchValue.length > 0){
             textPromptSongs = "Sorry, there is no such song"  
-        }else if(!areCurrentSongs){
-            textPromptSongs = "Select album or type song title"
-        }
-        else{
+        }else{
             textPromptSongs=null;
         }
-        
-        console.log(currentSongs.map(song => song["id"]));
+
 
     return (
     <div className="directorysongs">
-{      
-      <div className ={textPropmtTitle ? `directorysongs-flex directorysongs-title` : `directorysongs-hidden`}>
-            <h1>{textPropmtTitle}</h1>
-        </div>
-    }
-    <div className={areCurrentSongs  ? "directorysongs-grid" : "directorysongs-flex"}>
+
+    <div className={areCurrentSongs > 3  ? "directorysongs-grid animated slow fadeIn" : "directorysongs-flex"}>
     {
 
         currentSongs.map( ({id, ...otherSongProps }) =>(

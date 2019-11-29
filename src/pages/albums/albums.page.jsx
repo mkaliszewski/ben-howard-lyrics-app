@@ -1,25 +1,15 @@
 import React from 'react';
 
+import { Route } from 'react-router-dom'
 import Directory from '../../components/directory/directory.component'
+import AlbumPage from '../album/album.page'
 import './albums.styles.scss'
-import DisplaySearch from '../../components/display-search/display-search'
+const AlbumsPage = ({ match }) =>(
+    <div className="albumspage">
+        <Route exact path={`${match.path}`} render = {(props) => <Directory {...props} albumsPage={true}/>}/>
+        <Route path={`${match.path}/:albumId`} component={AlbumPage}/>
+    
+    </div>
+)
 
-
-class Albums extends React.Component{
-    render(){
-        return(
-            <div className="albums">
-                <div className="albums__col albums__col-left">
-                    <Directory/>
-                </div>
-                <div className="albums__col albums__col-right">
-                    <DisplaySearch />
-                </div>
-            </div>
-            
-        )
-    }
-}
-
-
-export default Albums
+export default AlbumsPage

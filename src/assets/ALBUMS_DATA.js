@@ -3,8 +3,39 @@ const ALBUMS_DATA = {
         id:1,
         title: "Every Kingdom",
         imageUrl:"https://ecsmedia.pl/c/every-kingdom-w-iext35305457.jpg",
+        imageUrlHeader:"http://cdn2.thelineofbestfit.com/media/2012/10/Ben-Howard-e1351698141553.jpg",
+        wikiUrl:"https://en.wikipedia.org/wiki/Every_Kingdom",
         routeName: "ek",
+        producer: "Chris Bond",
+        length:"50:05",
+        year:"30 September 2011",
         spotifyUri:"album/4KX91DYlU4n9uqHdN9hC6J",
+        info:`
+Every Kingdom is the debut studio album by British singer-songwriter Ben Howard.
+It was released in the United Kingdom on 30 September 2011 as a digital download,
+ on CD, on LP and as a 200 copy limited edition cassette.
+It reached a peak chart position of number four in the UK Albums Chart on
+24 February 2013 following his success at the Brit Awards that week.
+The songs on the album were written by Ben Howard and produced by Chris Bond.
+The cover art was designed by Owen Tozer, based on photography by Mickey Smith and
+Roddy Bow. 
+        
+The song "Old Pine" is the music video version of the original found on the Old Pine EP.
+A remix of the song by Everything Everything was released by Howard as a single on
+20 July 2012.
+The songs "The Wolves" and "These Waters" are re-recordings of the original versions
+ found on the These Waters EP.
+The song "Keep Your Head Up" is a re-recording of the original version found on the
+ Games in the Dark EP.
+The song "Black Flies" was released on 21 April 2012 as a 100-copy limited edition LP
+ as part of the 2012 edition of Secret 7", each copy with different cover art.
+        
+The song "Black Flies" was featured in the 2017 Square Enix / Deck Nine game
+ Life is Strange: Before the Storm's fourth, Bonus episode as the ending song of the episode.
+        
+The album was nominated for the 2012 Mercury Prize. 
+`
+,
         songs:[
 {
 id: 1,
@@ -938,8 +969,17 @@ Like there's no-one else around here`
         id:2,
         title: "I Forget Where We Were",
         imageUrl:"https://www.clashmusic.com/sites/default/files/styles/article_feature/public/field/image/ben%20howard%20packshot.jpg?itok=-Lapj6tZ",
+        imageUrlHeader:"https://benhowardunofficial.files.wordpress.com/2015/06/screen-shot-2015-06-07-at-21-20-45.png",
+        wikiUrl:"https://en.wikipedia.org/wiki/I_Forget_Where_We_Were",
+        producer: "Chris Bond, Ben Howard",
+        length:"54:11",
+        year:"21 October 2014",
         routeName: "ifwww",
         spotifyUri:"album/4WI3oFEsDiHU3I5xHz88sF",
+        info:`
+I Forget Where We Were is the second album by British singer-songwriter Ben Howard, released on 20 October 2014.
+The album was met with positive reviews from music critics. On Metacritic, which assigns a rating out of 100, the album was scored a 77, which indicates generally favourable reviews.
+`,
         songs:[ {
 id: 17,
 short:"ifwww",
@@ -1484,8 +1524,18 @@ All is now harmed`
         id:3,
         title: "Noonday Dream",
         imageUrl:"https://d3c1jucybpy4ua.cloudfront.net/data/59169/big_picture/BH_NND_packshot_3000x3000_6300dpi-1200x1200.jpg?1528224258",
+        imageUrlHeader:"https://images-na.ssl-images-amazon.com/images/I/91dRUIXQAvL._SL1200_.jpg",
+        wikiUrl:"https://en.wikipedia.org/wiki/Noonday_Dream",
+        producer: "Ben Howard",
+        length:"50:25",
+        year:"1 June 2018",
         routeName: "nd",
         spotifyUri:"album/6astw05cTiXEc2OvyByaPs",
+        info:`
+Noonday Dream is the third album by British singer-songwriter Ben Howard, released on 1 June 2018.
+"Noonday Dream" has received generally favorable reviews from critics. At Metacritic, which assigns a normalized rating out of 100 to reviews from mainstream publications,
+ the album received an average score of 80 based on 11 reviews.
+`,
         songs:[
 {
 id: 27,

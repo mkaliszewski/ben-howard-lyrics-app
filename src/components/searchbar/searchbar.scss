@@ -7,11 +7,5 @@
 
 .searchbar{
     @include flex;
-    height: 10%;
-
-}
-
-.searchbar-songspage{
-    @include flex;
     height: 100%
 }

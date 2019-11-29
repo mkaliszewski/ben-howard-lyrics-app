@@ -1,17 +1,21 @@
 @mixin for-tablet-landscape-down {
   @media (max-width: 900px) { @content; }
 }
-
-.directory{
+@mixin flex{
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   height: 100%;
   width: 100%;
-  will-change: auto;
-  scroll-behavior: smooth;
   overflow: hidden;
-  background-color: #f8f9fa;
+}
+.directory{
+  @include flex;
+  flex-direction: column;
 
+}
+
+.directory-row{
+  @include flex;
+  flex-direction: row;
 }

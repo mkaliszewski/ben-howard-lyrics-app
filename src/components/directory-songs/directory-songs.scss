@@ -10,7 +10,7 @@ $directory-border: 1px solid rgba(0, 0,0, 0.4);
     width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
     grid-template-rows: repeat(auto-fill, minmax(170px,1fr));
-    padding: 1rem;
+    padding: 2rem 1rem 2rem 1rem;
     grid-gap: 2rem;
     border-top: $directory-border;
     border-bottom: $directory-border;

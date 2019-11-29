@@ -22,7 +22,7 @@ class DisplaySearch extends React.Component {
 
   render() {
     const { searchField } = this.state;
-    const { allSongs, addFiltredSongs, songsPage } = this.props;
+    const { allSongs, addFiltredSongs } = this.props;
 
     const filtredSongs = allSongs.filter(song =>
       song.name.toLowerCase().includes(searchField.toLowerCase())
@@ -32,32 +32,17 @@ class DisplaySearch extends React.Component {
     } else if (searchField.length === 0) {
       addFiltredSongs([]);
     }
-
-    console.log(songsPage);
-
     return (
       <div className="displaysearch">
-        {
-            songsPage ? 
-            (<div className="displaysearch__legend">
-            <SearchBar
-              songsPage={songsPage}
-              handleSearchChange={this.handleSearchChange}
-              searchValue={searchField}
-            />
-            <Legend />
-          </div>)
-          :
-          (<SearchBar
-            songsPage={songsPage}
+        <div className="displaysearch__legend">
+          <SearchBar
             handleSearchChange={this.handleSearchChange}
             searchValue={searchField}
-          />)
+          />
+          <Legend />
+        </div>
 
-        }
-        
-
-        <DirectorySongs searchValue={searchField} songsPage={songsPage} />
+        <DirectorySongs searchValue={searchField}  />
       </div>
     );
   }

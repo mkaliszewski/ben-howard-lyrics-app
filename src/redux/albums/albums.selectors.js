@@ -1,18 +1,17 @@
 import { createSelector } from 'reselect';
-import { create } from 'domain';
 
 
 const selectAlbumsData = state => state.albums;
 
 //wybieramy obiekt z danymi
-export const selectAlbums = createSelector(
+export const selectData = createSelector(
     [selectAlbumsData],
     albumsData => albumsData.albums
 )
 
 //zwracamy tablicę 3 obiektów
-export const selectAlbum = createSelector(
-    [selectAlbums],
+export const selectAlbums = createSelector(
+    [selectData],
     albums => Object.keys(albums).map(key => albums[key])
 )
 
@@ -29,7 +28,7 @@ export const selectCurrentSongs = createSelector(
 
 
 export const selectAllSongs = createSelector(
-    [selectAlbum],
+    [selectAlbums],
     album => album.map(album => album.songs).flat()
 )
 
@@ -38,3 +37,9 @@ createSelector(
     [selectAllSongs],
     songs => songs.find(song => song["id"] === Number(songUrlParam))
 )
+
+export const selectAlbum = albumUrlParam =>
+    createSelector(
+    [selectAlbums],
+    albums => albums.find(album => album["id"] === Number(albumUrlParam))
+    )
