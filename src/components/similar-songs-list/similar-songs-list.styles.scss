@@ -1,0 +1,43 @@
+$border: 1px solid lightgray;
+
+.similarsongslist {
+  padding-right: 2rem;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .similarsongslist__columns {
+    display: flex;
+    flex-direction: row;
+    
+
+    .similarsongslist__column-left {
+      width: calc( 85% - 5px);
+      h5 {
+        margin: 0 0 1rem 1rem;
+      }
+    }
+    .similarsongslist__column-right {
+      width: calc( 15% + 5px);
+
+      h5 {
+        margin: 0 1rem 1rem 0 ;
+      }
+    }
+  }
+
+  .similarsongslist__scroll {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    border-bottom: $border;
+    border-top: $border;
+  }
+
+  h2{
+      text-align: center;
+      margin: 0 0 1rem 0 ;
+  }
+}

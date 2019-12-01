@@ -1,10 +1,16 @@
 .albumsongslist{
 
         width:100%;
-        height:50vh;
+        height:100%;
     display: flex;
     flex-direction: column;
     
-    overflow-x: hidden;
-    overflow-y: scroll;
+    
+
+    .albumsongslist__scroll{
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width:100%;
+        height:100%;
+    }
 }

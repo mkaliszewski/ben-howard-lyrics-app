@@ -2,7 +2,8 @@ import React from "react";
 import './album-info.styles.scss'
 
 const AlbumInfo = ({ album: { title, info, length, producer, year, wikiUrl } }) => {
-    function contentToHtml(text) {
+  
+    const contentToHtml = (text) => {
         return text
           .split('\n')
           .map(paragraph => (`<p>${paragraph}</p>`))
