@@ -8,47 +8,31 @@ import {
   selectActivePicture
 } from "../../redux/pictures/pictures.selectors";
 import {
-  setIndex0,
-  setIndex1,
-  setIndex2,
-  setIndex3
+  setActive
 } from "../../redux/pictures/pictures.actions";
 
 const Slider = ({
+  properties,
   activePicture,
-  setIndex0,
-  setIndex1,
-  setIndex2,
-  setIndex3
+  setActive
 }) => {
 
   const { id, url } = activePicture;
 
-  const setNextPicture = activePicture => {
-    switch (activePicture.index) {
-      case 0:
-        return setIndex1();
-      case 1:
-        return setIndex2();
-      case 2:
-        return setIndex3();
-      default:
-        return;
-    }
-  };
 
-  const setPrevPicture = activePicture => {
-    switch (activePicture.index) {
-      case 1:
-        return setIndex0();
-      case 2:
-        return setIndex1();
-      case 3:
-        return setIndex2();
-      default:
-        return;
-    }
-  };
+  const nextPicture = () =>{
+    const currentIndex = activePicture.index;
+    const nextIndex = currentIndex + 1;
+    setActive(properties[nextIndex])
+  }
+
+  const prevPicture = () =>{
+    const currentIndex = activePicture.index;
+    const prevIndex = currentIndex - 1;
+    setActive(properties[prevIndex])
+  }
+  console.log(Object.keys(properties))
+  ;
   return (
     <div className="slider">
         <div
@@ -57,15 +41,17 @@ const Slider = ({
           style={{ backgroundImage: `url(${url})` }}
         >
           <button
-            className={activePicture.index === 0 ?  `slider__button slider__button-prev hide` : `slider__button slider__button-prev`}
-
-            onClick={() => setPrevPicture(activePicture)}
+            className={`slider__button slider__button-prev`}
+            disabled = {activePicture.index === 0}
+            onClick = {() => prevPicture()}
+        
           >
             &#10094;
           </button>
           <button
-          className={activePicture.index === 3 ?  `slider__button slider__button-nxt hide` : `slider__button slider__button-nxt`}
-            onClick={() => setNextPicture(activePicture)}
+          className={`slider__button slider__button-nxt`}
+            disabled={activePicture.index === Object.keys(properties).length - 1}
+            onClick={() => nextPicture()}
           >
           &#10095;
           </button>
@@ -80,9 +66,6 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setIndex0: () => dispatch(setIndex0()),
-  setIndex1: () => dispatch(setIndex1()),
-  setIndex2: () => dispatch(setIndex2()),
-  setIndex3: () => dispatch(setIndex3())
+  setActive: picture => dispatch(setActive(picture))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Slider);

@@ -1523,7 +1523,7 @@ All is now harmed`
     noondayDream: {
         id:3,
         title: "Noonday Dream",
-        imageUrl:"https://d3c1jucybpy4ua.cloudfront.net/data/59169/big_picture/BH_NND_packshot_3000x3000_6300dpi-1200x1200.jpg?1528224258",
+        imageUrl:"https://images-na.ssl-images-amazon.com/images/I/91dRUIXQAvL._SL1200_.jpg",
         imageUrlHeader:"https://images-na.ssl-images-amazon.com/images/I/91dRUIXQAvL._SL1200_.jpg",
         wikiUrl:"https://en.wikipedia.org/wiki/Noonday_Dream",
         producer: "Ben Howard",

@@ -8,10 +8,6 @@ export const selectProperties =createSelector(
     data => data.properties
 )
 
-export const selectProperty = createSelector(
-    [selectProperties],
-    properties => properties[0]
-)
 
 export const selectActivePicture = createSelector(
     [selectPicturesData],
