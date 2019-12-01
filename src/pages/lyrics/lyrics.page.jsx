@@ -20,15 +20,16 @@ const LyricsPage = ({ song }) => {
         </div>
 
         <div className="lyricspage__column lyricspage__column-right">
-          <div className="lyricspage__row">
-            <SimilarSongsList id={id} />
-            <SpotifyPlayer spotifyUri={spotifyUri} />
-          </div>
-          <div className="lyricspage__subcolumns">
+        <div className="lyricspage__row-1">
    
 
             <Slider />
           </div>
+          <div className="lyricspage__row-2">
+            <SimilarSongsList id={id} />
+            <SpotifyPlayer spotifyUri={spotifyUri} />
+          </div>
+          
         </div>
       </div>
     </div>

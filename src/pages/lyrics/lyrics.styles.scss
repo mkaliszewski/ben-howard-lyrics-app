@@ -47,21 +47,18 @@
       padding:2rem 2rem 0 0;
 
       justify-content: center;
-      .lyricspage__row{
+      .lyricspage__row-2{
         display: flex;
         flex-direction: row;
         width:100%;
         height:50%;
       }
-      .lyricspage__subcolumns{
+      .lyricspage__row-1{
         flex-direction: row;
         width:100%;
         height:50%;
 
-        .lyricspage__subcolumn-1, .lyricspage__subcolumn-2{
-          width: 45%;
-          height: 100%;
-        }
+      
       }
     }
   }}
