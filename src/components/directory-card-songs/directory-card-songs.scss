@@ -27,6 +27,7 @@
   margin: 1rem auto 1rem auto;
   transition: transform 0.5s ease-in;
   transform-style: preserve-3d;
+  
   h4,
   p {
     padding: 0px 0 6px 0;
@@ -42,7 +43,7 @@
 
   & .react-card-front {
     @include front-back;
-
+    cursor: pointer;
     div[is="ek-front"] {
       background: #8bc4b3;
     }

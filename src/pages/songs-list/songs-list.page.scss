@@ -1,3 +1,12 @@
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+$border-bottom: 2px solid lightgray;
+
+
 .songslist{
     width:100%;
     height:100%;
@@ -5,24 +14,47 @@
 
 
     .songslist__col{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+
         width:50%;
         height: 100%;
   
             .songslist__legend{
                 width: 100%;
-                height: 20%;
+                height: 15%;
+                padding-top: 2.5rem;
+                border-bottom: $border-bottom;
+                
             }
             .songslist__search{
                 width: 100%;
-                height: 30%;
+                height: 40%;
+                border-bottom: $border-bottom;    
+                .songslist__search-text{
+                    @include flex;
+                    height: 15%;
+                    h2{
+                        margin: 0  0 1rem 0;
+                    }
+                }
+                .songslist__search-content{
+                    height: 85%;
+                    width: 100%;
+                }
             }
             .songslist__directory{
-                width: 50vw;
-                height: 50%;
+                width: 100%;
+                height: 45%;
+
+                .songslist__directory-text{
+                    @include flex;
+                    height: 20%;
+                    margin: 0 auto;
+                }
+                .songslist__directory-content{
+                    height: 80%;
+                    width: 100%;
+                }
+
             }
 
     }

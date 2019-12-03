@@ -6,7 +6,7 @@
 
 @mixin block-size {
     height: 40px;
-    width: 20%;
+    width: 33%;
 }
 
 .legend{
@@ -44,15 +44,9 @@
 
         p{
             margin: 0;
-            line-height: 1rem;
+            line-height: 1.2rem;
+            font-size: 1rem;
         }
 
-    }
-
-    .legend__button{
-        @include flex;
-        flex-direction: row;
-        width: 15%;
-        text-align: center;
     }
 }

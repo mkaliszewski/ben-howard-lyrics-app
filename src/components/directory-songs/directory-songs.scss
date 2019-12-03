@@ -12,8 +12,6 @@ $directory-border: 1px solid rgba(0, 0,0, 0.4);
     grid-template-rows: repeat(auto-fill, minmax(170px,1fr));
     padding: 2rem 1rem 2rem 1rem;
     grid-gap: 2rem;
-    border-top: $directory-border;
-    border-bottom: $directory-border;
     display: grid;
     overflow-y: scroll;
 }
@@ -23,8 +21,9 @@ $directory-border: 1px solid rgba(0, 0,0, 0.4);
 .directorysongs{
 
     @include center-align;
-    height: 90%;
+    height: 100%;
     width: 100%;
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
 
@@ -37,17 +36,5 @@ $directory-border: 1px solid rgba(0, 0,0, 0.4);
         @include grid;
         @include center-align;
     }
-    .directorysongs-grid-songspage{
-        @include grid;  
-        
-    }
-    .directorysongs-title{
-        height: 10%;
-        padding: 0 0 2rem 0 ;
-        letter-spacing: 2px;
-    }
-    
-    .directorysongs-hidden{
-        display: none;
-    }
+
 }

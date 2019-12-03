@@ -32,6 +32,8 @@ export const selectAllSongs = createSelector(
     album => album.map(album => album.songs).flat()
 )
 
+
+//Dynamic selectors
 export const selectSong = songUrlParam =>
 createSelector(
     [selectAllSongs],

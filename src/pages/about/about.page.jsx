@@ -1,12 +1,12 @@
 import React from 'react';
 
 import './about.styles.scss'
-import Slider from '../../components/slider/slider.component'
+import SelectForm from '../../components/select-form/select-form.component'
 
 
 const AboutPage = () =>(
     <div className="aboutpage">
-        <Slider/>
+        <SelectForm guitarTypes={["acoutstic","electric"]} label="Select Guitar"/>
     </div>
 )
 

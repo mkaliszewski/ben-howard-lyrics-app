@@ -29,6 +29,7 @@ const albumsDataReducer = (state=INITIAL_STATE, action) =>{
                     songs:action.payload
                 }
             }
+
         default:
             return state;
     }

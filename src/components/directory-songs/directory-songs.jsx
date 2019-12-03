@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { selectCurrentSongs, selectCurrentAlbum, selectAllSongs } from '../../redux/albums/albums.selectors'
 import './directory-songs.scss'
 
+
 class DirectorySongs extends React.Component{
 
     componentWillUnmount() {
@@ -14,14 +15,13 @@ class DirectorySongs extends React.Component{
 
       
     render(){
-        const {  allSongs, searchValue, currentAlbum } = this.props
+        const {  allSongs, searchValue, currentAlbum, selectValue } = this.props
         let { currentSongs } = this.props;
         let textPromptSongs;
 
-        if( !Object.getOwnPropertyNames(currentAlbum).includes("title") && searchValue.length ===0){
-            currentSongs = allSongs;
+        if(!Object.keys(currentAlbum).includes("title") && !searchValue.length && !selectValue){
+            currentSongs = allSongs
         }
-
         const areCurrentSongs = currentSongs.length;
 
         if(areCurrentSongs === 0 && searchValue.length > 0){
