@@ -22,7 +22,7 @@ const Legend = ({ clearCurrentAlbum }) =>(
             <span className="legend__span"><p>Noonday Dream</p></span>
         </div>
             
-        <div onClick={() =>clearCurrentAlbum()} className="legend__block">
+        <div onClick={() =>clearCurrentAlbum()} className="legend__button">
         <CustomButton >Reset</CustomButton>
         </div>
 

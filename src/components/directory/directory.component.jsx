@@ -14,16 +14,9 @@ import './directory.styles.scss'
 
 
 const Directory = ({ albums, albumsPage }) =>{
-    let directoryClass;
-    if(albumsPage){
-      directoryClass = "directory-row"
-    }else(
-      directoryClass = "directory"
-    )
-
 
     return (
-      <div className={albumsPage ? `${directoryClass} animated slow slideInLeft` :` ${directoryClass} animated slow fadeIn`}>
+      <div className="directory-row animated slow slideInLeft">
       {
           albums.map( album  =>(
             <DirectoryCard albumsPage={albumsPage} key={album.id} album={album} />

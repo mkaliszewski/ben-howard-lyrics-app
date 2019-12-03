@@ -8,14 +8,22 @@ import { connect } from 'react-redux'
 import { selectAllSongs } from '../../redux/albums/albums.selectors'
 
 
-const SimilarSongsList = ({ allSongs, id }) =>{
+const SimilarSongsList = ({album, allSongs, id }) =>{
 
 const findOtherSongs = arr => arr.filter(song => song["id"] !== id).sort(() => 0.5-Math.random()).slice(0,10)
+let otherSongs;
 
-const otherSongs = findOtherSongs(allSongs)
+
+album ? 
+otherSongs = album.songs
+:
+otherSongs = findOtherSongs(allSongs)
+
+
+
 return(
     <div className="similarsongslist">
-    <h2>Other songs</h2>
+    <h2>{album ? `Other songs on the album` : `Related songs` }</h2>
     <div className="similarsongslist__columns">
     <div className="similarsongslist__column-left">
     <h5>Song title</h5>

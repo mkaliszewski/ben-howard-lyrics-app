@@ -9,7 +9,14 @@ import {
 } from "../../redux/pictures/pictures.selectors";
 import { setActive } from "../../redux/pictures/pictures.actions";
 
-const Slider = ({ properties, activePicture, setActive }) => {
+class Slider extends React.Component {
+
+  componentWillUnmount(){
+    this.props.setActive(this.props.properties[4])
+  }
+
+  render(){
+  const { properties, activePicture, setActive } = this.props;
   const { id, url, index } = activePicture;
 
   const nextPicture = () => {
@@ -63,7 +70,7 @@ const Slider = ({ properties, activePicture, setActive }) => {
         </div>
       </div>
     </div>
-  );
+  );}
 };
 
 const mapStateToProps = createStructuredSelector({

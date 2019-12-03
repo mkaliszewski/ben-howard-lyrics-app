@@ -4,10 +4,12 @@
     flex-direction: column;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 10px -10px black;
     .directory-card__img{
     width: 225px;
     height: 225px;
     border-radius: 16px;
+    
     }
     .directory-card__img-albumspage{
         width: 400px;
