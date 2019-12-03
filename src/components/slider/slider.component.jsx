@@ -11,7 +11,6 @@ import { setActive } from "../../redux/pictures/pictures.actions";
 
 const Slider = ({ properties, activePicture, setActive }) => {
   const { id, url, index } = activePicture;
-  // <SliderCard  activePicture={activePicture} properties={properties}/>
 
   const nextPicture = () => {
     const nextIndex = activePicture.index + 1;
@@ -22,46 +21,46 @@ const Slider = ({ properties, activePicture, setActive }) => {
     const prevIndex = activePicture.index - 1;
     setActive(properties[prevIndex]);
   };
-  return (
-    <div className="slider">
-    <div className="slider__buttons">
-    <button
-      className={`slider__button slider__button-prev`}
-      disabled={index === 0}
-      onClick={() => prevPicture()}
-    >
-      &#10094;
-    </button>
-    <button
-      className={`slider__button slider__button-nxt`}
-      disabled={index === properties.length - 1}
-      onClick={() => nextPicture()}
-    >
-      &#10095;
-    </button>
-  </div>
-  <div className="slider__container-out">
-      <div className={`slider__container slider-active-${activePicture.index}`}>
 
-      
-        <div className="slider-wrapper"
-        
-        style={{
-          "transform": `translateX(-${activePicture.index * 100}%)`
-        }}
-        
+  return (
+    <div className="slider" disabled={index === properties.length - 1}>
+      <div className="slider__buttons">
+        <button
+          className={`slider__button slider__button-prev`}
+          disabled={index === 0}
+          onClick={() => prevPicture()}
         >
-          {properties.map(property => (
-            <SliderCard
-              properties={properties}
-              nextPicture={nextPicture}
-              prevPicture={prevPicture}
-              activePicture={property}
-              key={property.id}
-            />
-          ))}
-        </div>
+          &#10094;
+        </button>
+        <button
+          className={`slider__button slider__button-nxt`}
+          disabled={index === properties.length - 1}
+          onClick={() => nextPicture()}
+        >
+          &#10095;
+        </button>
       </div>
+      <div className="slider__container-out">
+        <div
+          className={`slider__container slider-active-${activePicture.index}`}
+        >
+          <div
+            className="slider-wrapper"
+            style={{
+              transform: `translateX(-${activePicture.index * 100}%)`
+            }}
+          >
+            {properties.map(property => (
+              <SliderCard
+                properties={properties}
+                nextPicture={nextPicture}
+                prevPicture={prevPicture}
+                activePicture={property}
+                key={property.id}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

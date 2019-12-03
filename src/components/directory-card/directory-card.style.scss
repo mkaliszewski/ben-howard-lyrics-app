@@ -2,6 +2,8 @@
     display:flex;
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
     .directory-card__img{
     width: 225px;
     height: 225px;
@@ -13,6 +15,45 @@
     border-radius: 16px;
     }
 
+    .directory-card-info{
+        position: absolute;
+        top:0;
+        right: 0;
+        left:0;
+        bottom:0;
+        padding: 2rem 2rem;
+        text-align: justify;
+        background-color: rgba(255,255,255, 0.5);
+        border-radius: 16px;
+        clip-path: circle(5% at 356px 45px);
+        transition: clip-path 500ms ease-in-out, background-color 500ms ease-in-out;
+
+        &:hover{
+            background-color: rgba(255,255,255, 0.8);
+            clip-path: circle(90%);
+
+            .directory-card-icon{
+                opacity: 0;
+            }
+        }
+
+        h2{
+            font-size: 2rem;
+            text-align: center;
+            
+        }
+
+        .directory-card-icon{
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            font-size: 2rem;
+            font-weight: 700;
+            opacity: 1;
+            transition: opacity 500ms ease-in-out;
+
+        }
+    }
 }
 
 
