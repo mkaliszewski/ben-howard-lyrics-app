@@ -47,12 +47,12 @@ const Header = ({ toggleSidedrawerHidden }) => (
           Sign up
         </Link>
       </div>
-      <Link to="/" className="header__logo-container">
+      <a href="https://www.youtube.com/channel/UC7P46taO0CdI8Gy44P1X2yA" target="_blank" rel="noopener noreferrer" className="header__logo-container">
         <img src={LogoYT} alt="logo" className="header__logo" />
-      </Link>
-      <Link to="/" className="header__logo-container">
+      </a>
+      <a href="https://open.spotify.com/artist/5schNIzWdI9gJ1QRK8SBnc?si=kCBwf1hGQKqdZKoOY63lTw" target="_blank" rel="noopener noreferrer" className="header__logo-container">
         <img src={LogoSpotify} alt="logo" className="header__logo" />
-      </Link>
+      </a>
     </div>
   </div>
 );
