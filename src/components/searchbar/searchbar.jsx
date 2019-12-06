@@ -1,6 +1,6 @@
 import React from "react";
 
-import FormInput from "../form-input/form-input";
+import SearchInput from "../search-input/search-input";
 import "./searchbar.scss";
 import { connect } from "react-redux";
 import { addCurrentSongs } from "../../redux/albums/albums.actions.js";
@@ -26,7 +26,7 @@ const SearchBar = ({
     <div className="searchbar">
       <div className="searchbar__searchForms">
         <div className="searchbar__textInput">
-          <FormInput
+          <SearchInput
             onChange={handleSearchChange}
             name="text"
             type="text"
