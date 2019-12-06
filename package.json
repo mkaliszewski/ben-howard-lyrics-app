@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "animate.css": "^3.7.2",
+    "firebase": "^7.5.1",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-card-flip": "^1.0.10",

@@ -32,7 +32,7 @@ const INITIAL_STATE = {
             id:5,
             name:"Nat",
             lastName:"Wason",
-            url:"https://www.brianrobinsonphotography.com/wp-content/uploads/2017/07/a-blaze-of-feather-3.jpg"
+            url:"https://i.redd.it/c21fbpnzd7y01.jpg"
         },
         rich:{
             id:6,
