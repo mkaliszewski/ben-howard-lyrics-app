@@ -40,7 +40,7 @@ const Header = ({ toggleSidedrawerHidden }) => (
 
     <div className="header__navitems-right">
       <div className="header__options">
-        <Link to="/sigin" className="header__option">
+        <Link to="/signin" className="header__option">
           Sign in
         </Link>
         <Link to="/signup" className="header__option">

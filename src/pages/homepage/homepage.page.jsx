@@ -49,7 +49,7 @@ const Homepage = ({ history, match }) => {
             </span>
           </div>
 
-          <div className="homepage__div-content-container">
+          <div onClick={() => history.push(`${match.url}signin`)} className="homepage__div-content-container">
             <img src={Icon_2} alt="Form" />
             <span className="homepage__div-content-container__span">
               <h3>Wanna sign up?</h3>
