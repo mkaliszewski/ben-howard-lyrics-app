@@ -6,9 +6,8 @@ class SignInPage extends React.Component {
   render() {
     return (
       <div className="signinpage">
-
-      <div className="signin__container">
-        <SignIn/>
+      <div className="signinpage__container">
+        <SignIn/>   
       </div>
       </div>
     );

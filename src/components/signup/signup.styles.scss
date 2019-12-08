@@ -1,4 +1,4 @@
-.signin {
+.signup {
     width: 100%;
     height: 500px;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
    margin-top: 15%;
   
-    .signin__container {
+    .signup__container {
 
       position: relative;
       height: 500px;
@@ -22,7 +22,7 @@
       border-radius: 10px;
       padding-top: 4rem;
   
-      .signin__avatar {
+      .signup__avatar {
         display: inline-block;
         position: absolute;
         top: -10%;
@@ -40,7 +40,7 @@
       }
     }
   
-    .signin__form {
+    .signup__form {
       display: flex;
       width: 100%;
   
@@ -48,33 +48,11 @@
       flex-direction: column;
       align-items: center;
       padding: 0 1rem 1rem 1rem;
-       
-      .signin__span{
-          margin: 1rem auto;
-          p{
-              margin: 0;
-              display: inline;
-          }
-          .signin__link{
-              margin-left: 0.6rem;
-              color: purple;
-              font-weight: 600;
-              text-decoration: none;
-              display: inline;
-          }
-  
-      }
       
   
-      .signin__buttons{
+      .signup__buttons{
           width: 100%;
-  
-          .signin__buttons-options{
-              width: 100%;
-              display: flex;
-              flex-direction: row;
-              justify-content: space-evenly;
-          }
+
   
       }
   }

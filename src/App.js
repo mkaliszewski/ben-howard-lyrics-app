@@ -11,10 +11,12 @@ import AlbumsPage from "./pages/albums/albums.page"
 import SongsPage from './pages/songs/songs.page'
 import AboutPage from './pages/about/about.page'
 import SignInPage from './pages/signin/signin.page'
+import SignUpPage from './pages/signup/signup.page'
 
 //components
 import Toolbar from './components/toolbar/toolbar.component'
 import Footer from './components/footer/footer.component'
+
 
 class App extends React.Component {
 
@@ -28,6 +30,7 @@ class App extends React.Component {
           <Route path="/songs" component={SongsPage}/>
           <Route exact path="/about" component={AboutPage}/>
           <Route exact path="/signin" component={SignInPage}/>
+          <Route exact path="/signup" component={SignUpPage}/>
         </Switch>
         <Footer/>
       </div>
