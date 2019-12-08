@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { toggleSidedrawerHidden } from "../../redux/toolbar/toolbar.actions";
 import ToggleButton from "../toggle-button/toggle-button.component";
-
+import { auth } from '../../firebase/firebase.utils'
 import "./header.styles.scss";
 import Logo from "../../assets/Logo.svg";
 import LogoYT from "../../assets/LogoYT.svg";
 import LogoSpotify from "../../assets/LogoSpotify.svg";
 
-const Header = ({ toggleSidedrawerHidden }) => (
+const Header = ({ toggleSidedrawerHidden, currentUser }) => (
   <div className="header">
     <div className="header__navitems-left">
       <div
@@ -40,12 +40,27 @@ const Header = ({ toggleSidedrawerHidden }) => (
 
     <div className="header__navitems-right">
       <div className="header__options">
-        <Link to="/signin" className="header__option">
+
+      {
+        currentUser ? 
+        <div onClick={() => auth.signOut()} className="header__option">Sign out</div>
+        :
+
+        (
+          <div>
+          <Link to="/signin" className="header__option">
           Sign in
         </Link>
         <Link to="/signup" className="header__option">
           Sign up
         </Link>
+          </div>
+          
+
+        )
+
+      }
+        
       </div>
       <a href="https://www.youtube.com/channel/UC7P46taO0CdI8Gy44P1X2yA" target="_blank" rel="noopener noreferrer" className="header__logo-container">
         <img src={LogoYT} alt="logo" className="header__logo" />
