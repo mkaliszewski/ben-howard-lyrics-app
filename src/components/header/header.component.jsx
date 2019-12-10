@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from 'reselect'
 import { toggleSidedrawerHidden } from "../../redux/toolbar/toolbar.actions";
+import { selectCurrentUser } from '../../redux/users/users.selectors'
 import ToggleButton from "../toggle-button/toggle-button.component";
 import { auth } from '../../firebase/firebase.utils'
 import "./header.styles.scss";
@@ -72,8 +74,13 @@ const Header = ({ toggleSidedrawerHidden, currentUser }) => (
   </div>
 );
 
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+});
+
 const mapDispatchToProps = dispatch => ({
   toggleSidedrawerHidden: () => dispatch(toggleSidedrawerHidden())
 });
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -20,8 +20,9 @@ class SignIn extends React.Component {
   }
 
   handleSubmit = async event => {
+
     event.preventDefault();
-  
+    console.log(event)
     const { email, password } = this.state;
 
     try{
@@ -31,9 +32,8 @@ class SignIn extends React.Component {
     }catch(error){
       console.log(error);
     }
+  }
 
-
-  };
 
   handleChange = event => {
     const { value, name } = event.target;
@@ -51,7 +51,10 @@ class SignIn extends React.Component {
           </div>
 
           <div></div>
-          <form onSubmit={this.handleSubmit} className="signin__form">
+          <form  
+          
+          
+          onSubmit={this.handleSubmit} className="signin__form">
             <h2>Sign in!</h2>
             <FormInput
               name="email"
@@ -68,6 +71,7 @@ class SignIn extends React.Component {
               label="Password"
               value={password}
               onChange={this.handleChange}
+              onKeyDown={this.handleSubmitOnKey}
               id="pass"
               required
             />
