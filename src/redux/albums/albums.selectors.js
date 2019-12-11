@@ -37,11 +37,11 @@ export const selectAllSongs = createSelector(
 export const selectSong = songUrlParam =>
 createSelector(
     [selectAllSongs],
-    songs => songs ?  songs.find(song => song["id"] === Number(songUrlParam)) : null
+    songs => (songs ? songs.find(song => song["id"] === Number(songUrlParam)) : null)
 )
 
 export const selectAlbum = albumUrlParam =>
     createSelector(
     [selectAlbums],
-    albums => albums ?  albums.find(album => album["id"] === Number(albumUrlParam)) : console.log("wtf")
-    )
+    albums => (albums ? albums.find(album => album["id"] === Number(albumUrlParam)) : null)
+)

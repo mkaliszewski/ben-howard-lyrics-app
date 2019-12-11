@@ -22,6 +22,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) =>{
     
     if(!snapShot.exists){
        const { displayName, email } = userAuth;
+       const favSongs = [];
+       const counter = 0;
        const createdAt = new Date();
 
        try{
@@ -29,6 +31,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) =>{
             displayName,
             email,
             createdAt,
+            favSongs,
+            counter,
             ...additionalData
         })
 
@@ -40,6 +44,51 @@ export const createUserProfileDocument = async (userAuth, additionalData) =>{
 
     return userRef;
 
+}
+
+export const saveFavSongs = async (userID, file) =>{
+    const docRef = firestore.doc(`users/${userID}`)
+    const snapshot = await docRef.get()
+    if(snapshot.exists){
+        try{
+            await docRef.update({
+                "favSongs": firebase.firestore.FieldValue.arrayUnion(file)
+            })
+        }catch(err){
+            console.log(err);
+        }
+    }    
+}
+
+export const deleteFavSongs = async (userID, file) =>{
+    const docRef = firestore.doc(`users/${userID}`)
+    const snapshot = await docRef.get();
+    if(snapshot.exists){
+        try{
+            await docRef.update({
+                "favSongs": firebase.firestore.FieldValue.arrayRemove(file)
+            })
+        }catch(err){
+            console.log(err);
+        }
+    }
+}
+
+
+export const incCounter = async userID =>{
+    const docRef = firestore.doc(`users/${userID}`)
+    const snapshot = await docRef.get();
+    const snapshotData = snapshot.data();
+
+    if(snapshot.exists){
+        try{
+            await docRef.update({
+                "counter": snapshotData["counter"]+1
+            })
+        }catch(err){
+            console.log(err);
+        }
+    }
 }
 
 
@@ -74,10 +123,12 @@ export const convertAlbumsSnapshotToMap = albums =>{
 }
 
 
-
-
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+
+
+
+
 
 
 const providerGoogle = new firebase.auth.GoogleAuthProvider()
