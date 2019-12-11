@@ -16,3 +16,8 @@ export const addCurrentSongs = filtredSongs =>({
 })
 
 
+export const updateAlbums = albums =>({
+    type: albumsActionTypes.UPDATE_ALBUMS,
+    payload: albums
+})
+

@@ -3,9 +3,11 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument, firestore, convertAlbumsSnapshotToMap } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/users/users.actions";
+import { updateAlbums } from './redux/albums/albums.actions'
 import { selectCurrentUser } from "./redux/users/users.selectors";
+import { selectAlbums } from './redux/albums/albums.selectors'
 //styles
 import "./App.scss";
 
@@ -20,13 +22,35 @@ import SignUpPage from "./pages/signup/signup.page";
 //components
 import Toolbar from "./components/toolbar/toolbar.component";
 import Footer from "./components/footer/footer.component";
+import WithSpinner from './with-spinner/with-spinner.component'
+
+
+const SongsPageWithSpinner = WithSpinner(SongsPage);
+const AlbumsPageWithSpinner = WithSpinner(AlbumsPage);
 
 
 class App extends React.Component {
+  state = {
+    isLoading: true
+  }
+
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+
+    const { setCurrentUser, updateAlbums } = this.props;
+
+
+
+    const collectionRef = firestore.collection('albums')
+
+    collectionRef.onSnapshot(async snapshot =>{
+    const albumsMap =  convertAlbumsSnapshotToMap(snapshot)
+    updateAlbums(albumsMap);
+    
+    })
+
+
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -40,10 +64,14 @@ class App extends React.Component {
             }
           });
         });
-      } else {
-        setCurrentUser(userAuth);
-      }
+      } 
+        
+      
+      setCurrentUser(userAuth);
+
     });
+
+    this.setState({isLoading: false})
   }
 
   componentWillUnmount() {
@@ -52,14 +80,15 @@ class App extends React.Component {
 
   render() {
     const { currentUser } = this.props;
-
+    const { isLoading } = this.state;
+    console.log(this.state)
     return (
       <div className="app__div">
         <Toolbar className="toolbar" />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/albums" component={AlbumsPage} />
-          <Route path="/songs" component={SongsPage} />
+          <Route path="/albums" render={(props) => <AlbumsPageWithSpinner isLoading={isLoading} {...props}/>} />
+          <Route path="/songs" render={(props) => <SongsPageWithSpinner isLoading={isLoading} {...props}  />}/>
           <Route exact path="/about" component={AboutPage} />
           <Route
             exact
@@ -79,11 +108,13 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  albums: selectAlbums
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  updateAlbums: albums => dispatch(updateAlbums(albums))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

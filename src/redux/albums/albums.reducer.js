@@ -2,7 +2,7 @@ import ALBUMS_DATA from '../../assets/ALBUMS_DATA'
 import albumsActionTypes from './albums.types'
 
 const INITIAL_STATE = {
-    albums: ALBUMS_DATA,
+    albums: null,
     currentAlbum:{
         songs: []
     }
@@ -29,7 +29,11 @@ const albumsDataReducer = (state=INITIAL_STATE, action) =>{
                     songs:action.payload
                 }
             }
-
+        case albumsActionTypes.UPDATE_ALBUMS:
+            return{
+                ...state,
+                albums: action.payload
+            }
         default:
             return state;
     }
