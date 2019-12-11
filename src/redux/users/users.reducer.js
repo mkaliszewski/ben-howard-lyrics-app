@@ -1,7 +1,6 @@
 import usersActionTypes from './users.types'
-
 const INITIAL_STATE = {
-    currentUser:null
+    currentUser:null,
 }
 
 const usersReducer = (state=INITIAL_STATE, action) =>{

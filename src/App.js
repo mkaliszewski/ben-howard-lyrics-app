@@ -18,6 +18,7 @@ import SongsPage from "./pages/songs/songs.page";
 import AboutPage from "./pages/about/about.page";
 import SignInPage from "./pages/signin/signin.page";
 import SignUpPage from "./pages/signup/signup.page";
+import ProfilePage from './pages/profile/profile.page'
 
 //components
 import Toolbar from "./components/toolbar/toolbar.component";
@@ -58,10 +59,8 @@ class App extends React.Component {
 
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
-            currentUser: {
               id: snapShot.id,
-              ...snapShot.data()
-            }
+              ...snapShot.data()    
           });
         });
       } 
@@ -78,10 +77,11 @@ class App extends React.Component {
     this.unsubscribeFromAuth();
   }
 
-  render() {
+  render() 
+  {
     const { currentUser } = this.props;
     const { isLoading } = this.state;
-    console.log(this.state)
+
     return (
       <div className="app__div">
         <Toolbar className="toolbar" />
@@ -100,6 +100,13 @@ class App extends React.Component {
             path="/signup"
             render={() => (currentUser ? <Redirect to="/" /> : <SignUpPage />)}
           />
+          {
+            currentUser ?
+            <Route exact path={`/profile/${currentUser.id}`} component={ProfilePage}/>
+            :
+            <Redirect to="/"/>
+          }
+          
         </Switch>
         <Footer />
       </div>

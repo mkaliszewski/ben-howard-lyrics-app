@@ -8,22 +8,28 @@ import { connect } from 'react-redux'
 import { selectAllSongs } from '../../redux/albums/albums.selectors'
 
 
-const SimilarSongsList = ({album, allSongs, id }) =>{
+const SimilarSongsList = ({album, allSongs, id, favSongs }) =>{
 
 const findOtherSongs = arr => arr.filter(song => song["id"] !== id).sort(() => 0.5-Math.random()).slice(0,10)
-let otherSongs;
+let otherSongs, headerTitle;
 
 
-album ? 
-otherSongs = album.songs
-:
-otherSongs = findOtherSongs(allSongs)
+if(album){
+    otherSongs = album.songs
+    headerTitle="Other songs on the album"
+}else if(favSongs){
+    otherSongs = favSongs
+    headerTitle="Your favourite songs"
+}else{
+    otherSongs = findOtherSongs(allSongs)
+    headerTitle="Related songs"
+}
 
 
 
 return(
     <div className="similarsongslist">
-    <h2>{album ? `Other songs on the album` : `Related songs` }</h2>
+    <h2>{headerTitle}</h2>
     <div className="similarsongslist__columns">
     <div className="similarsongslist__column-left">
     <h5>Song title</h5>
@@ -32,12 +38,19 @@ return(
     <h5>Length</h5>
     </div>
     </div>
+    {
+        console.log(otherSongs)
+    }
     
     <div div className="similarsongslist__scroll">
-    {
-        otherSongs.map( ({id, ...otherSongProps }) =>(
+    {   
+        otherSongs.length
+        ?
+        (otherSongs.map( ({id, ...otherSongProps }) =>(
             <SimilarSongsListElement key={id} id={id} {...otherSongProps} />
-        ))
+        )))
+        :
+        <h2 style={{marginTop: "2rem"}}>Oooooops it's empty</h2>
     }
     </div>
         

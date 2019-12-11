@@ -1,0 +1,47 @@
+.profilepage{
+    widows: 100%;
+    height: 100%;
+    padding: 56px 0 40px 0;
+    .profilepage__header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40%;
+        background-size: cover;
+        background-position: center;
+        background-color: rgba(0,0,0,0.3);
+        background-blend-mode: darken;
+        h1{
+            color:white;
+            font-size: 5rem;
+        }
+
+    }
+
+    .profilepage__columns{
+        display: flex;
+        padding: 2rem 1rem;
+        width: 100%;
+        height: 60%;
+    .profilepage__col1, .profilepage__col2{
+        height:100%;
+        width:50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .profilepage__col2{
+        h3{
+            font-size: 3rem;
+            margin: 0
+        }
+        h2{
+            font-size: 4rem;
+        }
+    }
+
+    }
+}
