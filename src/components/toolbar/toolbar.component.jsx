@@ -8,7 +8,7 @@ import Backdrop from "../backdrop/backdrop.component";
 
 
 
-const Toolbar = ({ toolbarIsOpen, currentUser, dispatch }) =>{
+const Toolbar = ({ toolbarIsOpen, dispatch }) =>{
     let backdrop;
 
     if(toolbarIsOpen){
@@ -17,7 +17,7 @@ const Toolbar = ({ toolbarIsOpen, currentUser, dispatch }) =>{
 
     return (
       <div>
-        <Header currentUser={currentUser}/>
+        <Header/>
         <SideDrawer/>
         {backdrop}
       </div>

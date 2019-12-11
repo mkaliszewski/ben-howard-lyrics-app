@@ -12,7 +12,7 @@ export const selectData = createSelector(
 //zwracamy tablicę 3 obiektów
 export const selectAlbums = createSelector(
     [selectData],
-    albums => Object.keys(albums).map(key => albums[key])
+    albums => albums ? Object.keys(albums).map(key => albums[key]) : []
 )
 
 
@@ -37,11 +37,11 @@ export const selectAllSongs = createSelector(
 export const selectSong = songUrlParam =>
 createSelector(
     [selectAllSongs],
-    songs => songs.find(song => song["id"] === Number(songUrlParam))
+    songs => songs ?  songs.find(song => song["id"] === Number(songUrlParam)) : null
 )
 
 export const selectAlbum = albumUrlParam =>
     createSelector(
     [selectAlbums],
-    albums => albums.find(album => album["id"] === Number(albumUrlParam))
+    albums => albums ?  albums.find(album => album["id"] === Number(albumUrlParam)) : console.log("wtf")
     )

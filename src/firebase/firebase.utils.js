@@ -43,15 +43,38 @@ export const createUserProfileDocument = async (userAuth, additionalData) =>{
 }
 
 
-
-
-
-
-
-
-
-
 firebase.initializeApp(config);
+
+export const addCollectionAndDocs = async (collectionName, objToAdd) =>{
+    const collectionRef = firestore.collection(collectionName);
+
+    const batch = firestore.batch();
+
+    objToAdd.forEach(obj =>{
+        const newRefDoc = collectionRef.doc();
+
+        batch.set(newRefDoc, obj)
+    })
+    return await batch.commit();
+}
+
+export const convertAlbumsSnapshotToMap = albums =>{
+    const transformedAlbums = albums.docs.map(doc =>{
+        const {id, title, imageUrl, imageUrlHeader, wikiUrl, routeName, producer, length, year, spotifyUri, info, songs} = doc.data();
+
+        return{
+            id, title, imageUrl, imageUrlHeader, wikiUrl, routeName, producer, length, year, spotifyUri, info, songs
+        }
+
+    })
+    return transformedAlbums.reduce((acc, album) =>{
+        acc[album.title.toLowerCase().replace(/\s+/g, '')] = album;
+        return acc;
+    }, {})
+}
+
+
+
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
