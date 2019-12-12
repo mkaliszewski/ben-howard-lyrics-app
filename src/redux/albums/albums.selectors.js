@@ -9,6 +9,14 @@ export const selectData = createSelector(
     albumsData => albumsData.albums
 )
 
+
+export const selectIsFetching = createSelector(
+    [selectAlbumsData],
+    data => data.isFetching
+)
+
+
+
 //zwracamy tablicę 3 obiektów
 export const selectAlbums = createSelector(
     [selectData],

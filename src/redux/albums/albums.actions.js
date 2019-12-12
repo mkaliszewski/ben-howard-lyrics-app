@@ -1,5 +1,5 @@
 import albumsActionTypes from './albums.types'
-
+import { firestore, convertAlbumsSnapshotToMap } from '../../firebase/firebase.utils'
 
 export const addCurrentAlbum = album =>({
     type: albumsActionTypes.ADD_CURRENT_ALBUM,
@@ -16,8 +16,28 @@ export const addCurrentSongs = filtredSongs =>({
 })
 
 
-export const updateAlbums = albums =>({
-    type: albumsActionTypes.UPDATE_ALBUMS,
-    payload: albums
+export const fetchAlbumsStart = () =>({
+    type: albumsActionTypes.FETCH_ALBUMS_START
 })
 
+export const fetchAlbumsSuccess = albumsMap =>({
+    type: albumsActionTypes.FETCH_ALBUMS_SUCCESS,
+    payload: albumsMap
+}
+)
+export const fetchAlbumsFailure = errorMessage => ({
+    type: albumsActionTypes.FETCH_ALBUMS_FAILURE,
+    payload: errorMessage
+})
+
+export const fetchAlbumStartAsync = () =>{
+    return dispatch =>{
+        const albumsRef = firestore.collection("albums")
+        dispatch(fetchAlbumsStart())
+
+        albumsRef.get().then(snapshot =>{
+        const albumsMap = convertAlbumsSnapshotToMap(snapshot);
+        dispatch(fetchAlbumsSuccess(albumsMap))
+        }).catch(error => dispatch(fetchAlbumsFailure(error.message)))
+    }
+}

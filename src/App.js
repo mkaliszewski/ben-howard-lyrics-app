@@ -3,11 +3,11 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
-import { auth, createUserProfileDocument, firestore, convertAlbumsSnapshotToMap } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/users/users.actions";
-import { updateAlbums } from './redux/albums/albums.actions'
+import { fetchAlbumStartAsync } from './redux/albums/albums.actions'
 import { selectCurrentUser } from "./redux/users/users.selectors";
-import { selectAlbums } from './redux/albums/albums.selectors'
+import { selectIsFetching } from './redux/albums/albums.selectors'
 //styles
 import "./App.scss";
 
@@ -31,36 +31,17 @@ const AlbumsPageWithSpinner = WithSpinner(AlbumsPage);
 
 
 class App extends React.Component {
-  state = {
-    isLoading: true
-  }
 
   unsubscribeFromAuth = null;
-  unsubscribeFromSnapshot = null;
+
 
   componentDidMount() {
 
-    const { setCurrentUser, updateAlbums } = this.props;
+    const { setCurrentUser, fetchAlbums } = this.props;
 
+    //fetching albums
 
-    //setting redux with data from firebase
-    const collectionRef = firestore.collection('albums')
-
-    collectionRef.get().then(snapshot =>{
-      const albumsMap = convertAlbumsSnapshotToMap(snapshot);
-      updateAlbums(albumsMap);
-      this.setState({isLoading: false})
-
-    })
-
-    
-    
-    // this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot =>{
-    // const albumsMap =  convertAlbumsSnapshotToMap(snapshot)
-    // updateAlbums(albumsMap);
-    // this.setState({isLoading: false})
-    // })
-
+    fetchAlbums();
 
     //opening user subscribtion and setting user snapshot data into redux currentUser
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
@@ -86,21 +67,19 @@ class App extends React.Component {
   componentWillUnmount() {
     //closing subscribtion
     this.unsubscribeFromAuth();
-    this.unsubscribeFromSnapshot();
   }
 
   render() 
   {
-    const { currentUser } = this.props;
-    const { isLoading } = this.state;
+    const { currentUser, isFetching } = this.props;
 
     return (
       <div className="app__div">
         <Toolbar className="toolbar" />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/albums" render={(props) => <AlbumsPageWithSpinner isLoading={isLoading} {...props}/>} />
-          <Route path="/songs" render={(props) => <SongsPageWithSpinner isLoading={isLoading} {...props}  />}/>
+          <Route path="/albums" render={(props) => <AlbumsPageWithSpinner isLoading={isFetching} {...props}/>} />
+          <Route path="/songs" render={(props) => <SongsPageWithSpinner isLoading={isFetching} {...props}  />}/>
           <Route exact path="/about" component={AboutPage} />
           <Route
             exact
@@ -128,12 +107,12 @@ class App extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  albums: selectAlbums
+  isFetching: selectIsFetching 
 });
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user)),
-  updateAlbums: albums => dispatch(updateAlbums(albums))
+  fetchAlbums: () => dispatch(fetchAlbumStartAsync())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
