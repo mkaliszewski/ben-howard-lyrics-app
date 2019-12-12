@@ -42,7 +42,7 @@ class App extends React.Component {
     const { setCurrentUser, updateAlbums } = this.props;
 
 
-
+    //setting redux with data from firebase
     const collectionRef = firestore.collection('albums')
 
     collectionRef.onSnapshot(async snapshot =>{
@@ -52,7 +52,7 @@ class App extends React.Component {
     })
 
 
-
+    //opening user subscribtion and setting user snapshot data into redux currentUser
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -74,6 +74,7 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
+    //closing subscribtion
     this.unsubscribeFromAuth();
   }
 

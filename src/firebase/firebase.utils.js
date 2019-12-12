@@ -13,6 +13,7 @@ const config = {
     measurementId: "G-8C3SX85FBW"
   };
 
+//creating user profile document if it doesn't exist
 export const createUserProfileDocument = async (userAuth, additionalData) =>{
     if(!userAuth) return;
 
@@ -46,6 +47,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) =>{
 
 }
 
+//adding user's favorite songs
 export const saveFavSongs = async (userID, file) =>{
     const docRef = firestore.doc(`users/${userID}`)
     const snapshot = await docRef.get()
@@ -60,6 +62,7 @@ export const saveFavSongs = async (userID, file) =>{
     }    
 }
 
+//deleting user's favorite songs
 export const deleteFavSongs = async (userID, file) =>{
     const docRef = firestore.doc(`users/${userID}`)
     const snapshot = await docRef.get();
@@ -74,7 +77,7 @@ export const deleteFavSongs = async (userID, file) =>{
     }
 }
 
-
+//increasing counter when checkings lyrics
 export const incCounter = async userID =>{
     const docRef = firestore.doc(`users/${userID}`)
     const snapshot = await docRef.get();
@@ -94,6 +97,7 @@ export const incCounter = async userID =>{
 
 firebase.initializeApp(config);
 
+//adding collections and docs of items to firebase
 export const addCollectionAndDocs = async (collectionName, objToAdd) =>{
     const collectionRef = firestore.collection(collectionName);
 
@@ -107,6 +111,7 @@ export const addCollectionAndDocs = async (collectionName, objToAdd) =>{
     return await batch.commit();
 }
 
+//converting snapshot with data from firebase into object to redux
 export const convertAlbumsSnapshotToMap = albums =>{
     const transformedAlbums = albums.docs.map(doc =>{
         const {id, title, imageUrl, imageUrlHeader, wikiUrl, routeName, producer, length, year, spotifyUri, info, songs} = doc.data();
