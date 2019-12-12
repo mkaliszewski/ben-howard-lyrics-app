@@ -46,24 +46,19 @@ class App extends React.Component {
     //setting redux with data from firebase
     const collectionRef = firestore.collection('albums')
 
-    fetch("https://firestore.googleapis.com/v1/projects/react-lyrics-app/databases/(default)/documents/albums")
-    .then(response => response.json())
-    .then(albums => console.log(albums))
+    collectionRef.get().then(snapshot =>{
+      const albumsMap = convertAlbumsSnapshotToMap(snapshot);
+      updateAlbums(albumsMap);
+      this.setState({isLoading: false})
 
-
-    //ver with restApi
-    // collectionRef.get().then(snapshot =>{
-    //   const albumsMap = convertAlbumsSnapshotToMap(snapshot);
-    //   updateAlbums(albumsMap)
-    // }
-    // )
+    })
 
     
     
     // this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot =>{
     // const albumsMap =  convertAlbumsSnapshotToMap(snapshot)
     // updateAlbums(albumsMap);
-    //
+    // this.setState({isLoading: false})
     // })
 
 
@@ -82,7 +77,7 @@ class App extends React.Component {
         
       
       setCurrentUser(userAuth);
-      this.setState({isLoading: false})
+      
     });
 
     
