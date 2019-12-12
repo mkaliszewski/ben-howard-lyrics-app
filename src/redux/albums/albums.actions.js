@@ -30,6 +30,8 @@ export const fetchAlbumsFailure = errorMessage => ({
     payload: errorMessage
 })
 
+
+//redux-thunk function
 export const fetchAlbumStartAsync = () =>{
     return dispatch =>{
         const albumsRef = firestore.collection("albums")

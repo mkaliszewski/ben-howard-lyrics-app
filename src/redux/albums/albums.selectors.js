@@ -15,6 +15,11 @@ export const selectIsFetching = createSelector(
     data => data.isFetching
 )
 
+//selecting boolean value of albums state
+export const selectAreAlbumsLoaded = createSelector(
+    [selectAlbumsData],
+    data => !!data.albums
+)
 
 
 //zwracamy tablicę 3 obiektów

@@ -7,7 +7,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/users/users.actions";
 import { fetchAlbumStartAsync } from './redux/albums/albums.actions'
 import { selectCurrentUser } from "./redux/users/users.selectors";
-import { selectIsFetching } from './redux/albums/albums.selectors'
+import { selectIsFetching, selectAreAlbumsLoaded } from './redux/albums/albums.selectors'
 //styles
 import "./App.scss";
 
@@ -71,15 +71,15 @@ class App extends React.Component {
 
   render() 
   {
-    const { currentUser, isFetching } = this.props;
+    const { currentUser, isFetching, areAlbumsLoaded } = this.props;
 
     return (
       <div className="app__div">
         <Toolbar className="toolbar" />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/albums" render={(props) => <AlbumsPageWithSpinner isLoading={isFetching} {...props}/>} />
-          <Route path="/songs" render={(props) => <SongsPageWithSpinner isLoading={isFetching} {...props}  />}/>
+          <Route path="/albums" render={(props) => <AlbumsPageWithSpinner isLoading={!areAlbumsLoaded} {...props}/>} />
+          <Route path="/songs" render={(props) => <SongsPageWithSpinner isLoading={!areAlbumsLoaded} {...props}  />}/>
           <Route exact path="/about" component={AboutPage} />
           <Route
             exact
@@ -107,7 +107,8 @@ class App extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  isFetching: selectIsFetching 
+  isFetching: selectIsFetching,
+  areAlbumsLoaded: selectAreAlbumsLoaded
 });
 
 const mapDispatchToProps = dispatch => ({
