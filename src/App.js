@@ -7,14 +7,13 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/users/users.actions";
 import { fetchAlbumStartAsync } from './redux/albums/albums.actions'
 import { selectCurrentUser } from "./redux/users/users.selectors";
-import { selectIsFetching, selectAreAlbumsLoaded } from './redux/albums/albums.selectors'
 //styles
 import "./App.scss";
 
 //pages
 import Homepage from "./pages/homepage/homepage.page";
-import AlbumsPage from "./pages/albums/albums.page";
-import SongsPage from "./pages/songs/songs.page";
+import AlbumsPageContainer from "./pages/albums/albums.container";
+import SongsPageContainer from "./pages/songs/songs.container";
 import AboutPage from "./pages/about/about.page";
 import SignInPage from "./pages/signin/signin.page";
 import SignUpPage from "./pages/signup/signup.page";
@@ -23,11 +22,6 @@ import ProfilePage from './pages/profile/profile.page'
 //components
 import Toolbar from "./components/toolbar/toolbar.component";
 import Footer from "./components/footer/footer.component";
-import WithSpinner from './with-spinner/with-spinner.component'
-
-
-const SongsPageWithSpinner = WithSpinner(SongsPage);
-const AlbumsPageWithSpinner = WithSpinner(AlbumsPage);
 
 
 class App extends React.Component {
@@ -71,15 +65,15 @@ class App extends React.Component {
 
   render() 
   {
-    const { currentUser, isFetching, areAlbumsLoaded } = this.props;
+    const { currentUser } = this.props;
 
     return (
       <div className="app__div">
         <Toolbar className="toolbar" />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/albums" render={(props) => <AlbumsPageWithSpinner isLoading={!areAlbumsLoaded} {...props}/>} />
-          <Route path="/songs" render={(props) => <SongsPageWithSpinner isLoading={!areAlbumsLoaded} {...props}  />}/>
+          <Route path="/albums" component={AlbumsPageContainer} />
+          <Route path="/songs" component={SongsPageContainer}/>
           <Route exact path="/about" component={AboutPage} />
           <Route
             exact
@@ -106,9 +100,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-  isFetching: selectIsFetching,
-  areAlbumsLoaded: selectAreAlbumsLoaded
+  currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({
