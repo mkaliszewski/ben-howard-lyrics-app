@@ -36,6 +36,7 @@ class App extends React.Component {
   }
 
   unsubscribeFromAuth = null;
+  unsubscribeFromSnapshot = null;
 
   componentDidMount() {
 
@@ -45,11 +46,25 @@ class App extends React.Component {
     //setting redux with data from firebase
     const collectionRef = firestore.collection('albums')
 
-    collectionRef.onSnapshot(async snapshot =>{
-    const albumsMap =  convertAlbumsSnapshotToMap(snapshot)
-    updateAlbums(albumsMap);
+    fetch("https://firestore.googleapis.com/v1/projects/react-lyrics-app/databases/(default)/documents/albums")
+    .then(response => response.json())
+    .then(albums => console.log(albums))
+
+
+    //ver with restApi
+    // collectionRef.get().then(snapshot =>{
+    //   const albumsMap = convertAlbumsSnapshotToMap(snapshot);
+    //   updateAlbums(albumsMap)
+    // }
+    // )
+
     
-    })
+    
+    // this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot =>{
+    // const albumsMap =  convertAlbumsSnapshotToMap(snapshot)
+    // updateAlbums(albumsMap);
+    //
+    // })
 
 
     //opening user subscribtion and setting user snapshot data into redux currentUser
@@ -67,15 +82,16 @@ class App extends React.Component {
         
       
       setCurrentUser(userAuth);
-
+      this.setState({isLoading: false})
     });
 
-    this.setState({isLoading: false})
+    
   }
 
   componentWillUnmount() {
     //closing subscribtion
     this.unsubscribeFromAuth();
+    this.unsubscribeFromSnapshot();
   }
 
   render() 
@@ -103,7 +119,7 @@ class App extends React.Component {
           />
           {
             currentUser ?
-            <Route exact path={`/profile/${currentUser.id}`} component={ProfilePage}/>
+            <Route path={`/profile/${currentUser.id}`} component={ProfilePage}/>
             :
             <Redirect to="/"/>
           }
