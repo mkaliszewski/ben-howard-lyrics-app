@@ -31,7 +31,6 @@ const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
     //fetching albums
 
     fetchAlbums();
-    console.log("megaLol")
 
     //opening user subscribtion and setting user snapshot data into redux currentUser
     const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
@@ -45,7 +44,6 @@ const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
           });
         });
       } 
-        console.log("lol")
       
       setCurrentUser(userAuth);
       
