@@ -13,7 +13,7 @@ import "./App.scss";
 //components
 import Toolbar from "./components/toolbar/toolbar.component";
 import Footer from "./components/footer/footer.component";
-
+import Spinner from './components/spiner/spiner.component'
 
 //lazy loading, it gives us a possibility to load this components when needed
 //suspense gives ability to load wrapped component async
@@ -62,8 +62,9 @@ const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
     return (
       <div className="app__div">
         <Toolbar className="toolbar" />
+        <Suspense fallback={<Spinner/>}>
         <Switch>
-        <Suspense fallback={<div></div>}>
+        
         <Route exact path="/" component={Homepage} />
         
           
@@ -86,9 +87,9 @@ const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
             :
             <Redirect to="/"/>
           }
-         </Suspense> 
+         
         </Switch>
-        
+        </Suspense> 
         <Footer />
       </div>
     );
