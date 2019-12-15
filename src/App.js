@@ -31,9 +31,10 @@ const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
     //fetching albums
 
     fetchAlbums();
+    console.log("megaLol")
 
     //opening user subscribtion and setting user snapshot data into redux currentUser
-    let unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -44,17 +45,18 @@ const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
           });
         });
       } 
+        console.log("lol")
       
       setCurrentUser(userAuth);
       
     });
-    unsubscribeFromAuth();
+
     
 
     return() =>{
-      unsubscribeFromAuth = null;
+      unsubscribeFromAuth();
     }
-  });
+  }, []);
 
 
     return (
