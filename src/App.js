@@ -1,5 +1,5 @@
 //libs
-import React, {useEffect} from "react";
+import React, {useEffect, lazy, Suspense} from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
@@ -10,18 +10,23 @@ import { selectCurrentUser } from "./redux/users/users.selectors";
 //styles
 import "./App.scss";
 
-//pages
-import Homepage from "./pages/homepage/homepage.page";
-import AlbumsPageContainer from "./pages/albums/albums.container";
-import SongsPageContainer from "./pages/songs/songs.container";
-import AboutPage from "./pages/about/about.page";
-import SignInPage from "./pages/signin/signin.page";
-import SignUpPage from "./pages/signup/signup.page";
-import ProfilePage from './pages/profile/profile.page'
-
 //components
 import Toolbar from "./components/toolbar/toolbar.component";
 import Footer from "./components/footer/footer.component";
+
+
+//lazy loading, it gives us a possibility to load this components when needed
+//suspense gives ability to load wrapped component async
+
+const Homepage = lazy(() => import("./pages/homepage/homepage.page"))
+const AlbumsPageContainer = lazy(() => import("./pages/albums/albums.container"))
+const SongsPageContainer = lazy(() => import("./pages/songs/songs.container"))
+const AboutPage = lazy(() => import("./pages/about/about.page"))
+const SignInPage = lazy(() => import("./pages/signin/signin.page"))
+const SignUpPage = lazy(() => import("./pages/signup/signup.page"))
+const ProfilePage = lazy(() => import('./pages/profile/profile.page'))
+
+
 
 
 const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
@@ -43,13 +48,10 @@ const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
               ...snapShot.data()    
           });
         });
+      }else{
+        setCurrentUser(userAuth);
       } 
-      
-      setCurrentUser(userAuth);
-      
     });
-
-    
 
     return() =>{
       unsubscribeFromAuth();
@@ -61,7 +63,10 @@ const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
       <div className="app__div">
         <Toolbar className="toolbar" />
         <Switch>
-          <Route exact path="/" component={Homepage} />
+        <Suspense fallback={<div></div>}>
+        <Route exact path="/" component={Homepage} />
+        
+          
           <Route path="/albums" component={AlbumsPageContainer} />
           <Route path="/songs" component={SongsPageContainer}/>
           <Route exact path="/about" component={AboutPage} />
@@ -81,8 +86,9 @@ const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
             :
             <Redirect to="/"/>
           }
-          
+         </Suspense> 
         </Switch>
+        
         <Footer />
       </div>
     );
