@@ -21,18 +21,21 @@ class SongInfo extends React.Component{
   let favSongsTypeOfFnc = null;
 
   if (currentUser !== null){
-  if(usersFavSongs.map(song => song["id"]).includes(id)){
-    heartLogoClass = "songinfo-red-heart"
-    favSongsTypeOfFnc = deleteFavSongs;
-  }else{
-    heartLogoClass = "songinfo-black-heart"
-    favSongsTypeOfFnc = saveFavSongs;
-  }}else{
+    if(usersFavSongs){
+      if(usersFavSongs.map(song => song["id"]).includes(id)){
+        heartLogoClass = "songinfo-red-heart"
+        favSongsTypeOfFnc = deleteFavSongs;
+      }else{
+        heartLogoClass = "songinfo-black-heart"
+        favSongsTypeOfFnc = saveFavSongs;
+      }
+    }
+ }else{
     heartLogoClass = "songinfo-black-heart"
   }
 
 
-
+  
 
   const contentToHtml = text => {
     return text

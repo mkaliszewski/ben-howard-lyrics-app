@@ -1,5 +1,4 @@
 import albumsActionTypes from './albums.types'
-import { bindActionCreators } from 'redux'
 
 const INITIAL_STATE = {
     albums: null,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import FormInput from "./../form-input/form-input.component";
 import CustomButton from "./../custom-button/custom-button";
@@ -10,39 +10,32 @@ import {
 import "./signin.styles.scss";
 import { ReactComponent as AvatarLogo } from "../../assets/user.svg";
 
-class SignIn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: ""
-    };
-  }
+const SignIn = () => {
+  const [userCredentials, setUserCredentials] = useState({email: '', password:''});
+  const {email, password} = userCredentials;
 
-  handleSubmit = async event => {
+  const handleSubmit = async event => {
 
     event.preventDefault();
-    console.log(event)
-    const { email, password } = this.state;
+    
+    
 
     try{
       await auth.signInWithEmailAndPassword(email, password)
-      this.setState({email: "",
-      password: ""})
+      setUserCredentials({email: "", password: ""})
     }catch(error){
       console.log(error);
     }
   }
 
 
-  handleChange = event => {
+  const handleChange = event => {
     const { value, name } = event.target;
 
-    this.setState({ [name]: value });
+    setUserCredentials({...userCredentials, [name]: value });
   };
 
-  render() {
-    const { email, password } = this.state;
+
     return (
       <div className="signin">
         <div className="signin__container">
@@ -54,14 +47,14 @@ class SignIn extends React.Component {
           <form  
           
           
-          onSubmit={this.handleSubmit} className="signin__form">
+          onSubmit={handleSubmit} className="signin__form">
             <h2>Sign in!</h2>
             <FormInput
               name="email"
               type="text"
               label="Email"
               value={email}
-              onChange={this.handleChange}
+              onChange={handleChange}
               id="login"
               required
             />
@@ -70,8 +63,7 @@ class SignIn extends React.Component {
               type="password"
               label="Password"
               value={password}
-              onChange={this.handleChange}
-              onKeyDown={this.handleSubmitOnKey}
+              onChange={handleChange}
               id="pass"
               required
             />
@@ -101,7 +93,6 @@ class SignIn extends React.Component {
         </div>
       </div>
     );
-  }
 }
 
 export default SignIn;

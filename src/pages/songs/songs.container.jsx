@@ -13,7 +13,7 @@ const mapStateToProps = createStructuredSelector({
     isLoading: state => !selectAreAlbumsLoaded(state)
 })
 
-//compose curring it all. From right to left => conect(mapStateToProps)(WithSpinner(SongsPage))
+//compose curring it all. From right to left => conect((mapStateToProps)(WithSpinner(SongsPage)))
 const SongsPageContainer = compose(
     connect(mapStateToProps),
     WithSpinner
