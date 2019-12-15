@@ -1,5 +1,5 @@
 //libs
-import React from "react";
+import React, {useEffect} from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
@@ -24,21 +24,16 @@ import Toolbar from "./components/toolbar/toolbar.component";
 import Footer from "./components/footer/footer.component";
 
 
-class App extends React.Component {
+const App = ({setCurrentUser, fetchAlbums, currentUser }) =>{
 
-  unsubscribeFromAuth = null;
-
-
-  componentDidMount() {
-
-    const { setCurrentUser, fetchAlbums } = this.props;
-
+  useEffect(() => {
+    
     //fetching albums
 
     fetchAlbums();
 
     //opening user subscribtion and setting user snapshot data into redux currentUser
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    let unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -49,23 +44,18 @@ class App extends React.Component {
           });
         });
       } 
-        
       
       setCurrentUser(userAuth);
       
     });
-
+    unsubscribeFromAuth();
     
-  }
 
-  componentWillUnmount() {
-    //closing subscribtion
-    this.unsubscribeFromAuth();
-  }
+    return() =>{
+      unsubscribeFromAuth = null;
+    }
+  });
 
-  render() 
-  {
-    const { currentUser } = this.props;
 
     return (
       <div className="app__div">
@@ -97,7 +87,7 @@ class App extends React.Component {
       </div>
     );
   }
-}
+
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
