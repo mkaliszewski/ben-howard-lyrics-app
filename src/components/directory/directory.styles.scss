@@ -1,6 +1,13 @@
 @mixin for-tablet-landscape-down {
   @media (max-width: 900px) { @content; }
 }
+
+
+@mixin for-l-phone-portrait {
+  @media (max-width: 660px) {
+    @content;
+  }
+}
 @mixin flex{
   display: flex;
   justify-content: space-around;
@@ -18,5 +25,11 @@
 
 .directory-row{
   @include flex;
+  background: transparent;
   flex-direction: row;
+  @include for-l-phone-portrait{
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
 }

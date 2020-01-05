@@ -1,8 +1,13 @@
 import React from 'react';
-import './toggle-button.styles.scss'
 
-const ToggleButton = props => (
-    <button className="togggle-button">
+
+import './toggle-button.styles.scss'
+import { connect } from 'react-redux';
+
+import {toggleSidedrawerHidden} from '../../redux/toolbar/toolbar.actions'
+
+const ToggleButton = ({toggleSidedrawerHidden})=> (
+    <button onClick={toggleSidedrawerHidden} className="togggle-button">
         <div className="togggle-button_line"/>
         <div className="togggle-button_line"/>
         <div className="togggle-button_line"/>
@@ -11,4 +16,8 @@ const ToggleButton = props => (
 
 
 
-export default ToggleButton;
+const mapDispatchToProps = dispatch => ({
+    toggleSidedrawerHidden: () => dispatch(toggleSidedrawerHidden())
+  });
+
+export default connect(null, mapDispatchToProps) (ToggleButton);

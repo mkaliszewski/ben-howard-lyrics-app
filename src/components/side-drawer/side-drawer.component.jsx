@@ -2,34 +2,37 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import "./side-drawer.styles.scss";
+import {hideSidedrawer} from '../../redux/toolbar/toolbar.actions';
 
-const SideDrawer = props => {
-  let open = props.isOpen ? "open" : "";
+const SideDrawer = ({ isOpen, hideSidedrawer }) => {
 
   return (
-    <div className={`side-drawer__options ${open}`}>
-        <div  className={`side-drawer__color-section-top ${open}`}/>
-      <h1 className="side-drawer_heading"><em>BH Lyrics</em></h1>
-      <Link to="/" className="side-drawer__option">
+    <aside className={isOpen ? `side-drawer__aside open` : `side-drawer__aside`}>
+    
+    
+    <div className="side-drawer__div-options">
+      <Link onClick={hideSidedrawer} to="/" className="side-drawer__link">
         Home
       </Link>
-      <Link to="/songs" className="side-drawer__option">
+
+      
+      <Link onClick={hideSidedrawer} to="/songs" className="side-drawer__link">
         Songs
       </Link>
-      <Link to="/albums" className="side-drawer__option">
+      <Link onClick={hideSidedrawer} to="/albums" className="side-drawer__link">
         Albums
       </Link>
-      <Link to="/about" className="side-drawer__option">
+      <Link onClick={hideSidedrawer} to="/about" className="side-drawer__link">
         About
       </Link>
-      <Link to="/sigin" className="side-drawer__option">
+      <Link onClick={hideSidedrawer} to="/sigin" className="side-drawer__link">
           Sign in
         </Link>
-      <Link to="/signup" className="side-drawer__option">
+      <Link onClick={hideSidedrawer} to="/signup" className="side-drawer__link">
         Sign up
       </Link>
-      <div className={`side-drawer__color-section-bottom ${open}`}/>
     </div>
+    </aside>
   );
 };
 
@@ -38,4 +41,7 @@ const mapStateToProps = state =>({
   isOpen: state.toolbar.isOpen
 })
 
-export default connect(mapStateToProps)(SideDrawer);
+const mapDispatchToProps = dispatch =>({
+    hideSidedrawer: () =>dispatch(hideSidedrawer())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(SideDrawer);

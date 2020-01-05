@@ -1,0 +1,107 @@
+@keyframes showupFigure {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @mixin for-l-phone-portrait {
+    @media (max-width: 660px) {
+      @content;
+    }
+  }
+
+  @mixin for-tablet-portrait-down {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @mixin for-xl-desktop-up {
+    @media (min-width: 1920px) {
+      @content;
+    }
+  }
+.figure{
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include for-xl-desktop-up{
+        width: 350px;
+        height: 350px;
+    }
+    @include for-tablet-portrait-down{
+        width: 250px;
+        height: 250px;
+    }
+    @include for-l-phone-portrait{
+        width: 150px;
+        height: 150px;
+    }
+    &.figure--1, &.figure--2, &.figure--3{
+        opacity: 0;
+        @include for-tablet-portrait-down{
+            opacity: 1;
+            animation: none;
+        }
+        
+    }
+
+
+    &.figure--1{
+        animation: showupFigure 3s 6s forwards;
+        @include for-tablet-portrait-down{
+            animation: none;
+        }
+    }
+
+    &.figure--2{
+        animation: showupFigure 3s 7s forwards;
+        @include for-tablet-portrait-down{
+            animation: none;
+        }
+    }
+
+    &.figure--3{
+        animation: showupFigure 3s 8s forwards;
+        @include for-tablet-portrait-down{
+            animation: none;
+        }
+    }
+
+    figcaption{
+
+
+        p{
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 0.5rem;
+            
+            white-space: wrap;
+            @include for-l-phone-portrait{
+                font-size: 1rem;
+            }
+        }
+    }
+
+    img{
+        height: 200px;
+        width: 100%;
+        @include for-l-phone-portrait{
+            width: 150px;
+            height: 150px;
+        }
+        @include for-tablet-portrait-down{
+            width: 100px;
+            height: 100px;
+        }
+        @include for-xl-desktop-up{
+            height: 300px;
+        }
+
+        cursor: pointer;
+    }
+}

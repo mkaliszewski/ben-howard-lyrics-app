@@ -41,14 +41,12 @@
         font-size: 1.1rem;
     }
 }
+.side-drawer__aside{
 
-.side-drawer__options{
     display:flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
     height: 100%;
-    background:#EFEFEF;
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
     position: fixed;
     top:0;
     left:0;
@@ -57,56 +55,53 @@
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
-    background: #fdfdfd;
-
-    @include for-phone-only-landscape{
-        width: 40%;
-    }
-    @include for-phone-only{
-        box-shadow: none;
-    }
+    background: #EFEFEF;
 
     &.open{
         transform: translateX(0);
-    }
-    
-    a{
-        color: black;
+        box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
     }
 
-    
-
-    .side-drawer__color-section-top{
-        @include color-section;
-        top:0;
-        transform: translateY(-100%);
-        background-position: center top;
-        clip-path: polygon(0 0, 100% 0%, 100% 0, 0 100%);
+    &:before, &:after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        background-color: lightblue;
     }
-
-    .side-drawer__color-section-bottom{
-        @include color-section;
-        bottom:0;
+    &:before{    
+        top: 0;
         left:0;
-        transform: translateY(100%);
-        background-position: center bottom;
-        clip-path: polygon(100% 100%, 100% 0%, 100% 0, 0 100%);
+        clip-path: polygon(0 0, 0 100%, 100% 0);
+    }
+    &:after{
+        bottom: 0;
+        right:0;
+        clip-path: polygon(100% 0, 0 100%, 100% 100%);
 
     }
 
-    .side-drawer_heading{
-    @include option-heading;
-    font-size: 2.2rem;
-    }
+    .side-drawer__div-options{
+        width: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        a.side-drawer__link{
 
-    .side-drawer__option{
-    @include option-heading;
-    font-size: 1.8rem;
-        &:hover{
-            color: #809BCE;
+            font-size: 2rem;
+            font-weight: 200;
+            color: black;
+            &:hover{
+                color: lightblue;
+            }
+            &:focus{
+                outline: none;
+            }
+            
         }
-    }
-    .side-drawer_heading{
-        letter-spacing: 3px;
+    
+       
     }
 }

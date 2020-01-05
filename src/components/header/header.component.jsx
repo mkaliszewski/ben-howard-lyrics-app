@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from 'reselect'
-import { toggleSidedrawerHidden } from "../../redux/toolbar/toolbar.actions";
 import { selectCurrentUser } from '../../redux/users/users.selectors'
 import ToggleButton from "../toggle-button/toggle-button.component";
 import { auth } from '../../firebase/firebase.utils'
@@ -14,12 +13,11 @@ import LogoSpotify from "../../assets/LogoSpotify.svg";
 class Header extends React.Component{
 
 render(){
-  const { currentUser, toggleSidedrawerHidden } = this.props;
+  const { currentUser } = this.props;
   return(
     <div className="header">
       <div className="header__navitems-left">
         <div
-          onClick={toggleSidedrawerHidden}
           className="header__button-container"
         >
           <ToggleButton className="header__button" />
@@ -94,8 +92,5 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 });
 
-const mapDispatchToProps = dispatch => ({
-  toggleSidedrawerHidden: () => dispatch(toggleSidedrawerHidden())
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

@@ -14,6 +14,7 @@ import "./App.scss";
 import Toolbar from "./components/toolbar/toolbar.component";
 import Footer from "./components/footer/footer.component";
 import Spinner from "./components/spiner/spiner.component";
+import ErrorBoundary from "./components/error-boundary/error-boundary.component";
 
 //lazy loading, it gives us a possibility to load this components when needed
 //suspense gives ability to load wrapped component async
@@ -57,35 +58,41 @@ const App = ({ setCurrentUser, fetchAlbums, currentUser }) => {
 
   return (
     <div className="app__div">
-      <Toolbar className="toolbar" />
-      <Suspense fallback={<Spinner />}>
-        <Switch>
-          <Route exact path="/" component={Homepage} />
+      <ErrorBoundary>
+        <Toolbar className="toolbar" />
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            <Route exact path="/" component={Homepage} />
 
-          <Route path="/albums" component={AlbumsPageContainer} />
-          <Route path="/songs" component={SongsPageContainer} />
-          <Route exact path="/about" component={AboutPage} />
-          <Route
-            exact
-            path="/signin"
-            render={() => (currentUser ? <Redirect to="/" /> : <SignInPage />)}
-          />
-          <Route
-            exact
-            path="/signup"
-            render={() => (currentUser ? <Redirect to="/" /> : <SignUpPage />)}
-          />
-          {currentUser ? (
+            <Route path="/albums" component={AlbumsPageContainer} />
+            <Route path="/songs" component={SongsPageContainer} />
+            <Route exact path="/about" component={AboutPage} />
             <Route
-              path={`/profile/${currentUser.id}`}
-              component={ProfilePage}
+              exact
+              path="/signin"
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <SignInPage />
+              }
             />
-          ) : (
-            <Redirect to="/" />
-          )}
-        </Switch>
-      </Suspense>
-      <Footer />
+            <Route
+              exact
+              path="/signup"
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <SignUpPage />
+              }
+            />
+            {currentUser ? (
+              <Route
+                path={`/profile/${currentUser.id}`}
+                component={ProfilePage}
+              />
+            ) : (
+              <Redirect to="/" />
+            )}
+          </Switch>
+        </Suspense>
+        <Footer />
+      </ErrorBoundary>
     </div>
   );
 };
