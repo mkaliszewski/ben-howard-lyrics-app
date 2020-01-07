@@ -9,7 +9,7 @@ const SideDrawer = ({ isOpen, hideSidedrawer }) => {
   return (
     <aside className={isOpen ? `side-drawer__aside open` : `side-drawer__aside`}>
     
-    
+    <button className="side-drawer__button" onClick={hideSidedrawer}></button>
     <div className="side-drawer__div-options">
       <Link onClick={hideSidedrawer} to="/" className="side-drawer__link">
         Home

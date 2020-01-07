@@ -1,7 +1,15 @@
-@mixin for-tablet-landscape-down {
-    @media (max-width: 900px) { @content; }
-  }
 
+  @mixin for-l-tablet-down {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  
+@mixin for-l-smartphone-down-portrait{
+    @media (max-width: 600px) and (orientation: portrait) {
+      @content;
+    }
+  }
 .footer{
     position: fixed;
     clear: both;
@@ -18,10 +26,16 @@
     &::before{
         margin-top: 40px;
     }
-    @include for-tablet-landscape-down{
+    @include for-l-tablet-down{
         height: 60px;
-        position: relative;
+        position: fixed;
+        width: 80%;
+        margin-left: 20%;
 
+    }
+    @include for-l-smartphone-down-portrait{
+        width: 100%;
+        margin-left:0;
     }
     .footer-info__div-link-holder img{
         display: none;
@@ -35,7 +49,7 @@
         width: 60%;
 
 
-        @include for-tablet-landscape-down {
+        @include for-l-tablet-down {
             width: 100%;
             flex-direction: column;
             justify-content: center;

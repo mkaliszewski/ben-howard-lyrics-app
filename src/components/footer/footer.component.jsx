@@ -12,18 +12,15 @@ const Footer = () => (
         <a
           href="https://github.com/mkaliszewski"
           alt="Github"
-          target="_blank"
-          rel="noopener noreferrer"
         >
-        <img src={linkedinLogo} />
+        <img src={githubLogo} alt="Github"/>
         </a>
         <a
           href="https://www.linkedin.com/in/mikołaj-kaliszewski-803040153"
           alt="Linkedin"
-          target="_blank"
-          rel="noopener noreferrer"
         >
-        <img src={githubLogo} />
+        
+        <img src={linkedinLogo} alt="Linkedin"/>
         </a>
       </div>
     </div>

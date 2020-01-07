@@ -30,16 +30,13 @@
     justify-content: space-around;
     height: 28px;
     width: 40px;
+    margin: 1rem;
     border: none;
     background: transparent;
     cursor: pointer;
         &:focus{
             outline: none;
         }
-
-    @include for-tablet-landscape-up{
-        display: none;
-    }
     .togggle-button_line{
         width: 40px;
         height: 2px;

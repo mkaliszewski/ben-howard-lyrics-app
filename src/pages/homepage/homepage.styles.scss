@@ -1,224 +1,137 @@
-//media queries
-
-@mixin for-l-phone-portrait {
-  @media (max-width: 660px) {
-    @content;
-  }
-}
-
-@mixin for-tablet-portrait-up {
-  @media (min-width: 600px) {
-    @content;
-  }
-}
-
-@mixin for-footer{
-    @media (max-width: 900px){
-        @content;
-    }
-}
-
-@mixin for-tablet-portrait-down {
+@mixin for-l-tablet-down {
   @media (max-width: 1024px) {
     @content;
   }
 }
-
-@mixin for-l-desktop-down {
-  @media (max-width: 1440px) {
+@mixin for-m-tablet-down {
+  @media (max-width: 858px) {
     @content;
   }
 }
 
-
-@keyframes showup {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
+@mixin for-l-smartphone-down-portrait{
+  @media (max-width: 600px) and (orientation: portrait) {
+    @content;
   }
 }
 
-@keyframes slidein {
-  0% {
-    margin-left: -800px;
-  }
-  20% {
-    margin-left: -800px;
-  }
-  35% {
-    margin-left: 0px;
-  }
-  100% {
-    margin-left: 0px;
-  }
-}
-
-@keyframes reveal {
-  0% {
-    opacity: 0;
-    width: 0px;
-  }
-  20% {
-    opacity: 1;
-    width: 0px;
-  }
-  30% {
-    width: 850px;
-  }
-  100% {
-    opacity: 1;
-    width: 850px;
-  }
-}
-
-@include for-l-desktop-down{
-
-    @keyframes reveal {
-        0% {
-          opacity: 0;
-          width: 0px;
-        }
-        20% {
-          opacity: 1;
-          width: 0px;
-        }
-        30% {
-          width: 570px;
-        }
-        100% {
-          opacity: 1;
-          width: 570px;
-        }
-      }
-    
-}
-
-
-
-
-
-.homepage__main {
+.homepage {
   height: 100vh;
   width: 100%;
-  padding-top: 56px;
-  text-align: center;
-  overflow-y: hidden;
-  background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
-  font-family: "Roboto";
-  color: #555;
-
-    @include for-tablet-portrait-down{
-        height: 100%;
-        min-height: 100vh;
-
-    }
-    @include for-l-phone-portrait{
-        height: auto;
-        
-    }
-
-
-  h1,
-  h2 {
-    font-size: 6rem;
-    display: inline;
-    font-weight: 500;
-    @include for-l-desktop-down{
-        font-size: 4rem;
-    }
-    @include for-l-phone-portrait{
-        font-size: 2.5rem;
-    }
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  @include for-l-smartphone-down-portrait{
+    justify-content: center;
   }
+  .homepage__img-container {
+    left: 0;
+    bottom: 0;
 
-  div {
-    display: inline-block;
+    width: 30%;
+    position: relative;
     overflow: hidden;
-    white-space: nowrap;
-    @include for-tablet-portrait-down{
-        display: block;
+    @include for-l-smartphone-down-portrait{
+      display: none;
     }
-  }
-  .homepage__hero {
-    height: 50%;
-    padding-top: 20vh;
-    @include for-tablet-portrait-down{
-        padding-top: 5vh;
-        height: 40vh;
-    }
-    @include for-l-phone-portrait{
-        height: 20%;
-        padding-top: 5vh;
-    }
-
-    .homepage__div--greeting {
-      animation: showup 10s forwards; 
-      @include for-tablet-portrait-down{
-        opacity: 1;
-        animation: none;
-    }
-    }
-    .homepage__div--content {
-      animation: reveal 10s forwards;
-      @include for-tablet-portrait-down{
-        width: auto;
-        animation: none;
-    }
-
-      span {
-        margin-left: -800px;
-        animation: slidein 10s forwards;
-        @include for-tablet-portrait-down{
-            margin-left: 0;
-            animation: none;
+    .homepage__image {
+      min-height: 120vh;
+      min-width: 20vw;
+      position: absolute;
+      bottom: -4rem;
+      background-repeat: no-repeat;
+      background-position: bottom left;
+      background-size: contain;
+      &:after {
+        content: "";
+        width: 15vw;
+        height: 15vw;
+        position: absolute;
+        top: 20%;
+        left: 8rem;
+        border-radius: 50%;
+        background-color: #d794c1;
+        z-index: -1;
+        transition: all 300ms ease-in-out;
+        @include for-l-tablet-down{
+          left: 4rem;
         }
       }
     }
-
-    .homepage__span {
-
-      h3 {
-          font-size: 2rem;
-          font-weight: 300;
-          font-style: italic;
-          margin: 1rem 0;
-        opacity: 0;
-        animation: showup 20s 4s forwards;
-        @include for-tablet-portrait-down{
-            animation: none;
-            opacity: 1;
-        }
-        @include for-l-phone-portrait{
-            display: none;
-        }
-
-      }
-    }
   }
-
-
-  .homepage__content{
-    height: 50%;
-    padding-top: 5vh;
+  .homepage__heading-container {
+    width: 70%;
+    padding: 60px 0 0 12%;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    @include for-tablet-portrait-down{
-        padding-top: 0;
-        height: 60vh;
+    justify-content: center;
+    position: relative;
+    @include for-l-tablet-down {
+      padding: 60px 16px 0 12%;
     }
-    @include for-l-phone-portrait{
-      padding-top: 3rem;
-        height: 80%;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
+    @include for-l-smartphone-down-portrait{
+      padding: 80px 0 0 0;
+    }
+
+    h1 {
+      font-size: 6rem;
+      font-weight: bold;
+      margin: 0;
+      transition: font-size 1000ms ease-in-out;
+      @include for-l-tablet-down {
+        font-size: 5rem;
+      }
+      @include for-m-tablet-down {
+        font-size: 4.5rem;
+        line-height: 5rem;
+      }
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      width: 400px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -2;
+      background-color: #828282;
+      transition: all 1000ms ease-in-out;
+      @include for-l-tablet-down {
+        width: 300px;
+        height: 300px;
+      }
+      @include for-l-smartphone-down-portrait{
+        top: 40%;
+        left: 60%;
+      }
+    }
+  }
+
+  .homepage__circle {
+    position: absolute;
+
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: -1;
+    background-color: #d794c1;
+    transition: all 1000ms ease-in-out;
+    @include for-l-tablet-down {
+      width: 350px;
+      height: 350px;
     }
   }
 }
