@@ -4,6 +4,12 @@
       @content;
     }
   }
+
+  @mixin for-m-tablet-down {
+    @media (max-width: 858px) {
+      @content;
+    }
+  }
   
 @mixin for-l-smartphone-down-portrait{
     @media (max-width: 600px) and (orientation: portrait) {
@@ -33,7 +39,7 @@
         margin-left: 20%;
 
     }
-    @include for-l-smartphone-down-portrait{
+    @include for-m-tablet-down{
         width: 100%;
         margin-left:0;
     }

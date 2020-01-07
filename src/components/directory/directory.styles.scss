@@ -1,6 +1,10 @@
 @mixin for-tablet-landscape-down {
   @media (max-width: 900px) { @content; }
 }
+@mixin for-m-tablet-landscape-down {
+  @media (max-width: 720px) { @content; }
+}
+
 
 
 @mixin for-l-phone-portrait {
@@ -14,7 +18,6 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  overflow: hidden;
   flex-wrap: wrap;
 }
 .directory{
@@ -31,5 +34,25 @@
     flex-direction: column;
     margin-top: 1rem;
   }
+}
+.directory-albums{
+  @include flex;
+ height: 50vh;
+  max-width: 1400px;
+  padding-bottom: 10rem;
+
+  justify-content: space-around;
+  @include for-l-phone-portrait{
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  @include for-m-tablet-landscape-down{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 50vh;
+    
+  }
 
 }
+
+

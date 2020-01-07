@@ -1,31 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/users/users.selectors";
 import ToggleButton from "../toggle-button/toggle-button.component";
-import { ReactComponent as Logo } from '../../assets/Logo.svg'
+import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { auth } from "../../firebase/firebase.utils";
 import "./header.styles.scss";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, history, match }) => {
+
+const checkPath = history.location.pathname
+
   return (
     <nav className="header">
-     <div className="header__div--left">
-     <Link to="/" className="header__link">
-        Home
-      </Link>
-      <Link to="/songs" className="header__link">
-        Songs
-      </Link>
-      <Link to="/albums" className="header__link">
-        Albums
-      </Link>
-      <Link to="/about" className="header__link">
-        About
-      </Link>
-     </div>
-      
+      <div className={checkPath ==="/" ? "header__div--left header--margin" : "header__div--left"}>
+        {checkPath === "/" ? null : (
+          <div onClick={() => history.push(`${match.url}`)} className="header__container-logo">
+            <Logo />
+          </div>
+        )}
+
+        <Link to="/" className="header__link">
+          Home
+        </Link>
+        <Link to="/songs" className="header__link">
+          Songs
+        </Link>
+        <Link to="/albums" className="header__link">
+          Albums
+        </Link>
+        <Link to="/about" className="header__link">
+          About
+        </Link>
+      </div>
 
       {currentUser ? (
         <div className="header__div--right">
@@ -47,15 +55,12 @@ const Header = ({ currentUser }) => {
         </div>
       )}
       <nav className="header--mobile">
-      <ToggleButton/>
-      <div className="header__container-logo">
-        <Logo/>
-      </div>
-        
+        <ToggleButton />
+        <div  onClick={() => history.push(`${match.url}`)}  className="header__container-logo">
+          <Logo />
+        </div>
+      </nav>
     </nav>
-    </nav>
-
-    
   );
 };
 
@@ -63,4 +68,4 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 });
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

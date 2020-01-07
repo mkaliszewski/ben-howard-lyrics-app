@@ -29,7 +29,9 @@
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 10px -10px black;
+    color: black;
     cursor: pointer;
+
     .directory-card__img{
     width: 225px;
     height: 225px;
@@ -48,6 +50,7 @@
     @include for-m-tablet-portrait-down{
         width: 275px;
         height: 275px;
+        
     }
     @include for-l-phone-portrait{
         width: 225px;
@@ -74,10 +77,10 @@
         text-align: justify;
         background-color: rgba(255,255,255, 0.5);
         border-radius: 16px;
-        clip-path: circle(5% at 356px 45px);
+        clip-path: circle(5% at 356px 48px);
         transition: clip-path 500ms ease-in-out, background-color 500ms ease-in-out;
         @include for-m-desktop-down{
-            clip-path: circle(5% at 305px 40px);
+            clip-path: circle(5% at 305px 42px);
         }
         @include for-m-tablet-portrait-down{
             display: none;

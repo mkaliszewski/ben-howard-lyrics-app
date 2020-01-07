@@ -1,20 +1,10 @@
 .albumspage{
     width:100%;
-    height:calc(100vh - 56px);
+    min-height:100vh;
     display: flex;
     padding:0;
     justify-content: center;
     align-items: center;
 
-
-    .albums__col{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width:50%;
-        height: 100%;
-        
-    }
 
 }

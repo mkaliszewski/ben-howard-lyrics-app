@@ -14,9 +14,9 @@ import './directory.styles.scss'
 
 
 const Directory = ({ albums, albumsPage }) =>{
-  console.log(albums)
+console.log(albumsPage)
     return (
-      <div className={ albumsPage ?  `animated slow slideInLeft directory-row` : `directory-row`}>
+      <div className={ albumsPage ?  `animated slow slideInLeft directory-albums` : `directory-row`}>
       {
           albums.map( album  =>(
             <DirectoryCard albumsPage={albumsPage} key={album.id} album={album} />

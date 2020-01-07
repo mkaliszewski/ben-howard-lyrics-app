@@ -1,27 +1,70 @@
+
 @mixin for-l-tablet-down {
   @media (max-width: 1024px) {
     @content;
   }
 }
+
 @mixin for-m-tablet-down {
   @media (max-width: 858px) {
     @content;
   }
 }
 
-@mixin for-l-smartphone-down-portrait{
+@mixin for-l-smartphone-down-portrait {
   @media (max-width: 600px) and (orientation: portrait) {
     @content;
   }
+}
+
+$gray:#828282;
+
+$pink: #d794c1;
+
+@keyframes spin-left {
+  0%{
+    background-color: $gray;
+  }
+  70%{
+    background-color: $gray;
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: translate(-50%, -50%) rotate(-360deg);
+    background-color: $pink;
+    opacity: 1;
+  }
+}
+
+@keyframes spin-right {
+  0%{
+    background-color: $pink;
+  }
+  70%{
+    background-color: $pink;
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: translate(-70%, -50%) rotate(-360deg);
+    background-color: $gray;
+  }
+}
+
+$firstCircleVW: 15vw;
+
+@mixin circle {
+  border-radius: 50%;
+  background-color: $gray;
 }
 
 .homepage {
   height: 100vh;
   width: 100%;
   display: flex;
+  position: relative;
   justify-content: space-between;
   overflow: hidden;
-  @include for-l-smartphone-down-portrait{
+  @include for-l-smartphone-down-portrait {
     justify-content: center;
   }
   .homepage__img-container {
@@ -31,7 +74,7 @@
     width: 30%;
     position: relative;
     overflow: hidden;
-    @include for-l-smartphone-down-portrait{
+    @include for-m-tablet-down() {
       display: none;
     }
     .homepage__image {
@@ -42,19 +85,74 @@
       background-repeat: no-repeat;
       background-position: bottom left;
       background-size: contain;
+    }
+
+    .homepage__circle-1 {
+      @include circle;
+      width: $firstCircleVW;
+      height: $firstCircleVW;
+      position: absolute;
+      top: 20%;
+      left: 7rem;
+      background-color: $pink;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: top 400ms linear, left 400ms linear;
+      cursor: pointer;
+      @include for-l-tablet-down{
+        cursor: default;
+      }
+      @include for-m-tablet-down{
+        left: 5rem;
+      }
+      &.open{
+        top: 10%;
+        left: 45%;
+        @include for-l-tablet-down{
+          top:20%;
+          left:7rem;
+        }
+        @include for-m-tablet-down{
+          left: 5rem;
+        }
+        &:after{
+          box-shadow: 0px 4px 20px rgba(0, 0, 0, 5);
+        }
+        & .homepage__span{
+          opacity: 1;
+          z-index: 1;
+         
+        }
+      }
       &:after {
         content: "";
-        width: 15vw;
-        height: 15vw;
-        position: absolute;
-        top: 20%;
-        left: 8rem;
-        border-radius: 50%;
-        background-color: #d794c1;
+        background-image: linear-gradient(to right,blue 0%,red 100%), url("../../assets/jack.jpg");
+        background-size: contain;
+        background-blend-mode: darken;
+        transition: box-shadow 500ms linear;
+        @include circle;
+        position: fixed;
         z-index: -1;
-        transition: all 300ms ease-in-out;
+        width: 12vw;
+      height: 12vw;
+        top: 22.2%;
+        left: 8.2rem;
         @include for-l-tablet-down{
-          left: 4rem;
+          display: none;
+        }
+      }
+
+      .homepage__span{
+        max-width: 15vw;
+        opacity: 0;
+        transition: opacity 1000ms linear;
+        font-size: 2rem;
+        z-index: -1;
+        text-align: center;
+        @include for-l-tablet-down{
+          display: none;
         }
       }
     }
@@ -67,11 +165,41 @@
     align-items: flex-start;
     justify-content: center;
     position: relative;
+    
+    z-index: 4;
     @include for-l-tablet-down {
       padding: 60px 16px 0 12%;
     }
-    @include for-l-smartphone-down-portrait{
+    @include for-l-smartphone-down-portrait {
       padding: 80px 0 0 0;
+    }
+
+    &:after{
+      content:"";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translate(50%, 50%);
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 30vw;
+      height: 30vw;
+    }
+    &:before{
+      content:"";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translate(50%, 50%);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      width: 40vw;
+      height: 40vw;
+    }
+    @include for-l-smartphone-down-portrait{
+      &:before, &:after{
+        display: none;
+      }
     }
 
     h1 {
@@ -92,46 +220,68 @@
       font-size: 2rem;
       margin: 1.5rem 0;
     }
-
-    &:after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      width: 400px;
-      height: 400px;
+  }
+  .homepage__circle-2 {
+    position: absolute;
+    border-radius: 50%;
+    background-color:$pink;
+      width: 500px;
+      height: 500px;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -2;
-      background-color: #828282;
-      transition: all 1000ms ease-in-out;
-      @include for-l-tablet-down {
-        width: 300px;
-        height: 300px;
-      }
-      @include for-l-smartphone-down-portrait{
-        top: 40%;
-        left: 60%;
-      }
+      left: 70%;
+      transform: translate(-70%, -50%);
+    z-index: 2;
+    transition: all 1000ms ease-in-out;
+    &.circle-hover{
+ 
+        animation: spin-right 3000ms forwards;
+        transform-origin: 70%;
+        animation-timing-function: linear;
+
+        @include for-m-tablet-down{
+          animation: none;
+        }
+    }
+
+    @include for-l-tablet-down {
+      width: 300px;
+      height: 300px;
+    }
+    @include for-l-smartphone-down-portrait {
+      top: 40%;
+      left: 60%;
     }
   }
-
-  .homepage__circle {
+  .homepage__circle-3 {
+    @include circle;
     position: absolute;
-
-    border-radius: 50%;
-    width: 500px;
-    height: 500px;
+    background-color: $gray;
+    width: 600px;
+    height: 600px;
+    z-index: 3;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    z-index: -1;
-    background-color: #d794c1;
+ 
+  @include for-l-tablet-down {
+    width: 350px;
+    height: 350px;
+  }
+    
+
     transition: all 1000ms ease-in-out;
-    @include for-l-tablet-down {
-      width: 350px;
-      height: 350px;
+    &.circle-hover {
+        animation: spin-left 3000ms forwards;
+        animation-timing-function: linear;
+        transform-origin: 40%;
+      @include for-m-tablet-down{
+        animation: none;
+      }
     }
+  }
+
+  .homepage__circle-1, .homepage__circle-2, .homepage__circle-3{
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   }
 }
