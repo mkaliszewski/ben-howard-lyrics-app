@@ -5,10 +5,8 @@ import "./footer.styles.scss";
 import githubLogo from "../../assets/GitHub_Logo.png";
 import linkedinLogo from "../../assets/LI-Logo.png";
 const Footer = () => (
-  <div className="footer">
-    <div className="footer-info">
-      <span className="footer-info__span--created">Page created by: M.Kaliszewski</span>
-      <div className="footer-info__div-link-holder">
+  <footer className="footer">
+      <div className="footer__div">
         <a
           href="https://github.com/mkaliszewski"
           alt="Github"
@@ -23,8 +21,8 @@ const Footer = () => (
         <img src={linkedinLogo} alt="Linkedin"/>
         </a>
       </div>
-    </div>
-  </div>
+
+</footer>
 );
 
 export default Footer;

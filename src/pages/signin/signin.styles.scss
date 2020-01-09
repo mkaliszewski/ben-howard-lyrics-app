@@ -1,29 +1,44 @@
-.signinpage{
+@mixin for-l-tablet-down {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin for-l-smartphone-down-portrait {
+  @media (max-width: 600px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+.sign-in-page{
   width: 100%;
-  height:100%;
-  padding: 56px 0 40px 0;
+  flex-grow: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-
-
-  .signinpage__container{
-    margin: 2rem auto;
-    width: 50%;
-    height:100%;
-    display: flex;
+  @include for-l-tablet-down{
+    padding: 20px 0 60px 0;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
-    
-    background-color: rgba(	211, 211, 211,0.2);
-    box-shadow: 0px 0 30px -10px  gray;
-    // padding: 1rem;
+    justify-content: space-evenly;
   }
-  .signinpage__column{
-    width: 50%;
-    height: 100%;
+  .sign-in-page__div{
+    max-width: 40vw;
+    @include for-l-tablet-down{
+      max-width: 90vw;
+    }
+    h1{
+      font-size: 7vw;
+      @include for-l-tablet-down{
+        text-align: center;
+        font-size: 10vw;
+      }
+      @include for-l-smartphone-down-portrait{
+        font-size: 4rem;
+      }
+    }
+    .signin__span-color{
+      color:#f081cb;
   }
+}
+  
 }

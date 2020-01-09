@@ -1,31 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 
 import "./form-input.styles.scss";
 
-class FormInput extends React.Component {
-  constructor() {
-    super();
+const FormInput = ({ label, id, value, handleChange, ...otherFormInputProps }) =>{
 
-    this.state = {
-      focused: false
-    };
-  }
+ const [focused, setFocused] = useState(false);
+ return(
 
-  handleMouseEnter = () => {
-    this.setState(prevState => ({
-      focused: !prevState.focused
-    }));
-  };
-  render() {
-    const { label, id, value, handleChange, ...otherFormInputProps } = this.props;
-    const { focused } = this.state;
-
-    console.log(value)
-
-    return (
       <div
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseEnter}
+        onMouseEnter={() => setFocused(!focused)}
+        onMouseLeave={() => setFocused(!focused)}
         className={`${value.length ? `active` : ``}  forminput  ${
           focused ? `focused` : ``
         }`}
@@ -36,7 +20,6 @@ class FormInput extends React.Component {
         </label>
       </div>
     );
-  }
 }
 
 export default FormInput;

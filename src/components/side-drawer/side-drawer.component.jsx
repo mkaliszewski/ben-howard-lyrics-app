@@ -25,7 +25,7 @@ const SideDrawer = ({ isOpen, hideSidedrawer }) => {
       <Link onClick={hideSidedrawer} to="/about" className="side-drawer__link">
         About
       </Link>
-      <Link onClick={hideSidedrawer} to="/sigin" className="side-drawer__link">
+      <Link onClick={hideSidedrawer} to="/signin" className="side-drawer__link">
           Sign in
         </Link>
       <Link onClick={hideSidedrawer} to="/signup" className="side-drawer__link">

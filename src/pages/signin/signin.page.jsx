@@ -5,10 +5,13 @@ import "./signin.styles.scss";
 class SignInPage extends React.Component {
   render() {
     return (
-      <div className="signinpage">
-      <div className="signinpage__container">
-        <SignIn/>   
+      <div className="sign-in-page">
+      <div className="sign-in-page__div">
+      <h1>Thanks for comming <span className="signin__span-color">back</span>!</h1>
       </div>
+      
+        <SignIn/>   
+
       </div>
     );
   }

@@ -1,4 +1,15 @@
 
+@mixin for-l-desktop-up {
+  @media (min-width: 1930px) {
+    @content;
+  }
+}
+@mixin for-m-desktop-down{
+  @media(max-width: 1084px){
+    @content;
+  }
+}
+
 @mixin for-l-smartphone-down-portrait {
     @media (max-width: 600px) and (orientation: portrait) {
       @content;
@@ -9,10 +20,15 @@
       @content;
     }
   }
+@mixin for-s-tablet-down{
+  @media (max-width: 647px){
+    @content;
+  }
+}
+
 
 .album-preview{
     width:100%;
-    min-height: 100vh;
     display: flex;
     position: relative;
     flex-direction: column;
@@ -20,21 +36,37 @@
     align-items: center;
     overflow-x: hidden;
     overflow-y: hidden;
-    @include for-m-tablet-down{
-        overflow-y: scroll;
-        padding-bottom: 50px;
+
+    @include for-m-desktop-down{
+      padding-bottom: 60px;
     }
-    .album-preview__span{
-        font-size: 2rem;
-        text-align: center;
-        max-width: 1200px;
-        line-height: 90px;
-        padding-top: 6rem;
-        overflow: hidden;
+
         h1{
             margin: 0;
             font-weight: bold;
-        }
+            font-size: 4rem;
+            max-width: 90vw;
+            text-align: center;
+            margin-top: 4rem;
+
+            line-height: 90px;
+            @include for-l-desktop-up{
+              max-width: 1600px;
+              font-size: 7rem;
+              line-height: 120px;
+            }
+            @include for-m-desktop-down{
+              margin-bottom: 3rem;
+            }
+            @include for-m-tablet-down{
+        
+              line-height: 60px;
+            }
+            @include for-l-smartphone-down-portrait{
+              font-size: 2.7rem;
+            }
+            
+        
 
         &:after{
             content:"";

@@ -6,8 +6,11 @@
 .forminput{
     position: relative;
     text-align: left;
-    width: 80%;
+    width: 70%;
     margin: 1rem 0;
+    
+    color: white;
+    
     &::after,
     &::before{
         content: "";
@@ -57,7 +60,7 @@
     }
 
     label{
-     color: gray;
+        color: inherit;
     font-size: 16px;
     font-weight: normal;
     position: absolute;

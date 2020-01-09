@@ -9,7 +9,7 @@
 .header{
   width: 100%;
   height: 60px;
-  position: fixed;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +32,7 @@
    
 
     &.header--margin{
-      margin-LEFT: 7rem;
+      margin-left: 4rem;
       @include for-m-desktop-down{
         margin-left: 1rem;
       }

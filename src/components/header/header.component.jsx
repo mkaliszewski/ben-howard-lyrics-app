@@ -10,16 +10,16 @@ import "./header.styles.scss";
 
 const Header = ({ currentUser, history, match }) => {
 
-const checkPath = history.location.pathname
+
 
   return (
     <nav className="header">
-      <div className={checkPath ==="/" ? "header__div--left header--margin" : "header__div--left"}>
-        {checkPath === "/" ? null : (
+      <div className="header__div--left">
+
           <div onClick={() => history.push(`${match.url}`)} className="header__container-logo">
             <Logo />
           </div>
-        )}
+        
 
         <Link to="/" className="header__link">
           Home

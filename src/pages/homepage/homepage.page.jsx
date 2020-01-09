@@ -8,7 +8,7 @@ import GuitarPicture from "../../assets/guitar.png";
 
 
 
-const Homepage = () => {
+const Homepage = ({ history, match }) => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -23,6 +23,7 @@ const Homepage = () => {
           style={{ backgroundImage: `url(${GuitarPicture})` }}
         />
         <div className={isClicked ? "homepage__circle-1 open" : "homepage__circle-1"} onClick={() => setIsClicked(!isClicked)}><span className="homepage__span">Let's connect</span></div>
+        <div className="homepage__circle-link" onClick={() => history.push(`${match.url}signin`)}/>
       </div>
       <div className="homepage__heading-container">
         <span onMouseEnter={() =>setIsHovered(true)} ><h1>Ben Howard Lyrics</h1></span>
