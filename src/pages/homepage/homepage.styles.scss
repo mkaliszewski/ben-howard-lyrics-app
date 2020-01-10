@@ -1,5 +1,5 @@
 @mixin for-l-desktop-up {
-  @media (min-width: 1920px) {
+  @media (min-width: 1921px) {
     @content;
   }
 }
@@ -129,7 +129,7 @@ $firstCircleVW: 15vw;
       }
       &.open {
         top: 10%;
-        left: 45%;
+        left: 50%;
         @include for-l-tablet-down {
           top: 20%;
           left: 7rem;
