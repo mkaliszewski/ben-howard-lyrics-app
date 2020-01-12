@@ -1,9 +1,18 @@
+@mixin for-s-tablet-down {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
+
+
 .albuminfo {
-  width: 100%;
-  height: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
-
+  max-height: 80%;
+@include for-s-tablet-down{
+  width: 100%;
+}
   h2,
   h4,
   p {
@@ -20,9 +29,7 @@
     }
 
     .albuminfo__option {
-      height: 25%;
       display: flex;
-      flex-direction: row;
       justify-content: flex-start;
       align-items: center;
     }
@@ -37,8 +44,7 @@
       }
 
       .albuminfo__scroll {
-        width: 90%;
-        height: 30vh;
+        height: 25vh;
         overflow-y: scroll;
         padding: 0.5rem 1rem 0.5rem 0;
        

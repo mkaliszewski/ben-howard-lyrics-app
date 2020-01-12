@@ -1,13 +1,13 @@
 import React from 'react'
 
 import './custom-button.scss'
-import { withRouter } from 'react-router-dom';
 
-const Custombutton = ({pageName, children, buttonClass, history, match, ...otherProps }) =>(
+
+const Custombutton = ({pageName, children, buttonClass, ...otherProps }) =>(
     <button {...otherProps} className={`button ${buttonClass}`}>
         {children}
     </button>
 )
 
 
-export default withRouter(Custombutton);
+export default Custombutton;

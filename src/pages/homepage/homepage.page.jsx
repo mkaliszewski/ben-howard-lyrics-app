@@ -12,7 +12,7 @@ const Homepage = ({ history, match }) => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
-
+console.log(match.url)
   const pageName = "albums"
   return (
     <main className="homepage">
@@ -28,7 +28,7 @@ const Homepage = ({ history, match }) => {
       <div className="homepage__heading-container">
         <span onMouseEnter={() =>setIsHovered(true)} ><h1>Ben Howard Lyrics</h1></span>
         <h2>Place where music meets you</h2>
-        <CustomButton   pageName={pageName} buttonClass="button-homepage">Start Now</CustomButton>
+        <CustomButton  onClick={() => history.push(`${match.url}albums`)} pageName={pageName} buttonClass="button-homepage">Start Now</CustomButton>
         
       </div>
       <div className={ isHovered ? "homepage__circle-2 circle-hover" : "homepage__circle-2"} />

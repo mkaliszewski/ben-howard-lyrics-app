@@ -1,22 +1,6 @@
-@keyframes showupFigure {
-    0% {
-      opacity: 0;
-    
-    }
-    100% {
-      opacity: 1;
-      
-    }
-  }
-
-  @keyframes hideFigure {
-    0% {
-      opacity: 1;
-    
-    }
-    100% {
-      opacity: 0;
-      
+@mixin for-s-tablet-down {
+    @media (max-width: 720px) {
+      @content;
     }
   }
 
@@ -30,24 +14,52 @@
     display: flex;
     opacity: 0;
     transition: opacity 500ms ease-in-out;
-    
+    @include for-s-tablet-down{
+        width: 50vw;
+    }
+    &.about-figure-animation{
+        opacity: 1;
+    }
 
     &.about-figure-1.about-figure-animation{
-        opacity: 1;
         transition-delay: 1000ms;
         
     }
     &.about-figure-2.about-figure-animation{
-        opacity: 1;
         transition-delay: 2000ms;
     }
     &.about-figure-3.about-figure-animation{
-        opacity: 1;
         transition-delay: 3000ms;
     }
+    &.about-figure-4.about-figure-animation, &.about-figure-5.about-figure-animation{
+        width: 30vw;
+        height: auto;
+        background-color: rgba(255,255, 255, 0.1);
+        border-radius: 2rem;
+        padding-top: 1rem;
+        cursor: pointer;
+        @include for-s-tablet-down{
+            margin-top: 2rem;
+            width: 50vw;
+        }
+        &:hover{
+            background-color: rgba(0,0,0,0.2);
+        }
+        img{
+            width: 15vw;
+            margin-bottom: 0;
+            @include for-s-tablet-down{
+                width: 30vw;
+            }
+        }
+    }
+
     img{
         width: 15vw;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
+        @include for-s-tablet-down{
+            width: 35vw;
+        }
     }
     h3{
         font-size: 1.6rem;

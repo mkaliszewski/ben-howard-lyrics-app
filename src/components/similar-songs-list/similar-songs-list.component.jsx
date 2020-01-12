@@ -16,7 +16,7 @@ let otherSongs, headerTitle;
 
 if(album){
     otherSongs = album.songs
-    headerTitle="Other songs on the album"
+    headerTitle="Songs on the album"
 }else if(favSongs){
     otherSongs = favSongs
     headerTitle="Your favourite songs"

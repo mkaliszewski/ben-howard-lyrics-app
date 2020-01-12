@@ -1,3 +1,9 @@
+@mixin for-s-tablet-down {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
+
 .about-icon {
   position: relative;
   display: flex;
@@ -9,7 +15,7 @@
 
   .about-icon__div {
     width:25vw;
-    min-width: 300px;
+    min-width: 250px;
     height: 250px;
     transition: all 700ms ease-in-out;
     position: relative;
@@ -24,7 +30,6 @@
       align-items: flex-end;
       background-position: center;
       background-size: cover;
-
       transition: all 1000ms ease-in-out;
       z-index: 1;
 
@@ -56,6 +61,7 @@
       align-items: center;
       transform: translateY(-80%);
       transition: all 1000ms ease-in-out;
+
     //   &:hover {
         
       
@@ -75,6 +81,9 @@
           font-size: 1.2vw;
             padding:2rem 1rem;
           margin: 0;
+          @include for-s-tablet-down{
+            font-size: 1rem;
+          }
         }
       }
 
@@ -86,6 +95,7 @@
         align-items: center;
         h3{
             margin: 0 auto;
+            cursor: pointer;
         }
       }
     }

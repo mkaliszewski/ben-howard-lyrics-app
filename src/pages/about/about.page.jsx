@@ -12,17 +12,24 @@ import MemberCard from "../../components/member-card/member-card.component";
 import Icon1 from "../../assets/Icon_1.svg";
 import Icon2 from "../../assets/Icon_2.svg";
 import Icon3 from "../../assets/Icon_3.svg";
+import Icon4 from "../../assets/Icon_4.svg";
+import Icon5 from "../../assets/Icon_5.svg";
 import AboutFigure from "../../components/about-figure/about-figure.component";
 
-const AboutPage = ({ members }) => {
+const AboutPage = ({ members, history }) => {
 
   const [ isClicked, setIsClicked ] = useState(false);
 
 console.log(isClicked)
   return (
     <section className="about-page">
-     
+    <div className="about-page__circle-1"/>
+    <div className="about-page__circle-2"/>
+    <div className="about-page__circle-3"/>
+    <div className="about-page__circle-4"/>
+    <div className="about-page__circle-5"/>
       <div className="about-page__div-about">
+      
           <div className="about-page__div-grid-1">
             <h2>What is this?</h2>
             <p className="about-page-lato-font">
@@ -30,7 +37,11 @@ console.log(isClicked)
               site ever which contains everything you need as a Ben Howard
               Fan. I hope you will enjoy your experience every single time you visit this page. Have fun!
               <br></br>Check out what you can get by clicking on the button.
+              
             </p>
+            <div className="about-page__div-grid-1-mobile" >
+              <CustomButton  onClick={() => setIsClicked(!isClicked)}buttonClass="button-homepage">{isClicked ? `Hide` : `Check out!`}</CustomButton>
+            </div>
           </div>
 
 
@@ -45,17 +56,34 @@ console.log(isClicked)
         </div>
       </div>
 
-
+      <div className="about-page__div-sign">
+      
+      <div className="about-page__div-row">
+      <h2>Why sign up?</h2>
+      <p className="about-page-lato-font">
+    If you want to sign up it's always for free! You can join our community and get extra features for example: saving your favourite songs or check how many times you've checked lyrics. It's awesome, isn't it?
+    </p>
+    <br></br>
+    <p className="about-page-lato-font"> If you have an account lets sign in! If you don't have one don't worry, just click on the icon bellow:
+    </p>
+    
+      </div>
+      <div className="about-page__div-row-flex">
+      <AboutFigure onClick={() => history.push("/signin")} isClicked={true} id="4" iconUrl={Icon4} description="Sign in" />
+      <AboutFigure onClick={() => history.push("/signup")} isClicked={true} id="5" iconUrl={Icon5} description="Sign up" />
+      </div>
+    </div>
 
       <div className="about-page__div-members">
-      <div className="about-page__div-row-1">
+      
+      <div className="about-page__div-row">
       <h2>Band members</h2>
       <p className="about-page-lato-font">
       There are 6 band members of Ben Howard Band. You can get along with them as they are shown in the box underneath. Don’t forget to check their personal info and Instagram!
       </p>
       
       </div>
-      <div className="about-page__div-row-2">
+      <div className="about-page__div-row-grid">
           {members.map(member =>
             <AboutIcon
             key={member.id}
@@ -66,6 +94,8 @@ console.log(isClicked)
         </div>
       </div>
         
+
+      
     </section>
   );
 };

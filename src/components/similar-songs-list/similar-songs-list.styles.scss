@@ -1,12 +1,17 @@
 $border: 1px solid lightgray;
+@mixin for-s-tablet-down {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
 
 .similarsongslist {
-  padding-right: 2rem;
-  width: 80%;
-  height: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
-
+  @include for-s-tablet-down{
+    width: 100%;
+  }
   .similarsongslist__columns {
     display: flex;
     flex-direction: row;
@@ -31,7 +36,7 @@ $border: 1px solid lightgray;
     overflow-x: hidden;
     overflow-y: scroll;
     width: 100%;
-    height: 100%;
+    height: 48vh;
     border-bottom: $border;
     border-top: $border;
   }
