@@ -9,7 +9,11 @@
     @content;
   }
 }
-
+@mixin for-s-tablet-down {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
 .sign-in-page{
   width: 100%;
   flex-grow: 1;
@@ -18,8 +22,8 @@
   align-items: center;
   overflow: hidden;
   position: relative;
-  &:after{
-    content:"";
+  &:after {
+    content: "";
     position: absolute;
     right: 0;
     bottom: 0;
@@ -28,9 +32,14 @@
     border-radius: 50%;
     width: 30vw;
     height: 30vw;
+    z-index:-1;
+    @include for-s-tablet-down{
+      width: 70vw;
+      height: 70vw;
+    }
   }
-  &:before{
-    content:"";
+  &:before {
+    content: "";
     position: absolute;
     right: 0;
     bottom: 0;
@@ -39,6 +48,11 @@
     border-radius: 50%;
     width: 40vw;
     height: 40vw;
+    z-index:-1;
+    @include for-s-tablet-down{
+      width: 80vw;
+      height: 80vw;
+    }
   }
   @include for-l-smartphone-down-portrait{
     &:before, &:after{

@@ -29,13 +29,15 @@
   height: 60px;
   width: 100%;
   display: flex;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   z-index: 99;
   background-color: transparent;
   justify-content: flex-end;
-
+  &.footer-relative{
+    @include footer-mobile;
+  }
   @include for-m-tablet-down{
     justify-content: center;
   }

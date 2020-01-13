@@ -8,7 +8,7 @@ $main-color: black;
     height: 100%;
     justify-content: flex-end;
         align-items: center;
-
+    
 
 
     .selectform__form-div{
@@ -22,7 +22,7 @@ $main-color: black;
 
         .selectform__form{
             height: 100%;
-            width: 50%;
+            width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -32,16 +32,19 @@ $main-color: black;
                 width: 100%;
                 background: none;
                 outline: none;
-        background-color: white;
-        color: $sub-color;
+                background: transparent;
+        color: white;
         font-size: 18px;
         padding: 10px 10px 10px 5px;
         display: block;
     
         border: none;
         border-radius: 0;
-        border-bottom: 1px solid $sub-color;
-    
+        border-bottom: 1px solid white;
+                .selectform__option{
+                    background-color: lightgray;
+                    color: black;
+                }
             }
     
         }

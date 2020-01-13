@@ -7,7 +7,7 @@ import SpotifyPlayer from "../../components/spotify-player/spotify-player.compon
 
 import Image_1 from "../../assets/album_1.jpg";
 import Image_2 from "../../assets/album_2.jpg";
-
+import Image_3 from "../../assets/album_3.jpg"
 import SimilarSongsList from "../../components/similar-songs-list/similar-songs-list.component";
 
 const AlbumPage = ({ album }) => {
@@ -15,6 +15,7 @@ const AlbumPage = ({ album }) => {
   console.log(id);
   return (
     <div className="album-page">
+    <div className="album-page__circle-1"/>
       <div className="album-page__div-intro">
         <div
           className={
@@ -49,14 +50,17 @@ const AlbumPage = ({ album }) => {
           style={{ backgroundImage: `url(${Image_2})` }}
         ></div>
       </div>
-      {
-        // <div className="albumpage__infos">
-        //
-        //   <div className="albumpage__info-player">
-        //     <SpotifyPlayer spotifyUri={spotifyUri} />
-        //   </div>
-        // </div>
-      }
+
+      <div className="album-page__div-container">
+        <div className="album-page__div-player">
+        <SpotifyPlayer spotifyUri={spotifyUri} />
+        </div>
+        <div
+          className="album-page__div-image"
+          style={{ backgroundImage: `url(${Image_3})` }}
+        ></div>
+      </div>
+
     </div>
   );
 };

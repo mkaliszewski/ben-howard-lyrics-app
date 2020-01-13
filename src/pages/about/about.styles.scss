@@ -244,7 +244,7 @@ display: none;
       padding-right: 3rem;
       z-index: 1;
       @include for-l-smartphone-down-portrait {
-        padding: 1rem;
+        padding: 0;
       }
       h2 {
         font-size: 3rem;

@@ -4,7 +4,11 @@ import "./footer.styles.scss";
 
 import githubLogo from "../../assets/GitHub_Logo.png";
 import linkedinLogo from "../../assets/LI-Logo.png";
-const Footer = () => (
+
+const Footer = () => {
+
+
+return(
   <footer className="footer">
       <div className="footer__div">
         <a
@@ -24,5 +28,5 @@ const Footer = () => (
 
 </footer>
 );
-
+}
 export default Footer;

@@ -1,3 +1,9 @@
+@mixin for-l-smartphone-down-portrait {
+  @media (max-width: 600px) and (orientation: portrait) {
+    @content;
+  }
+}
+
 @mixin border {
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 16px;
@@ -27,6 +33,10 @@
   margin: 1rem auto 1rem auto;
   transition: transform 0.5s ease-in;
   transform-style: preserve-3d;
+  @include for-l-smartphone-down-portrait{
+    width: 190px;
+    height: 190px;
+  }
   
   h4,
   p {
@@ -48,7 +58,7 @@
       background: #8bc4b3;
     }
     div[is="ifwww-front"] {
-      background: #ccc4b1;
+      background: #D794C1;
     }
     div[is="nd-front"] {
       background: #d4c09f;
@@ -57,7 +67,7 @@
 
   .react-card-back {
     @include front-back;
-    background: lightgray;
+    background: #828282;
     padding: 5px 0 5px 0;
     div {
       flex-direction: column;

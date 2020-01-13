@@ -61,7 +61,7 @@
             display: block;
             width: 20%;
             height: 86%;
-            background: linear-gradient(to right, #f8f9fa 15%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(to right, #60759E 15%, rgba(255, 255, 255, 0) 100%);
             position: absolute;
             top: 5%;
             left: 0;
@@ -70,7 +70,7 @@
         &:after {
             left: auto;
             right: 0;
-            background: linear-gradient(to left, #f8f9fa 15%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(to left, #60759E 15%, rgba(255, 255, 255, 0) 100%);
         }
     }
     .slider__container{

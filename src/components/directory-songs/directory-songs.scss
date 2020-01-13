@@ -26,15 +26,17 @@ $directory-border: 1px solid rgba(0, 0,0, 0.4);
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
-
+   
     .directorysongs-flex{
         @include center-align;
-        display: flex;
+        display: block;
         width: inherit;
     }
     .directorysongs-grid{
         @include grid;
         @include center-align;
+        border-top: 2px solid lightgray;
+        border-bottom: 2px solid lightgray;
     }
 
 }

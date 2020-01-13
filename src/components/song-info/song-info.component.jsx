@@ -14,7 +14,7 @@ class SongInfo extends React.Component{
   
 
   render(){
-  const { song, currentUser, usersFavSongs } = this.props
+  const { song, currentUser, usersFavSongs, lyrics } = this.props
   const { id, name, albumTitle, duration, year, text, spotifyUri } = song;
 
   let heartLogoClass = null;
@@ -49,7 +49,7 @@ class SongInfo extends React.Component{
 
   let songInfos = contentToHtml(text);
   return (
-    <div className="songinfo">
+    <div className={lyrics ? "songinfo songinfo-lyrics" : "songinfo"}>
       <div className="songinfo__text">
         <div className="songinfo__text-col1">
           <h2>Title: {name}</h2>

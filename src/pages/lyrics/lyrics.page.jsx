@@ -13,26 +13,18 @@ const LyricsPage = ({ song }) => {
   const { id, name, albumTitle, duration, year, text, spotifyUri } = song;
 
   return (
-    <div className="lyricspage">
-      <div className="lyricspage__columns">
-        <div className="lyricspage__column lyricspage__column-left">
-          <SongInfo song={song} />
-        </div>
-
-        <div className="lyricspage__column lyricspage__column-right">
-        <div className="lyricspage__row-1">
-   
-
-            <Slider />
-          </div>
-          <div className="lyricspage__row-2">
-            <SimilarSongsList id={id} />
-            <SpotifyPlayer spotifyUri={spotifyUri} />
-          </div>
-          
-        </div>
+    <section className="lyrics-page">
+      <div className="lyrics-page__div-grid-1">
+        <SongInfo song={song} lyrics/>
       </div>
-    </div>
+      <div className="lyrics-page__div-grid-2">
+        <Slider />
+      </div>
+      <div className="lyrics-page__div-grid-3">
+        <SimilarSongsList id={id} />
+        <SpotifyPlayer spotifyUri={spotifyUri} lyrics />
+      </div>
+    </section>
   );
 };
 

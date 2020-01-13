@@ -1,74 +1,132 @@
-@mixin flex {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-
+@mixin for-s-tablet-down {
+  @media (max-width: 720px) {
+    @content;
+  }
 }
-$border-bottom: 2px solid lightgray;
 
+@mixin for-l-desktop-up {
+  @media (min-width: 1930px) {
+    @content;
+  }
+}
+@mixin for-m-desktop-down {
+  @media (max-width: 1084px) {
+    @content;
+  }
+}
 
-.songslist{
-    width:100%;
-    height:100%;
-    display: flex;
+@mixin for-l-smartphone-down-portrait {
+  @media (max-width: 600px) and (orientation: portrait) {
+    @content;
+  }
+}
+@mixin for-m-tablet-down {
+  @media (max-width: 920px) {
+    @content;
+  }
+}
+.songs-list {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
 
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 30vw;
+    height: 30vw;
+    @include for-s-tablet-down {
+      width: 70vw;
+      height: 70vw;
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 40vw;
+    height: 40vw;
+    z-index: -1;
+    @include for-s-tablet-down {
+      width: 80vw;
+      height: 80vw;
+    }
+  }
 
-    .songslist__col{
-
-        width:50%;
-        height: 100%;
-  
-            .songslist__legend{
-                width: 100%;
-                height: 15%;
-                padding-top: 2.5rem;
-                border-bottom: $border-bottom;
-                
-            }
-            .songslist__search{
-                width: 100%;
-                height: 40%;
-                border-bottom: $border-bottom;    
-                .songslist__search-text{
-                    @include flex;
-                    height: 15%;
-                    h2{
-                        margin: 0  0 1rem 0;
-                    }
-                }
-                .songslist__search-content{
-                    height: 85%;
-                    width: 100%;
-                }
-            }
-            .songslist__directory{
-                width: 100%;
-                height: 45%;
-
-                .songslist__directory-text{
-                    @include flex;
-                    height: 20%;
-                    margin: 0 auto;
-                }
-                .songslist__directory-content{
-                    height: 80%;
-                    width: 100%;
-                }
-
-            }
-
+  h2 {
+    
+    font-weight: bold;
+    font-size: 4rem;
+    max-width: 90vw;
+    text-align: center;
+    margin: 2rem auto;
+    line-height: 70px;
+    @include for-l-desktop-up {
+      max-width: 1600px;
+      font-size: 7rem;
+    }
+    @include for-m-desktop-down {
+      margin: 3rem auto;
     }
 
+  }
+  p {
+    margin: 0;
+  }
 
-    .displaysearch{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width:100%;
-        height: 100%;
+  .songs-list__div-circle{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    left: 0%;
+    top: 50%;
 
-        }
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 40vw;
+    height: 40vw;
     
+  }
 
+  .songs-list__div-columns {
+    z-index: 1;
+    display: flex;
+    @include for-m-desktop-down{
+      flex-direction: column;
+    }
+    .songs-list__div-column-1 {
+      width: 50%;
+      padding-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      @include for-m-desktop-down{
+        width: 100%;
+        padding: 0 2rem;
+      }
+    }
+    .songs-list__div-column-2 {
+      width: 50%;
+      @include for-m-desktop-down{
+        width: 100%;
+       padding-top: 2rem;
+      }
+      .song-list__div-songs-container {
+        height: 69vh;
+        overflow-y: scroll;
+        padding-bottom: 1rem;
+        border: none;
+      }
+    }
+  }
 }

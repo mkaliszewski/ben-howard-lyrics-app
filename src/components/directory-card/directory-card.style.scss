@@ -1,5 +1,5 @@
 @mixin for-m-desktop-down {
-    @media (max-width: 1300px) {
+    @media (max-width: 1380px) {
       @content;
     }
   }
@@ -36,6 +36,14 @@
     width: 225px;
     height: 225px;
     border-radius: 16px;
+    @include for-m-desktop-down{
+        width: 175px;
+        height: 175px;
+    }
+    @include for-m-tablet-portrait-down{
+        width: 225px;
+        height: 225px;
+    }
     
     }
     .directory-card__img-albumspage{

@@ -1,69 +1,126 @@
 @mixin for-l-tablet-down {
-    @media (max-width: 1024px) {
-      @content;
-    }
+  @media (max-width: 1024px) {
+    @content;
   }
-
-  @mixin for-s-tablet-down {
-    @media (max-width: 720px) {
-      @content;
-    }
-  }
-  @mixin for-circle-1540-down{
-      @media (max-width: 1540px){
-          @content;
-      }
-  }
-  
-  @mixin flex-container{display: flex;
-    justify-content: space-around;
-    align-items: center;
-    @include for-l-tablet-down{
-        flex-direction: column;
-    }
-    .album-page__div-image{
-      width: 30vw;
-      height: 30vw;
-      box-shadow: $shadow;
-      border-radius: 50%;
-      background-position: bottom;
-      background-size: cover;
-      @include for-l-tablet-down{
-          width: 60vw;
-          height: 60vw;
-          margin: 2rem 0;
-      }
-    }}
-
-@mixin circle-div{
-    width: 40vw;
-    height: 40vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background-color: rgba(215, 148, 193, 0.7);
-    box-shadow: $shadow;
-    @include for-circle-1540-down{
-        width: 60vw;
-        height: 60vw;
-    }
-    @include for-l-tablet-down{
-        width: 85vw;
-        height: 85vw;
-    }
-    @include for-s-tablet-down{
-        border-radius: 2rem;
-        width: 100%;
-        height: auto;
-        padding: 2rem;
-    }
-
 }
 
-$shadow: 0px 0px 16px rgba(0,0,0, 0.7);
+@mixin for-s-tablet-down {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
+@mixin for-circle-1540-down {
+  @media (max-width: 1540px) {
+    @content;
+  }
+}
+
+@mixin flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @include for-l-tablet-down {
+    flex-direction: column;
+  }
+  .album-page__div-image {
+    width: 30vw;
+    height: 30vw;
+    box-shadow: $shadow;
+    border-radius: 50%;
+    background-position: bottom;
+    background-size: cover;
+    @include for-l-tablet-down {
+      width: 60vw;
+      height: 60vw;
+      margin: 2rem 0;
+    }
+  }
+}
+
+@mixin circle-div {
+  width: 40vw;
+  height: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(215, 148, 193, 0.7);
+  box-shadow: $shadow;
+  isolation: isolate;
+  @include for-circle-1540-down {
+    width: 60vw;
+    height: 60vw;
+  }
+  @include for-l-tablet-down {
+    width: 85vw;
+    height: 85vw;
+  }
+  @include for-s-tablet-down {
+    border-radius: 2rem;
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+  }
+}
+
+$shadow: 0px 0px 16px rgba(0, 0, 0, 0.7);
 .album-page {
   flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 3rem;
+  @include for-s-tablet-down{
+    padding: 1rem;
+  }
+  &:after{
+    content:"";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 30vw;
+    height: 30vw;
+    z-index: -1;
+  }
+  &:before{
+    content:"";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 40vw;
+    height: 40vw;
+    z-index: -1;
+  }
+  .album-page__circle-1{
+    z-index: -1;
+
+    position: absolute;
+        left: 0%;
+        top: 27%;
+
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        width: 60vw;
+        height: 80vw;
+        isolation: isolate;
+    &:after{
+      content:"";
+      position: absolute;
+      left: 130vw;
+      top: 110%;
+      transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        width: 60vw;
+        height: 80vw;
+    }
+}
   .album-page__div-intro {
     display: flex;
     justify-content: space-around;
@@ -71,8 +128,8 @@ $shadow: 0px 0px 16px rgba(0,0,0, 0.7);
 
     border-radius: 3rem;
     padding: 3rem;
-    @include for-l-tablet-down{
-        padding: 4rem 1rem;
+    @include for-l-tablet-down {
+      padding: 4rem 1rem;
     }
     .album-page__div-heading {
       width: 60vw;
@@ -85,10 +142,10 @@ $shadow: 0px 0px 16px rgba(0,0,0, 0.7);
         line-height: 10vw;
       }
 
-      &.album-page__div-heading-font{
-          h2{
-            font-size: 10vw;   
-          }
+      &.album-page__div-heading-font {
+        h2 {
+          font-size: 10vw;
+        }
       }
     }
     .album-page__div-cover {
@@ -102,22 +159,23 @@ $shadow: 0px 0px 16px rgba(0,0,0, 0.7);
   }
 
 
-  .album-page__div-info{
-    @include circle-div;
+  .album-page__div-container {
+    @include flex-container;
+    .album-page__div-info {
+      @include circle-div;
+    }
+    .album-page__div-player {
+      @include circle-div;
+    }
   }
 
-  .album-page__div-songs{
-    @include circle-div;
-  }
+  
 
-
-  .album-page__div-container{
-      @include flex-container;
-      
-  }
-
-  .album-page__div-container-reverse{
-      @include flex-container;
-      flex-direction: row-reverse;
+  .album-page__div-container-reverse {
+    @include flex-container;
+    flex-direction: row-reverse;
+    .album-page__div-songs {
+      @include circle-div;
+    }
   }
 }

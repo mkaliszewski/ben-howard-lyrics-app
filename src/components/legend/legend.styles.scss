@@ -8,23 +8,34 @@
     height: 40px;
     width: 33%;
 }
-
+@mixin for-l-phone-portrait {
+    @media (max-width: 660px) {
+      @content;
+    }
+  }
 .legend{
     width: 100%;
     height: 100%;
     @include flex;
     flex-direction: row;
     padding: 0 1rem;
-
+    @include for-l-phone-portrait{
+        flex-direction: column;
+    }
     .legend__block{
         @include flex;
         margin-right: 6px;
         flex-direction: row;
         width: 30%;
         text-align: center;
+        @include for-l-phone-portrait{
+            width: 70%;
+            padding: 0.5rem;
+        }
         div{
             margin-right: 1rem;
         }
+
 
         .legend__block-color1{
             @include block-size;
@@ -32,7 +43,7 @@
         }
         .legend__block-color2{
             @include block-size;
-            background: #CCC4B1;
+            background: #D794C1;
         }
         .legend__block-color3{
             @include block-size;

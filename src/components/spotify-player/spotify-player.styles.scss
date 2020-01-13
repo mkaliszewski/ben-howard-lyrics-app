@@ -1,8 +1,41 @@
+@mixin for-s-tablet-down {
+    @media (max-width: 720px) {
+      @content;
+    }
+  }
+  @mixin for-l-tablet-down {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
 .spotifyplayer{
-    height: 100%;
-        width: 100%;
+    height: 70%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.7);
+    &.spotifyplayer-height{
+      height: 100%;
+      margin: 0 1rem;
+      @include for-l-tablet-down{
+        width: 40%;
+      }
+      @include for-s-tablet-down{
+        width: 90%;
+        margin-top: 2rem;
+      }
+    }
+    @include for-s-tablet-down{
+        height: 50vh;
+        width: 80vw;
+    }
     iframe{
         height: 100%;
         width: 100%;
+        border: 3px solid #828282;
+        border-radius: 2rem;
+        
     }
 }
