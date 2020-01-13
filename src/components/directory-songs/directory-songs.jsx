@@ -20,7 +20,7 @@ class DirectorySongs extends React.Component{
         let textPromptSongs;
 
         if(!Object.keys(currentAlbum).includes("title") && !searchValue.length && !selectValue){
-            currentSongs = allSongs
+            currentSongs = allSongs.sort((a, b) => a.id - b.id)
         }
         const areCurrentSongs = currentSongs.length;
 

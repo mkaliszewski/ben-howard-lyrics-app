@@ -19,16 +19,16 @@ if(album){
     headerTitle="Songs on the album"
 }else if(favSongs){
     otherSongs = favSongs
-    headerTitle="Your favourite songs"
+    headerTitle=`Your favourite songs`
 }else{
     otherSongs = findOtherSongs(allSongs)
     headerTitle="Related songs"
 }
 
-
+console.log(!!favSongs)
 
 return(
-    <div className="similarsongslist">
+    <div className={favSongs ? "similarsongslist similarsongslist-row" : "similarsongslist"}>
     <h2>{headerTitle}</h2>
     <div className="similarsongslist__columns">
     <div className="similarsongslist__column-left">
@@ -38,10 +38,6 @@ return(
     <h5>Length</h5>
     </div>
     </div>
-    {
-        console.log(otherSongs)
-    }
-    
     <div div className="similarsongslist__scroll">
     {   
         otherSongs.length
