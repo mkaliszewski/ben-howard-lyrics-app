@@ -15,7 +15,7 @@ const FormInput = ({ label, id, value, handleChange, ...otherFormInputProps }) =
         }`}
       >
         <input onChange={handleChange} value={value} id={id} {...otherFormInputProps} className="forminput__box" />
-        <label for={id} type="text" className="forminput__label">
+        <label htmlFor={id} type="text" className="forminput__label">
           {label}
         </label>
       </div>

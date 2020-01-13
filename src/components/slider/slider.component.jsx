@@ -17,7 +17,7 @@ class Slider extends React.Component {
 
   render(){
   const { properties, activePicture, setActive } = this.props;
-  const { id, url, index } = activePicture;
+  const {  index } = activePicture;
 
   const nextPicture = () => {
     const nextIndex = activePicture.index + 1;

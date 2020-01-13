@@ -12,7 +12,6 @@ const Homepage = ({ history, match }) => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
-console.log(match.url)
   const pageName = "albums"
   return (
     <main className="homepage">

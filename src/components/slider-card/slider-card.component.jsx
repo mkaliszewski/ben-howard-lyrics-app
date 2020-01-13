@@ -1,9 +1,9 @@
 import React from "react";
 import './slider-card.styles.scss'
 
-const SliderCard= ({activePicture, nextPicture, prevPicture, properties }) => {
+const SliderCard= ({activePicture }) => {
   
-    const { id, index, url } = activePicture;
+    const { index, url } = activePicture;
     return (
       <div className="slidercard" id={`card-${index}`}>
           <div

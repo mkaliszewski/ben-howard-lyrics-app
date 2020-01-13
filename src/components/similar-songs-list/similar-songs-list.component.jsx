@@ -38,7 +38,7 @@ return(
     <h5>Length</h5>
     </div>
     </div>
-    <div div className="similarsongslist__scroll">
+    <div className="similarsongslist__scroll">
     {   
         otherSongs.length
         ?

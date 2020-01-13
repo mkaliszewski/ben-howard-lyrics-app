@@ -7,7 +7,6 @@ import { createStructuredSelector } from "reselect";
 
 import { selectMembersArr } from "../../redux/about/about.selectors";
 import AboutIcon from "../../components/about-icon/about-icon.component.jsx";
-import MemberCard from "../../components/member-card/member-card.component";
 
 import Icon1 from "../../assets/Icon_1.svg";
 import Icon2 from "../../assets/Icon_2.svg";

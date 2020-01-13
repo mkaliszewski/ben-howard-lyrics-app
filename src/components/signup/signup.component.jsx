@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import FormInput from "./../form-input/form-input.component";
 import CustomButton from "./../custom-button/custom-button";
 import "./signup.styles.scss";
-import { ReactComponent as AvatarLogo } from "../../assets/user.svg";
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 const SignUp = () => {
   const [userCredentials, setUserCredentials] = useState({

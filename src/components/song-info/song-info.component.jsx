@@ -6,8 +6,6 @@ import { selectFavSongs, selectCurrentUser } from '../../redux/users/users.selec
 import { saveFavSongs, deleteFavSongs  } from '../../firebase/firebase.utils'
 
 import { connect } from 'react-redux';
-import { addFavSong } from '../../redux/users/users.actions'
-import usersActionTypes from "../../redux/users/users.types";
 
 class SongInfo extends React.Component{
 
@@ -15,7 +13,7 @@ class SongInfo extends React.Component{
 
   render(){
   const { song, currentUser, usersFavSongs, lyrics } = this.props
-  const { id, name, albumTitle, duration, year, text, spotifyUri } = song;
+  const { id, name, albumTitle, duration, year, text } = song;
 
   let heartLogoClass = null;
   let favSongsTypeOfFnc = null;

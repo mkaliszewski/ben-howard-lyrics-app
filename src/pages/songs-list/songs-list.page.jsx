@@ -65,13 +65,14 @@ class SongsListPage extends React.Component {
       <div className="songs-list__div-column-1">
       <p>
       There are three ways to find your song:
+      </p>
       <ol>
         <li>Select one from the window on the right hand side</li>
         <li>Enter your song title in box bellow</li>
         <li>Maybe you like specific type of guitar? Look bellow</li>
         <li>Select one of albums</li>
       </ol>
-      </p>
+      
           <div className="song-list__div-search-bar-container">
             <h3>Filter songs</h3>
             <div className="song-list__div-search-bar">

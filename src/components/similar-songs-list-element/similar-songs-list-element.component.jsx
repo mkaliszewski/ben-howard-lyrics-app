@@ -4,7 +4,7 @@ import './similar-songs-list-element.styles.scss'
 import { withRouter } from 'react-router-dom'
 
 const SimilarSongsListElement = ({ name, duration, history, match, id }) =>(
-    <div onClick={() => history.push(`/songs/${id}`)}o className="similarsongslistelement">
+    <div onClick={() => history.push(`/songs/${id}`)} className="similarsongslistelement">
     <div className="similarsongslistelement__column-left">
     <h4>{name}</h4>
     </div>

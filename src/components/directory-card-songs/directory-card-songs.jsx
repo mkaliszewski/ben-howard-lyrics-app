@@ -4,12 +4,6 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { incCounter } from '../../firebase/firebase.utils'
-import {
-  selectCurrentAlbum,
-  selectCurrentSongs
-  
-} from "../../redux/albums/albums.selectors.js";
-
 import { selectCurrentUser } from '../../redux/users/users.selectors'
 import "./directory-card-songs.scss";
 
