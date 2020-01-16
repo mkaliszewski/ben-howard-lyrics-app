@@ -9,10 +9,12 @@ const SignUp = () => {
     displayName: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
+    errorMessage:""
   });
 
-  const { displayName, email, password, confirmPassword } = userCredentials;
+
+  const { displayName, email, password, confirmPassword, errorMessage } = userCredentials;
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -32,10 +34,17 @@ const SignUp = () => {
         displayName: "",
         email: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
+        errorMessage:""
       });
     } catch (error) {
-      console.log(error);
+      setUserCredentials({
+        displayName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        errorMessage:error.message
+      })
     }
   };
 
@@ -85,10 +94,15 @@ const SignUp = () => {
           id="confirmPassword"
           required
         />
-
+      {
+        errorMessage ?
+        <h4>{`Whooops... ${errorMessage}`}</h4>
+        :
+        null
+      }
         <div className="signup__buttons">
-          <div onClick={handleSubmit}>
-            <CustomButton type="submit">SIGN UP</CustomButton>
+          <div >
+            <CustomButton onClick={handleSubmit} type="submit">SIGN UP</CustomButton>
           </div>
         </div>
       </form>

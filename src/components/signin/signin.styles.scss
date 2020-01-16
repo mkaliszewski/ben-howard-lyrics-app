@@ -7,7 +7,7 @@
 
 .signin {
 
-      height: 500px;
+      height: 550px;
       width: 40vw;
       min-width: 500px;
       display: flex;
@@ -21,6 +21,9 @@
       box-shadow: 10px 20px 35px rgba(0,0,0,0.4);
       border-radius: 2rem;
       padding-top: 1rem;
+      h4{
+        margin: 0;
+      }
 @include for-l-smartphone-down-portrait{
   width: 90vw;
   min-width: 300px;

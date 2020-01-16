@@ -12,9 +12,10 @@ import "./signin.styles.scss";
 const SignIn = () => {
   const [userCredentials, setUserCredentials] = useState({
     email: "",
-    password: ""
+    password: "",
+    errorMessage:""
   });
-  const { email, password } = userCredentials;
+  const { email, password, errorMessage } = userCredentials;
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -23,7 +24,7 @@ const SignIn = () => {
       await auth.signInWithEmailAndPassword(email, password);
       setUserCredentials({ email: "", password: "" });
     } catch (error) {
-      console.log(error);
+      setUserCredentials({ email: "", password: "", errorMessage:error.message});
     }
   };
 
@@ -55,6 +56,12 @@ const SignIn = () => {
           id="pass"
           required
         />
+        {
+         errorMessage ?
+          <h4>{`Whooops... ${errorMessage}`}</h4>
+          :
+          null
+        }
         <span className="signin__span">
           <p>Don't have an account?</p>
           <Link className="signin__link" to="/signup">
