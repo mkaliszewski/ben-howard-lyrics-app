@@ -1,0 +1,1 @@
+{"version":3,"sources":["albums.styles.scss"],"names":[],"mappings":"AACA,YACI,UAAU,CACV,WAAY,CACZ,YAAa","file":"12.ecf718e5.chunk.css","sourcesContent":["\r\n.albumspage{\r\n    width:100%;\r\n    flex-grow: 1;\r\n    display: flex;\r\n\r\n}"]}
