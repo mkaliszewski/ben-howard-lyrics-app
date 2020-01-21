@@ -13,7 +13,7 @@ const SignIn = () => {
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
-    errorMessage:""
+    errorMessage: ""
   });
   const { email, password, errorMessage } = userCredentials;
 
@@ -24,7 +24,11 @@ const SignIn = () => {
       await auth.signInWithEmailAndPassword(email, password);
       setUserCredentials({ email: "", password: "" });
     } catch (error) {
-      setUserCredentials({ email: "", password: "", errorMessage:error.message});
+      setUserCredentials({
+        email: "",
+        password: "",
+        errorMessage: error.message
+      });
     }
   };
 
@@ -56,12 +60,7 @@ const SignIn = () => {
           id="pass"
           required
         />
-        {
-         errorMessage ?
-          <h4>{`Whooops... ${errorMessage}`}</h4>
-          :
-          null
-        }
+        {errorMessage ? <h4>{`Whooops... ${errorMessage}`}</h4> : null}
         <span className="signin__span">
           <p>Don't have an account?</p>
           <Link className="signin__link" to="/signup">
@@ -71,18 +70,16 @@ const SignIn = () => {
         <div className="signin__buttons">
           <CustomButton type="submit">SIGN IN</CustomButton>
           <h3>OR SIGN IN WITH</h3>
-          <div className="signin__container"><div className="signin__buttons-options">
-          <div onClick={signInWithGoogle}>
-            <CustomButton buttonClass="button-google">GOOGLE</CustomButton>
+          <div className="signin__container">
+            <div className="signin__buttons-options">
+              <CustomButton
+                onClick={signInWithGoogle}
+                buttonClass="button-google"
+              >
+                GOOGLE
+              </CustomButton>
+            </div>
           </div>
-          <div onClick={signInWithFacebook}>
-            <CustomButton buttonClass="button-facebook">
-              FACEBOOK
-            </CustomButton>
-          </div>
-        </div></div>
-
-          
         </div>
       </form>
     </div>
