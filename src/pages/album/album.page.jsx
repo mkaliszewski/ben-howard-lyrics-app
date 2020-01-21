@@ -12,7 +12,6 @@ import SimilarSongsList from "../../components/similar-songs-list/similar-songs-
 
 const AlbumPage = ({ album }) => {
   const { title, spotifyUri, imageUrl, id } = album;
-  console.log(id);
   return (
     <div className="album-page">
       <div className="album-page__div-intro">

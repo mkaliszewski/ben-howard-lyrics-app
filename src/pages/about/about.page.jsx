@@ -19,7 +19,7 @@ const AboutPage = ({ members, history }) => {
 
   const [ isClicked, setIsClicked ] = useState(false);
 
-console.log(isClicked)
+
   return (
     <section className="about-page">
     <div className="about-page__circle-1"/>
