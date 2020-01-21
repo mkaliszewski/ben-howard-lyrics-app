@@ -15,7 +15,6 @@ const AlbumPage = ({ album }) => {
   console.log(id);
   return (
     <div className="album-page">
-    <div className="album-page__circle-1"/>
       <div className="album-page__div-intro">
         <div
           className={

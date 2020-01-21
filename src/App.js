@@ -60,6 +60,7 @@ const App = ({ setCurrentUser, fetchAlbums, currentUser }) => {
     <div className="app__div">
       <ErrorBoundary>
         <Toolbar className="toolbar" />
+        <div className="app__div-circle"/>
         <Suspense fallback={<Spinner />}>
           <Switch>
             <Route exact path="/" component={Homepage} />

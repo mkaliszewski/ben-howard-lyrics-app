@@ -59,7 +59,7 @@ class SongsListPage extends React.Component {
 
     return (
       <section className="songs-list">
-      <div className="songs-list__div-circle"/>
+      
         <h2>Find your song!</h2>
       <div className="songs-list__div-columns">
       <div className="songs-list__div-column-1">

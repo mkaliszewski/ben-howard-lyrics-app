@@ -8,8 +8,7 @@ const AlbumsPreview = () =>{
     return(
         <div className="album-preview">
 <h2>Select one of the albums and begin 
-        your experience</h2>
-        <div className="album-preview__circle"/>
+        your experience</h2> 
             <Directory albumsPage={true}/>
         </div>
     )

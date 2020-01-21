@@ -1,112 +1,129 @@
-@keyframes message-disappear{
-  from{
+@keyframes message-disappear {
+  from {
     opacity: 0;
   }
 
-  30%{
+  30% {
     opacity: 1;
   }
-  90%{
+  90% {
     opacity: 1;
   }
-  to{
+  to {
     opacity: 0;
   }
 }
 
+@mixin black-heart {
+  svg {
+    transition: all 1s ease-in-out;
+    fill: black;
+  }
+}
 
+@mixin message {
+  position: absolute;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -160px;
+  top: 0;
+  opacity: 0;
+  border-radius: 1rem;
+  transition: all 1s ease-in-out;
+  background-color: #d794c1;
+}
 .songinfo {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-left: 1rem;
-  &.songinfo-lyrics{
-    .songinfo__text{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  &.songinfo-lyrics {
+    .songinfo__text {
       width: 100%;
     }
-    .songinfo__scroll{
+    .songinfo__scroll {
       width: 100%;
       margin-top: 1rem;
     }
   }
 
-    .songinfo__text{
+  .songinfo__text {
     flex-direction: row;
-      display: flex;
-      height: 20%;
+    display: flex;
+    height: 20%;
+    width: 90%;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    .songinfo__text-col1 {
       width: 90%;
-      padding: 1rem;
-      justify-content: center;
-      align-items: center;
-      
-      .songinfo__text-col1{
-        width: 90%;
       margin: 0;
-      }
-      .songinfo__text-col2{
-        width: 10%;
-        margin: 0;
-        svg{
-          width: 100%;
-          height: 100%;
-        }
-        &.songinfo-black-heart{
-          svg{
-            transition: all 1s ease-in-out;
-            fill: black;
-          }
-
-        }
-        &.songinfo-red-heart{
-          position: relative;
-          svg{
-            transition: all 1s ease-in-out;
-            fill: red;
-          }
-          &:after{
-            content:"Added song to your favourites";
-            position: absolute;
-            width: 150px;
-            height: 60px;
-            text-align: center;
-            background-color: #d794c1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            left: -160px;
-            top: 0;
-            opacity: 0;
-            border-radius: 1rem;
-            transition: all 1s ease-in-out;
-            animation: message-disappear 4s 800ms forwards;
-
-          }
-
-        }
-        }    
-           
-      }
-
-
-    h2,h3{
-        margin: 0.5rem 0 0.5rem 0;
-        font-weight: 400;
     }
-
-        .songinfo__scroll {
-          width: 90%;
-          height: 80%;
-          overflow-y: scroll;
-          padding: 0.5rem 1rem 0.5rem 0;
-         
-  
-          p {
-            font-family: "Raleway", sans-serif;
-            font-size: 1.2rem;
-            text-align: justify;
-            
-            margin: 0.3rem;
+    .songinfo__text-col2 {
+      width: 10%;
+      margin: 0;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+      &.songinfo-black-heart {
+        @include black-heart;
+      }
+      &.songinfo-black-heart-no-user {
+        position: relative;
+        @include black-heart;
+        &:hover{
+          &:after{
+            opacity:1;
           }
         }
+        &:after{
+          content:"To add song please log in";
+          @include message;
+
+          
+        }
       }
+      &.songinfo-red-heart {
+        position: relative;
+        svg {
+          transition: all 1s ease-in-out;
+          fill: red;
+        }
+        &:after {
+          content: "Added song to your favourites";
+          @include message;
+
+          animation: message-disappear 4s 800ms forwards;
+        }
+      }
+    }
+  }
+
+  h2,
+  h3 {
+    margin: 0.5rem 0 0.5rem 0;
+    font-weight: 400;
+  }
+
+  .songinfo__scroll {
+    width: 90%;
+    height: 80%;
+    overflow-y: scroll;
+    padding: 0.5rem 1rem 0.5rem 0;
+
+    p {
+      font-family: "Raleway", sans-serif;
+      font-size: 1.2rem;
+      text-align: justify;
+
+      margin: 0.3rem;
+    }
+  }
+}

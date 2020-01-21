@@ -1,10 +1,81 @@
-.app__div{
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    position: relative;
+@mixin for-s-tablet-down {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
+@mixin for-l-desktop-up {
+  @media (min-width: 1930px) {
+    @content;
+  }
+}
+@mixin for-m-desktop-down {
+  @media (max-width: 1120px) {
+    @content;
+  }
+}
+@mixin for-s-tablet-down {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
+@mixin for-l-smartphone-down-portrait {
+  @media (max-width: 600px) and (orientation: portrait) {
+    @content;
+  }
+}
+.app__div {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+    width: 30vw;
+    height: 30vw;
+    @include for-s-tablet-down {
+      width: 70vw;
+      height: 70vw;
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 40vw;
+    height: 40vw;
+    
+    @include for-s-tablet-down {
+      width: 80vw;
+      height: 80vw;
+    }
+  }
+  .app__div-circle {
+    z-index: -1;
+    position: absolute;
+    left: 0%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 40vw;
+    height: 40vw;
+  }
+
 }

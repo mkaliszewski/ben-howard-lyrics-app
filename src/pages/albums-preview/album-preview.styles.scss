@@ -65,31 +65,7 @@
             @include for-l-smartphone-down-portrait{
               font-size: 2.7rem;
             }
-            
-        
 
-        &:after{
-            content:"";
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            transform: translate(50%, 50%);
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            width: 30vw;
-            height: 30vw;
-          }
-          &:before{
-            content:"";
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            transform: translate(50%, 50%);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            width: 40vw;
-            height: 40vw;
-          }
           @include for-l-smartphone-down-portrait{
             &:before, &:after{
               display: none;
@@ -97,18 +73,4 @@
           }
     }
 
-    .album-preview__circle{
-        display: block;
-
-        position: absolute;
-            left: 0%;
-            top: 50%;
-
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            width: 40vw;
-            height: 40vw;
-
-    }
 }

@@ -72,55 +72,6 @@ $shadow: 0px 0px 16px rgba(0, 0, 0, 0.7);
   @include for-s-tablet-down{
     padding: 1rem;
   }
-  &:after{
-    content:"";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    transform: translate(50%, 50%);
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    width: 30vw;
-    height: 30vw;
-    z-index: -1;
-  }
-  &:before{
-    content:"";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    transform: translate(50%, 50%);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    width: 40vw;
-    height: 40vw;
-    z-index: -1;
-  }
-  .album-page__circle-1{
-    z-index: -1;
-
-    position: absolute;
-        left: 0%;
-        top: 27%;
-
-        transform: translate(-50%, -50%);
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        width: 60vw;
-        height: 80vw;
-        isolation: isolate;
-    &:after{
-      content:"";
-      position: absolute;
-      left: 130vw;
-      top: 110%;
-      transform: translate(-50%, -50%);
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        width: 60vw;
-        height: 80vw;
-    }
-}
   .album-page__div-intro {
     display: flex;
     justify-content: space-around;

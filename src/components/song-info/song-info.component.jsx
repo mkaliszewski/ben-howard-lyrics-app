@@ -29,11 +29,8 @@ class SongInfo extends React.Component{
       }
     }
  }else{
-    heartLogoClass = "songinfo-black-heart"
+    heartLogoClass = "songinfo-black-heart-no-user"
   }
-
-
-  
 
   const contentToHtml = text => {
     return text
