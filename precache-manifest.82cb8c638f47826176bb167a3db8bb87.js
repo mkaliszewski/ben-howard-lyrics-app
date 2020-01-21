@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1a27c583a12a6c5ff4b9bd488868b842",
+    "revision": "55518e5f84941b6d864bc9f275b2977a",
     "url": "/ben-howard-lyrics-app/index.html"
   },
   {
-    "revision": "e6a92617dbc6eac76ff3",
-    "url": "/ben-howard-lyrics-app/static/css/10.1a7ee8ea.chunk.css"
+    "revision": "d9f2340e16d78e00b1e7",
+    "url": "/ben-howard-lyrics-app/static/css/10.b972f17d.chunk.css"
   },
   {
-    "revision": "d0bb116dd76ce7c933a0",
-    "url": "/ben-howard-lyrics-app/static/css/11.53ca2cb6.chunk.css"
+    "revision": "b292eb4d2758eb9cd39f",
+    "url": "/ben-howard-lyrics-app/static/css/11.0e77c927.chunk.css"
   },
   {
     "revision": "9980f17950b70e46cf70",
@@ -20,20 +20,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ben-howard-lyrics-app/static/css/13.5eb61e89.chunk.css"
   },
   {
-    "revision": "af753a1b47072f998ded",
-    "url": "/ben-howard-lyrics-app/static/css/3.c8f6dcba.chunk.css"
+    "revision": "fb070143441747918ca0",
+    "url": "/ben-howard-lyrics-app/static/css/3.65b547e5.chunk.css"
   },
   {
-    "revision": "6925c50df71352542581",
-    "url": "/ben-howard-lyrics-app/static/css/4.f1c04fe5.chunk.css"
+    "revision": "00c1dc7d09f2b2a66b09",
+    "url": "/ben-howard-lyrics-app/static/css/4.cc64b642.chunk.css"
   },
   {
-    "revision": "8e3ef03fcbaef68f5dfb",
-    "url": "/ben-howard-lyrics-app/static/css/5.c36927aa.chunk.css"
+    "revision": "02c1eea7360245ce7862",
+    "url": "/ben-howard-lyrics-app/static/css/5.0b3b122e.chunk.css"
   },
   {
-    "revision": "e616d3458ad3397198ce",
-    "url": "/ben-howard-lyrics-app/static/css/6.7259bcf7.chunk.css"
+    "revision": "5e5e5388bf40f016d9ed",
+    "url": "/ben-howard-lyrics-app/static/css/6.af18a568.chunk.css"
   },
   {
     "revision": "c03f4c9a3023418564cb",
@@ -48,16 +48,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ben-howard-lyrics-app/static/css/9.01e8276b.chunk.css"
   },
   {
-    "revision": "86732370568f1eaf3694",
-    "url": "/ben-howard-lyrics-app/static/css/main.d536c0d5.chunk.css"
+    "revision": "50b864b352ee8979e44a",
+    "url": "/ben-howard-lyrics-app/static/css/main.9b5c6a70.chunk.css"
   },
   {
-    "revision": "e6a92617dbc6eac76ff3",
+    "revision": "d9f2340e16d78e00b1e7",
     "url": "/ben-howard-lyrics-app/static/js/10.f53ce0d5.chunk.js"
   },
   {
-    "revision": "d0bb116dd76ce7c933a0",
-    "url": "/ben-howard-lyrics-app/static/js/11.cfb42668.chunk.js"
+    "revision": "b292eb4d2758eb9cd39f",
+    "url": "/ben-howard-lyrics-app/static/js/11.9aec78ad.chunk.js"
   },
   {
     "revision": "9980f17950b70e46cf70",
@@ -76,20 +76,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ben-howard-lyrics-app/static/js/2.545ec5d6.chunk.js.LICENSE"
   },
   {
-    "revision": "af753a1b47072f998ded",
-    "url": "/ben-howard-lyrics-app/static/js/3.d3f2e860.chunk.js"
+    "revision": "fb070143441747918ca0",
+    "url": "/ben-howard-lyrics-app/static/js/3.34089f51.chunk.js"
   },
   {
-    "revision": "6925c50df71352542581",
+    "revision": "00c1dc7d09f2b2a66b09",
     "url": "/ben-howard-lyrics-app/static/js/4.790d4ad6.chunk.js"
   },
   {
-    "revision": "8e3ef03fcbaef68f5dfb",
-    "url": "/ben-howard-lyrics-app/static/js/5.0535231f.chunk.js"
+    "revision": "02c1eea7360245ce7862",
+    "url": "/ben-howard-lyrics-app/static/js/5.6de5eb37.chunk.js"
   },
   {
-    "revision": "e616d3458ad3397198ce",
-    "url": "/ben-howard-lyrics-app/static/js/6.d9ee393f.chunk.js"
+    "revision": "5e5e5388bf40f016d9ed",
+    "url": "/ben-howard-lyrics-app/static/js/6.88ec0fde.chunk.js"
   },
   {
     "revision": "c03f4c9a3023418564cb",
@@ -104,12 +104,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ben-howard-lyrics-app/static/js/9.7fb406c4.chunk.js"
   },
   {
-    "revision": "86732370568f1eaf3694",
-    "url": "/ben-howard-lyrics-app/static/js/main.3643f0d3.chunk.js"
+    "revision": "50b864b352ee8979e44a",
+    "url": "/ben-howard-lyrics-app/static/js/main.4c59d396.chunk.js"
   },
   {
-    "revision": "446cee8174d2600794f5",
-    "url": "/ben-howard-lyrics-app/static/js/runtime-main.3e34a6be.js"
+    "revision": "4360b108947ad4cb0b85",
+    "url": "/ben-howard-lyrics-app/static/js/runtime-main.5b6980c7.js"
   },
   {
     "revision": "cefc20232703e5e3c24efd5f50d75e26",
