@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "55518e5f84941b6d864bc9f275b2977a",
+    "revision": "862f5076419c07f240a59787ad491976",
     "url": "/ben-howard-lyrics-app/index.html"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ben-howard-lyrics-app/static/css/3.65b547e5.chunk.css"
   },
   {
-    "revision": "00c1dc7d09f2b2a66b09",
-    "url": "/ben-howard-lyrics-app/static/css/4.cc64b642.chunk.css"
+    "revision": "40607b037a4bf42d7f65",
+    "url": "/ben-howard-lyrics-app/static/css/4.2b4e470a.chunk.css"
   },
   {
     "revision": "02c1eea7360245ce7862",
@@ -48,8 +48,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ben-howard-lyrics-app/static/css/9.01e8276b.chunk.css"
   },
   {
-    "revision": "50b864b352ee8979e44a",
-    "url": "/ben-howard-lyrics-app/static/css/main.9b5c6a70.chunk.css"
+    "revision": "793f5722a848bd6f37db",
+    "url": "/ben-howard-lyrics-app/static/css/main.78ba440e.chunk.css"
   },
   {
     "revision": "d9f2340e16d78e00b1e7",
@@ -80,7 +80,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ben-howard-lyrics-app/static/js/3.34089f51.chunk.js"
   },
   {
-    "revision": "00c1dc7d09f2b2a66b09",
+    "revision": "40607b037a4bf42d7f65",
     "url": "/ben-howard-lyrics-app/static/js/4.790d4ad6.chunk.js"
   },
   {
@@ -104,12 +104,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ben-howard-lyrics-app/static/js/9.7fb406c4.chunk.js"
   },
   {
-    "revision": "50b864b352ee8979e44a",
+    "revision": "793f5722a848bd6f37db",
     "url": "/ben-howard-lyrics-app/static/js/main.4c59d396.chunk.js"
   },
   {
-    "revision": "4360b108947ad4cb0b85",
-    "url": "/ben-howard-lyrics-app/static/js/runtime-main.5b6980c7.js"
+    "revision": "552677ea1f7ac6bc1a42",
+    "url": "/ben-howard-lyrics-app/static/js/runtime-main.c2ac4aae.js"
   },
   {
     "revision": "cefc20232703e5e3c24efd5f50d75e26",
