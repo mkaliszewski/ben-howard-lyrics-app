@@ -12,7 +12,6 @@ const AlbumInfo = ({ album: { title, info, length, producer, year, wikiUrl } }) 
 
     let albumInfos = contentToHtml(info);
 
-    console.log(typeof albumInfos)
     return(
   <div className="albuminfo">
     <h2>{title}</h2>

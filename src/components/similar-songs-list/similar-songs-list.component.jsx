@@ -25,7 +25,6 @@ if(album){
     headerTitle="Related songs"
 }
 
-console.log(!!favSongs)
 
 return(
     <div className={favSongs ? "similarsongslist similarsongslist-row" : "similarsongslist"}>

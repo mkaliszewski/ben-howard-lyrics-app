@@ -14,7 +14,7 @@ import './directory.styles.scss'
 
 
 const Directory = ({ albums, albumsPage }) =>{
-console.log(albumsPage)
+
     return (
       <div className={ albumsPage ?  `animated slow slideInLeft directory-albums` : `directory-row`}>
       {
