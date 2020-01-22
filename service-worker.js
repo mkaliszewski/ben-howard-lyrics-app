@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ben-howard-lyrics-app/precache-manifest.c4718754d592ca9c03d7f8c3fdc13802.js"
+  "/ben-howard-lyrics-app/precache-manifest.b6d5ada1152e4d6d77e1b53181030aeb.js"
 );
 
 self.addEventListener('message', (event) => {

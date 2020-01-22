@@ -1,0 +1,1 @@
+{"version":3,"sources":["songs.page.styles.scss"],"names":[],"mappings":"AAAA,WACE,UAAW,CACX,WAAY,CACZ,YAAa","file":"13.81b2feab.chunk.css","sourcesContent":[".songspage {\r\n  width: 100%;\r\n  flex-grow: 1;\r\n  display: flex;\r\n}\r\n"]}
